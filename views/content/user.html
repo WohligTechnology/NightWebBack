@@ -1,9 +1,8 @@
-  <button class="btn btn-primary  btn-sm btn-dark" ui-sref="createuser">ViewAll</button>
-  <button class="btn btn-primary  btn-sm btn-dark" ui-sref="createuser">View</button>
+
   <div class="panel panel-default">
     <div class="panel-heading">
       <strong>{{menutitle}}</strong>
-      <button class="btn btn-primary btn-dark pull-right" ui-sref="createuser" style="margin-top: -7px;"><i class="fa fa-user-plus"></i> Create</button>
+      <button class="btn btn-info pull-right" ui-sref="createuser" style="margin-top: -7px;"><i class="fa fa-user-plus"></i> Create</button>
     </div>
     <div class="panel-body table-responsive">
       <table class="table">
@@ -12,6 +11,7 @@
             <th>Id</th>
             <th>Name</th>
             <th>Email</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -26,10 +26,10 @@
               <span>rshah4316@gmail.com</span>
             </td>
             <td>
-              <div class="">
-              <button class="btn btn-primary btn-sm btn-dark" ui-sref="edituser"><i class="fa fa-pencil-square-o"></i>Edit</button>
-              <button class="btn btn-primary btn-sm btn-dark"><i class="fa fa-trash"></i>Delete</button>
-              </div>
+              <span>
+              <button class="btn btn-sm btn-info" ui-sref="edituser"><i class="fa fa-pencil-square-o"></i>Edit</button>&nbsp;&nbsp;&nbsp;
+              <button class="btn btn-sm btn-info"><i class="fa fa-trash"></i>Delete</button>
+            </span>
             </td>
           </tr>
         </tbody>
