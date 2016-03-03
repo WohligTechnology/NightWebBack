@@ -2,38 +2,46 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <strong>{{menutitle}}</strong>
+    <button class="btn btn-primary pull-right" ui-sref="createuser">Create</button>
   </div>
   <div class="panel-body table-responsive">
     <table class="table">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Project</th>
-          <th>Status</th>
-          <th>Manager</th>
-          <th>Progress</th>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Email</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>1</td>
           <td>
-            <span class="color-success">
-              <i class="fa fa-level-up"></i>
+            <span>
+              Raj Shah
             </span>
-            TWLT</td>
-          <td>
-            <span class="label label-info">Pending</span>
           </td>
-          <td>Amery Lee</td>
           <td>
+            <span>rshah4316@gmail.com</span>
+          </td>
+          <td>
+             <!-- <div class="action">
+              <a ui-sref="#"> <i class="ln-edit2 edit"></i></a>
+              <a href=""><i class="ln-trash2 delete"></i></a>
+            </div> -->
+            <div class="pull-right">
+            <button class="btn btn-primary">Edit</button>
+            <button class="btn btn-primary">Delete</button>
+            </div>
+          </td>
+          <!-- <td>Amery Lee</td> -->
+          <!-- <td>
             <div class="progressbar-xs no-margin progress ng-isolate-scope" value="55">
               <div class="progress-bar" style="width: 55%;"></div>
             </div>
-          </td>
+          </td> -->
         </tr>
-
       </tbody>
     </table>
-  </div>
+</div>
 </div>
