@@ -27,7 +27,7 @@ var navigationservice = angular.module('navigationservice', [])
     name: "UserPlan",
     classis: "active",
     anchor: "userplan",
-    icon: "bell-o",
+    icon: "user",
     subnav: []
   },{
     name: "Plan",
