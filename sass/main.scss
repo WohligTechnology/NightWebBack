@@ -62,14 +62,20 @@ nav li:hover .dropdown-menu {
 }
 @media (max-width: $screen-xs-max) {
   .app-footer {
-    margin-left: 0;
+    margin-left: 0 !important;
   }
-}
-@media (min-width: $screen-xs-max) {
   .on-canvas {
-    .main-container #content,app-footer {
+    .main-container, .app-footer {
      margin-left: 220px;
      margin-right: -220px;
+    }
+    .nav-container {
+      display: block !important;
+      position: fixed;
+      top: 100px;
+      bottom: 0;
+      float: none;
+      left: 0;
     }
   }
 }

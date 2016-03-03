@@ -75,12 +75,13 @@ firstapp.directive('fancyboxBox', function($document) {
 
 firstapp.directive('toggleOffCanvas', function($compile, $parse) {
   return {
-    restrict: 'E',
+    restrict: 'EA',
     replace: false,
     link: function($scope, element, attrs) {
       var $element = $(element);
-      $element.click(function(){
-        $(body).toggleClass('on-canvas');
+      $element.click(function() {
+        console.log('Clicked');
+        $('body').toggleClass('on-canvas');
       });
     }
   };
