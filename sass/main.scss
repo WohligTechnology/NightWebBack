@@ -64,14 +64,14 @@ nav li:hover .dropdown-menu {
   .app-footer {
     margin-left: 0;
   }
+}
+@media (min-width: $screen-xs-max) {
   .on-canvas {
     .main-container #content,app-footer {
      margin-left: 220px;
      margin-right: -220px;
     }
   }
-
-
 }
 
 /* Start writing sass here */
