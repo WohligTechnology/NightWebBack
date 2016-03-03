@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
+
 @import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
@@ -11,6 +13,13 @@ $brand-success: #84ce3c !default;
 $brand-warning: #ffec39 !default;
 $brand-danger:  #fc483f !default;
 $brand-info:    #000072 !default;
+
+$border-radius-base: 0 !default;
+$border-radius-large: 0 !default;
+$border-radius-small: 0 !default;
+
+$font-family-sans-serif: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-serif: "Lato", Georgia, "Times New Roman", Times, serif !default;
 
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "square/main";
@@ -43,5 +52,27 @@ nav li:hover .dropdown-menu {
 .content-container {
   min-height: 400px;
 }
+.header-container > .top-header .menu-button {
+  .icon-bar {
+    background-color:  #333;
+  }
+  &:hover {
+    background-color: transparent;
+  }
+}
+@media (max-width: $screen-xs-max) {
+  .app-footer {
+    margin-left: 0;
+  }
+  .on-canvas {
+    .main-container #content,app-footer {
+     margin-left: 220px;
+     margin-right: -220px;
+    }
+  }
+
+
+}
+
 /* Start writing sass here */
 @import "fancybox-override";
