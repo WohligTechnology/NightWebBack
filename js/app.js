@@ -14,12 +14,15 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     url: "/user",
     templateUrl: "views/template.html",
     controller: 'UserCtrl'
-  });
+  })
+
   .state('createuser', {
   url: "/createuser",
   templateUrl: "views/template.html",
   controller: 'createUserCtrl'
-});
+})
+
+;
   $urlRouterProvider.otherwise("/user");
   $locationProvider.html5Mode(isproduction);
 });
