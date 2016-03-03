@@ -21,26 +21,31 @@ var navigationservice = angular.module('navigationservice', [])
     name: "UserNotification",
     classis: "active",
     anchor: "usernotification",
+    icon: "bell",
     subnav: []
   },{
-    name: "UsernPlan",
+    name: "UserPlan",
     classis: "active",
     anchor: "userplan",
+    icon: "bell-o",
     subnav: []
   },{
     name: "Plan",
     classis: "active",
     anchor: "plan",
+    icon: "users",
     subnav: []
   },{
     name: "Suggestion",
     classis: "active",
     anchor: "suggestion",
+    icon: "users",
     subnav: []
   },{
     name: "Templates",
     classis: "active",
-    anchor: "template",
+    anchor: "templates",
+    icon: "users",
     subnav: []
   }];
 

@@ -8,50 +8,59 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.navigation = NavigationService.getnav();
 
 })
-.controller('userNotificationCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('CreateUserCtrl', function($scope, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
-  $scope.template = TemplateService.changecontent("user");
-  $scope.menutitle = NavigationService.makeactive("User");
-  TemplateService.title = $scope.menutitle;
-  $scope.navigation = NavigationService.getnav();
-
-}).controller('userPlanCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-  //Used to name the .html file
-  $scope.template = TemplateService.changecontent("user");
-  $scope.menutitle = NavigationService.makeactive("User");
-  TemplateService.title = $scope.menutitle;
-  $scope.navigation = NavigationService.getnav();
-
-}).controller('planCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-  //Used to name the .html file
-  $scope.template = TemplateService.changecontent("user");
-  $scope.menutitle = NavigationService.makeactive("User");
-  TemplateService.title = $scope.menutitle;
-  $scope.navigation = NavigationService.getnav();
-
-}).controller('suggestCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-  //Used to name the .html file
-  $scope.template = TemplateService.changecontent("user");
-  $scope.menutitle = NavigationService.makeactive("User");
-  TemplateService.title = $scope.menutitle;
-  $scope.navigation = NavigationService.getnav();
-
-}).controller('templateCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-  //Used to name the .html file
-  $scope.template = TemplateService.changecontent("user");
-  $scope.menutitle = NavigationService.makeactive("User");
+  $scope.template = TemplateService.changecontent("create-user");
+  $scope.menutitle = NavigationService.makeactive("Create User");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
 
 })
-.controller('createUserCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('EditUserCtrl', function($scope, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
-  $scope.template = TemplateService.changecontent("user");
-  $scope.menutitle = NavigationService.makeactive("User");
+  $scope.template = TemplateService.changecontent("edit-user");
+  $scope.menutitle = NavigationService.makeactive("Edit User");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
 
 })
+.controller('UserNotificationCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  //Used to name the .html file
+  $scope.template = TemplateService.changecontent("usernotification");
+  $scope.menutitle = NavigationService.makeactive("Usernotification");
+  TemplateService.title = $scope.menutitle;
+  $scope.navigation = NavigationService.getnav();
+
+}).controller('UserPlanCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  //Used to name the .html file
+  $scope.template = TemplateService.changecontent("userplan");
+  $scope.menutitle = NavigationService.makeactive("Userplan");
+  TemplateService.title = $scope.menutitle;
+  $scope.navigation = NavigationService.getnav();
+
+}).controller('PlanCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  //Used to name the .html file
+  $scope.template = TemplateService.changecontent("plan");
+  $scope.menutitle = NavigationService.makeactive("Plan");
+  TemplateService.title = $scope.menutitle;
+  $scope.navigation = NavigationService.getnav();
+
+}).controller('SuggestCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  //Used to name the .html file
+  $scope.template = TemplateService.changecontent("suggestion");
+  $scope.menutitle = NavigationService.makeactive("Suggestion");
+  TemplateService.title = $scope.menutitle;
+  $scope.navigation = NavigationService.getnav();
+
+}).controller('TemplatesCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  //Used to name the .html file
+  $scope.template = TemplateService.changecontent("templates");
+  $scope.menutitle = NavigationService.makeactive("Templates");
+  TemplateService.title = $scope.menutitle;
+  $scope.navigation = NavigationService.getnav();
+
+})
+
 .controller('headerctrl', function($scope, TemplateService) {
   $scope.template = TemplateService;
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {

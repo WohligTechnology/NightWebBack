@@ -19,7 +19,48 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
   .state('createuser', {
   url: "/createuser",
   templateUrl: "views/template.html",
-  controller: 'createUserCtrl'
+  controller: 'CreateUserCtrl'
+})
+
+.state('edituser', {
+url: "/edituser",
+templateUrl: "views/template.html",
+controller: 'EditUserCtrl'
+})
+
+$stateProvider
+  .state('usernotification', {
+  url: "/usernotification",
+  templateUrl: "views/template.html",
+  controller: 'UserNotificationCtrl'
+})
+
+$stateProvider
+  .state('userplan', {
+  url: "/userplan",
+  templateUrl: "views/template.html",
+  controller: 'UserPlanCtrl'
+})
+
+$stateProvider
+  .state('plan', {
+  url: "/plan",
+  templateUrl: "views/template.html",
+  controller: 'PlanCtrl'
+})
+
+$stateProvider
+  .state('suggestion', {
+  url: "/suggestion",
+  templateUrl: "views/template.html",
+  controller: 'SuggestCtrl'
+})
+
+$stateProvider
+  .state('templates', {
+  url: "/templates",
+  templateUrl: "views/template.html",
+  controller: 'TemplatesCtrl'
 })
 
 ;

@@ -1,47 +1,39 @@
-<button class="btn btn-primary pull-right" ui-sref="createuser">ViewAll</button>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <strong>{{menutitle}}</strong>
-    <button class="btn btn-primary pull-right" ui-sref="createuser">Create</button>
+  <button class="btn btn-primary  btn-sm btn-dark" ui-sref="createuser">ViewAll</button>
+  <button class="btn btn-primary  btn-sm btn-dark" ui-sref="createuser">View</button>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <strong>{{menutitle}}</strong>
+      <button class="btn btn-primary btn-dark pull-right" ui-sref="createuser" style="margin-top: -7px;"><i class="fa fa-user-plus"></i> Create</button>
+    </div>
+    <div class="panel-body table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>
+              <span>
+                Raj Shah
+              </span>
+            </td>
+            <td>
+              <span>rshah4316@gmail.com</span>
+            </td>
+            <td>
+              <div class="">
+              <button class="btn btn-primary btn-sm btn-dark" ui-sref="edituser"><i class="fa fa-pencil-square-o"></i>Edit</button>
+              <button class="btn btn-primary btn-sm btn-dark"><i class="fa fa-trash"></i>Delete</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
   </div>
-  <div class="panel-body table-responsive">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Name</th>
-          <th>Email</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>
-            <span>
-              Raj Shah
-            </span>
-          </td>
-          <td>
-            <span>rshah4316@gmail.com</span>
-          </td>
-          <td>
-             <!-- <div class="action">
-              <a ui-sref="#"> <i class="ln-edit2 edit"></i></a>
-              <a href=""><i class="ln-trash2 delete"></i></a>
-            </div> -->
-            <div class="pull-right">
-            <button class="btn btn-primary" ui-sref="edituser">Edit</button>
-            <button class="btn btn-primary">Delete</button>
-            </div>
-          </td>
-          <!-- <td>Amery Lee</td> -->
-          <!-- <td>
-            <div class="progressbar-xs no-margin progress ng-isolate-scope" value="55">
-              <div class="progress-bar" style="width: 55%;"></div>
-            </div>
-          </td> -->
-        </tr>
-      </tbody>
-    </table>
-</div>
+  </div>
 </div>
