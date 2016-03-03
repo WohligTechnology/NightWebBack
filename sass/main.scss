@@ -9,15 +9,20 @@
 $brand-primary: #0d9dff !default;
 $brand-success: #84ce3c !default;
 $brand-warning: #ffec39 !default;
-$brand-danger: #fc483f !default;
-$brand-info: #000072 !default;
+$brand-danger:  #fc483f !default;
+$brand-info:    #000072 !default;
 
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
-@import "square/main.css";
-@import "square/ui.css";
+@import "square/main";
+@import "square/ui";
 
 body {
-  padding-top: 70px;
+  // padding-top: 70px;
+}
+a {
+  text-decoration: none !important;
+  cursor: pointer;
+  @include transition(all 300ms ease);
 }
 img.loading {
   text-align: center;
@@ -34,6 +39,9 @@ img.doneLoading {
 }
 nav li:hover .dropdown-menu {
   display: block;
+}
+.content-container {
+  min-height: 400px;
 }
 /* Start writing sass here */
 @import "fancybox-override";

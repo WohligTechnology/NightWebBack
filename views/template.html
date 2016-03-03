@@ -1,6 +1,12 @@
-<header ng-include="template.header" class="template header"></header>
+<header ng-include="template.header" class="template header-container header-fixed bg-white"></header>
 <div class="main-container">
-  <aside ng-include="template.sidemenu" class="template sidemenu"></aside>
-  <div id="content" ng-include="template.content" class="template content-container"></div>
-  <footer ng-include="template.footer" class="template footer"></footer>
+  <aside ng-include="template.sidemenu" class="template sidemenu nav-container nav-fixed nav-vertical bg-dark"></aside>
+  <div class="template content-container">
+    <section class="view-container animate-fade-up">
+      <div class="page page-dashboard">
+        <div ng-include="template.content"></div>
+      </div>
+    </section>
+  </div>
+  <footer ng-include="template.footer" class="template app-footer"></footer>
 </div>
