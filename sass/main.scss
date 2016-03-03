@@ -13,6 +13,8 @@ $brand-danger: #fc483f !default;
 $brand-info: #000072 !default;
 
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "square/main.css";
+@import "square/ui.css";
 
 body {
   padding-top: 70px;
