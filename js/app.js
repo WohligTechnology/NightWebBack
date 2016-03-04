@@ -10,11 +10,17 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
   // for http request with session
   $httpProvider.defaults.withCredentials = true;
   $stateProvider
-    .state('user', {
-      url: "/user",
+    .state('login', {
+      url: "/",
       templateUrl: "views/template.html",
-      controller: 'UserCtrl'
+      controller: 'LoginCtrl'
     })
+
+  .state('user', {
+    url: "/user",
+    templateUrl: "views/template.html",
+    controller: 'UserCtrl'
+  })
 
   .state('createuser', {
     url: "/createuser",
