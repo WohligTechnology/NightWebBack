@@ -186,3 +186,14 @@ firstapp.directive('toggleOffCanvas', function($compile, $parse) {
     }
   };
 });
+
+firstapp.directive('uiFileUpload', function($compile, $parse) {
+  return {
+    restrict: 'EA',
+    replace: false,
+    link: function($scope, element, attrs) {
+        var $element = $(element);
+      $element.bootstrapFileInput();
+    }
+  };
+});

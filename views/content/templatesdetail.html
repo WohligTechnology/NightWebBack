@@ -17,12 +17,12 @@
                   <input name="name" required ng-model="userForm.name" type="text" class="form-control" id="exampleInputName2" placeholder="Enter Name">
                   <div class="error-msg" ng-show="user.name.$error.required && user.name.$touched">Please Enter Your Name.</div>
                 </div>
-                <div class="form-group">
-
-                </div>
-                <div class="form-group">
-
-                </div>
+                      <div class="form-group">
+                        <input type="file" title="Choose File" class="btn-primary" ui-file-upload>
+                      </div>
+                      <div class="form-group">
+                        <input type="file" title="Choose File" class="btn-primary" ui-file-upload multiple>
+                      </div>
                 <div class="form-group">
                   <label for="exampleInputName5">Text</label>
                   <input name="name" required ng-model="userForm.name" type="text" class="form-control" id="exampleInputName5" placeholder="Enter Text">
