@@ -11,59 +11,53 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
   $httpProvider.defaults.withCredentials = true;
   $stateProvider
     .state('user', {
-    url: "/user",
-    templateUrl: "views/template.html",
-    controller: 'UserCtrl'
-  })
+      url: "/user",
+      templateUrl: "views/template.html",
+      controller: 'UserCtrl'
+    })
 
   .state('createuser', {
-  url: "/createuser",
-  templateUrl: "views/template.html",
-  controller: 'CreateUserCtrl'
-})
+    url: "/createuser",
+    templateUrl: "views/template.html",
+    controller: 'CreateUserCtrl'
+  })
 
-.state('edituser', {
-url: "/edituser",
-templateUrl: "views/template.html",
-controller: 'EditUserCtrl'
-})
+  .state('edituser', {
+    url: "/edituser",
+    templateUrl: "views/template.html",
+    controller: 'EditUserCtrl'
+  })
 
-$stateProvider
   .state('usernotification', {
-  url: "/usernotification",
-  templateUrl: "views/template.html",
-  controller: 'UserNotificationCtrl'
-})
+    url: "/usernotification",
+    templateUrl: "views/template.html",
+    controller: 'UserNotificationCtrl'
+  })
 
-$stateProvider
   .state('userplan', {
-  url: "/userplan",
-  templateUrl: "views/template.html",
-  controller: 'UserPlanCtrl'
-})
+    url: "/userplan",
+    templateUrl: "views/template.html",
+    controller: 'UserPlanCtrl'
+  })
 
-$stateProvider
   .state('plan', {
-  url: "/plan",
-  templateUrl: "views/template.html",
-  controller: 'PlanCtrl'
-})
+    url: "/plan",
+    templateUrl: "views/template.html",
+    controller: 'PlanCtrl'
+  })
 
-$stateProvider
   .state('suggestion', {
-  url: "/suggestion",
-  templateUrl: "views/template.html",
-  controller: 'SuggestCtrl'
-})
+    url: "/suggestion",
+    templateUrl: "views/template.html",
+    controller: 'SuggestCtrl'
+  })
 
-$stateProvider
   .state('templates', {
-  url: "/templates",
-  templateUrl: "views/template.html",
-  controller: 'TemplatesCtrl'
-})
+    url: "/templates",
+    templateUrl: "views/template.html",
+    controller: 'TemplatesCtrl'
+  });
 
-;
   $urlRouterProvider.otherwise("/user");
   $locationProvider.html5Mode(isproduction);
 });
@@ -90,28 +84,28 @@ firstapp.directive('img', function($compile, $parse) {
 });
 
 firstapp.directive('fancyboxBox', function($document) {
-    return {
-        restrict: 'EA',
-        replace: false,
-        link: function(scope, element, attr) {
-            var $element = $(element);
-            var target;
-            if (attr.rel) {
-               target = $("[rel='" + attr.rel + "']");
-            } else {
-                target = element;
-            }
+  return {
+    restrict: 'EA',
+    replace: false,
+    link: function(scope, element, attr) {
+      var $element = $(element);
+      var target;
+      if (attr.rel) {
+        target = $("[rel='" + attr.rel + "']");
+      } else {
+        target = element;
+      }
 
-            target.fancybox({
-                openEffect: 'fade',
-                closeEffect: 'fade',
-                closeBtn: true,
-                helpers: {
-                    media: {}
-                }
-            });
+      target.fancybox({
+        openEffect: 'fade',
+        closeEffect: 'fade',
+        closeBtn: true,
+        helpers: {
+          media: {}
         }
-    };
+      });
+    }
+  };
 });
 
 firstapp.directive('toggleOffCanvas', function($compile, $parse) {

@@ -11,20 +11,20 @@ var navigationservice = angular.module('navigationservice', [])
 
 .factory('NavigationService', function() {
   var navigation = [{
-    name: "User",
+    name: "Users",
     classis: "active",
     anchor: "user",
     icon: "users",
     subnav: []
   },
   {
-    name: "UserNotification",
+    name: "User Notification",
     classis: "active",
     anchor: "usernotification",
     icon: "bell",
     subnav: []
   },{
-    name: "UserPlan",
+    name: "User Plan",
     classis: "active",
     anchor: "userplan",
     icon: "user",

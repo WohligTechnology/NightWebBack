@@ -3,7 +3,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 .controller('UserCtrl', function($scope, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("user");
-  $scope.menutitle = NavigationService.makeactive("User");
+  $scope.menutitle = NavigationService.makeactive("Users");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
 
@@ -27,14 +27,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 .controller('UserNotificationCtrl', function($scope, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("usernotification");
-  $scope.menutitle = NavigationService.makeactive("Usernotification");
+  $scope.menutitle = NavigationService.makeactive("User Notification");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
 
 }).controller('UserPlanCtrl', function($scope, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("userplan");
-  $scope.menutitle = NavigationService.makeactive("Userplan");
+  $scope.menutitle = NavigationService.makeactive("User Plan");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
 
