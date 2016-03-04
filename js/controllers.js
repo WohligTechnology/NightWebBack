@@ -72,20 +72,52 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.navigation = NavigationService.getnav();
 })
 
-.controller('CreateUserNotificationCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('CreateUserNotificationCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("usernotificationdetail");
   $scope.menutitle = NavigationService.makeactive("Create Notification");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
+  $scope.header={name:'Cteate User-Notification'};
+  $scope.userForm={};
+  $scope.submitForm=function(formData,formValid){
+  console.log($scope.userForm);
+  if(formValid.$valid)
+  {
+      $state.go("usernotification");
+    $scope.formComplete=true;
+
+  }
+  else{
+
+  }
+
+  };
+
 })
 
-.controller('EditUserNotificationCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('EditUserNotificationCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("usernotificationdetail");
   $scope.menutitle = NavigationService.makeactive("Edit Notification");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
+  $scope.header={name:'Edit User-Notification'};
+  $scope.userForm={};
+  $scope.submitForm=function(formData,formValid){
+  console.log($scope.userForm);
+  if(formValid.$valid)
+  {
+      $state.go("usernotification");
+    $scope.formComplete=true;
+
+  }
+  else{
+
+  }
+
+  };
+
 })
 
 
@@ -97,20 +129,53 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.navigation = NavigationService.getnav();
 })
 
-.controller('CreateUserPlanCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('CreateUserPlanCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("userplandetail");
   $scope.menutitle = NavigationService.makeactive("Create User Plan");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
+  $scope.header={name:'Create User-Plan'};
+  $scope.userForm={};
+  $scope.submitForm=function(formData,formValid){
+  console.log($scope.userForm);
+  if(formValid.$valid)
+  {
+      $state.go("userplan");
+    $scope.formComplete=true;
+
+  }
+  else{
+
+  }
+
+  };
+
+
 })
 
-.controller('EditUserPlanCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('EditUserPlanCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("userplandetail");
   $scope.menutitle = NavigationService.makeactive("Edit User Plan");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
+  $scope.header={name:'Edit User-Plan'};
+  $scope.userForm={};
+  $scope.submitForm=function(formData,formValid){
+  console.log($scope.userForm);
+  if(formValid.$valid)
+  {
+      $state.go("userplan");
+    $scope.formComplete=true;
+
+  }
+  else{
+
+  }
+
+  };
+
 })
 
 .controller('PlanCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -121,20 +186,40 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.navigation = NavigationService.getnav();
 })
 
-.controller('CreatePlanCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('CreatePlanCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("plandetail");
   $scope.menutitle = NavigationService.makeactive("Create Plan");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
+  $scope.userForm={};
+  $scope.header={name:'Creat User-Plan'};
+  $scope.submitForm=function(formData,formValid){
+    console.log('user form:',$scope.userForm);
+    if(formValid.$valid){
+      $scope.formCoplete=true;
+      $state.go("userplan");
+    }
+
+  };
 })
 
-.controller('EditPlanCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('EditPlanCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("plandetail");
   $scope.menutitle = NavigationService.makeactive("Edit Plan");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
+  $scope.header={name:'Edit User-Plan'};
+  $scope.userForm={};
+  $scope.submitForm=function(formData,formValid){
+    console.log('user form:',$scope.userForm);
+    if(formValid.$valid){
+      $scope.formCoplete=true;
+      $state.go("userplan");
+    }
+
+  };
 })
 
 .controller('SuggestCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -145,20 +230,40 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.navigation = NavigationService.getnav();
 })
 
-.controller('CreateSuggestCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('CreateSuggestCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("suggestiondetail");
   $scope.menutitle = NavigationService.makeactive("Create Suggestion");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
+  $scope.header={name:'Create Suggestion'};
+  $scope.userForm={};
+  $scope.submitForm=function(formData,formValid){
+    console.log('user form:',$scope.userForm);
+    if(formValid.$valid){
+      $scope.formCoplete=true;
+      $state.go("suggestion");
+    }
+
+  };
 })
 
-.controller('EditSuggestCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('EditSuggestCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("suggestiondetail");
   $scope.menutitle = NavigationService.makeactive("Edit Suggestion");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
+  $scope.header={name:'Edit Suggestion'};
+  $scope.userForm={};
+  $scope.submitForm=function(formData,formValid){
+    console.log('user form:',$scope.userForm);
+    if(formValid.$valid){
+      $scope.formCoplete=true;
+      $state.go("suggestion");
+    }
+
+  };
 })
 
 .controller('TemplatesCtrl', function($scope, TemplateService, NavigationService, $timeout) {
