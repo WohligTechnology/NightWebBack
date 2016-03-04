@@ -16,54 +16,113 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
       controller: 'LoginCtrl'
     })
 
-  .state('user', {
-    url: "/user",
-    templateUrl: "views/template.html",
-    controller: 'UserCtrl'
-  })
+      .state('user', {
+        url: "/user",
+        templateUrl: "views/template.html",
+        controller: 'UserCtrl'
+      })
 
-  .state('createuser', {
-    url: "/createuser",
-    templateUrl: "views/template.html",
-    controller: 'CreateUserCtrl'
-  })
+      .state('createuser', {
+        url: "/createuser",
+        templateUrl: "views/template.html",
+        controller: 'CreateUserCtrl'
+      })
 
-  .state('edituser', {
-    url: "/edituser",
-    templateUrl: "views/template.html",
-    controller: 'EditUserCtrl'
-  })
+      .state('edituser', {
+        url: "/edituser",
+        templateUrl: "views/template.html",
+        controller: 'EditUserCtrl'
+      })
 
-  .state('usernotification', {
-    url: "/usernotification",
-    templateUrl: "views/template.html",
-    controller: 'UserNotificationCtrl'
-  })
+      .state('usernotification', {
+        url: "/usernotification",
+        templateUrl: "views/template.html",
+        controller: 'UserNotificationCtrl'
+      })
 
-  .state('userplan', {
-    url: "/userplan",
-    templateUrl: "views/template.html",
-    controller: 'UserPlanCtrl'
-  })
+      .state('create-user-notification', {
+        url: "/create-user-notification",
+        templateUrl: "views/template.html",
+        controller: 'CreateUserNotificationCtrl'
+      })
 
-  .state('plan', {
-    url: "/plan",
-    templateUrl: "views/template.html",
-    controller: 'PlanCtrl'
-  })
+      .state('edit-user-notification', {
+        url: "/edit-user-notification",
+        templateUrl: "views/template.html",
+        controller: 'EditUserNotificationCtrl'
+      })
 
-  .state('suggestion', {
-    url: "/suggestion",
-    templateUrl: "views/template.html",
-    controller: 'SuggestCtrl'
-  })
+      .state('userplan', {
+        url: "/userplan",
+        templateUrl: "views/template.html",
+        controller: 'UserPlanCtrl'
+      })
 
-  .state('templates', {
-    url: "/templates",
-    templateUrl: "views/template.html",
-    controller: 'TemplatesCtrl'
-  });
+      .state('create-userplan', {
+        url: "/create-userplan",
+        templateUrl: "views/template.html",
+        controller: 'CreateUserPlanCtrl'
+      })
 
+      .state('edit-userplan', {
+        url: "/edit-userplan",
+        templateUrl: "views/template.html",
+        controller: 'EditUserPlanCtrl'
+      })
+
+      .state('plan', {
+        url: "/plan",
+        templateUrl: "views/template.html",
+        controller: 'PlanCtrl'
+      })
+
+      .state('create-plan', {
+        url: "/create-plan",
+        templateUrl: "views/template.html",
+        controller: 'CreatePlanCtrl'
+      })
+
+      .state('edit-plan', {
+        url: "/edit-plan",
+        templateUrl: "views/template.html",
+        controller: 'EditPlanCtrl'
+      })
+
+      .state('suggestion', {
+        url: "/suggestion",
+        templateUrl: "views/template.html",
+        controller: 'SuggestCtrl'
+      })
+
+      .state('create-suggest', {
+        url: "/create-suggest",
+        templateUrl: "views/template.html",
+        controller: 'CreateSuggestCtrl'
+      })
+
+      .state('edit-suggest', {
+        url: "/edit-suggest",
+        templateUrl: "views/template.html",
+        controller: 'EditSuggestCtrl'
+      })
+
+      .state('templates', {
+        url: "/templates",
+        templateUrl: "views/template.html",
+        controller: 'TemplatesCtrl'
+      })
+
+      .state('create-templates', {
+        url: "/create-templates",
+        templateUrl: "views/template.html",
+        controller: 'CreateTemplatesCtrl'
+      })
+
+      .state('edit-templates', {
+        url: "/edit-templates",
+        templateUrl: "views/template.html",
+        controller: 'EditTemplatesCtrl'
+      });
   $urlRouterProvider.otherwise("/user");
   $locationProvider.html5Mode(isproduction);
 });
