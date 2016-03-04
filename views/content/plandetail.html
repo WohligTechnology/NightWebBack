@@ -1,34 +1,3 @@
-<!-- <section>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <strong>Create User</strong>
-    </div>
-    <div class="panel-body">
-      <div class="row">
-        <div class="col-md-8">
-          <form action="" name="user">
-            <div class="form-group">
-              <label for="exampleInputName2">Id</label>
-              <input name="id" required type="text" class="form-control" id="exampleInputName2" placeholder="User Id">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputName2">Name</label>
-              <input name="name" required type="text" class="form-control" id="exampleInputName2" placeholder="Enter Name">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputName2">Description</label>
-              <textarea name="content" required ui-tinymce ng-model="userForm.content" class="form-control"></textarea>
-            </div>
-            <div class="upload-img text-center mar30">
-              <button class="btn btn-sm btn-info">Save</button>
-              <button class="btn btn-sm btn-info">Cancel</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
 <section>
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -40,7 +9,7 @@
               <form action="" name="plan">
                 <div class="form-group">
                   <label for="exampleInputName1">Id</label>
-                  <input name="id" required ng-model="userForm.id" type="text" class="form-control" id="exampleInputName2" placeholder="User Id">
+                  <input name="id" required ng-model="userForm.id" type="text" class="form-control" id="exampleInputName1" placeholder="User Id">
                   <div class="error-msg" ng-show="user.id.$error.required && user.id.$touched">Please Enter Your id.</div>
                 </div>
                 <div class="form-group">
@@ -50,7 +19,7 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputName3">Description</label>
-                  <textarea name="content" required ui-tinymce ng-model="userForm.content" class="form-control"></textarea>
+                  <textarea name="content" required ui-tinymce ng-model="userForm.content" id="exampleInputName3" class="form-control"></textarea>
                 </div>
                 <div class="upload-img text-center mar30">
                   <button class="btn btn-sm btn-info" ng-click="submitForm(userForm,user)">Save</button>
