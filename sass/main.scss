@@ -79,6 +79,8 @@ nav li:hover .dropdown-menu {
     }
   }
 }
-
+.input-group-addon {
+    min-width: 55px;
+}
 /* Start writing sass here */
 @import "fancybox-override";

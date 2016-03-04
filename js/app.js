@@ -12,7 +12,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
   $stateProvider
     .state('login', {
       url: "/",
-      templateUrl: "views/template.html",
+      templateUrl: "views/template-login.html",
       controller: 'LoginCtrl'
     })
 
