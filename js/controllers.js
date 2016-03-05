@@ -274,20 +274,41 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.navigation = NavigationService.getnav();
 })
 
-.controller('CreateTemplatesCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('CreateTemplatesCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("templatesdetail");
   $scope.menutitle = NavigationService.makeactive("Create Templates");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
+  $scope.header={name:'Create Templates'};
+  $scope.userForm={};
+  $scope.submitForm=function(formData,formValid){
+  console.log('user form:',$scope.userForm);
+  if(formValid.$valid)
+  {
+    $scope.formComplete=true;
+    $state.go("templates");
+  }
+};
+
 })
 
-.controller('EditTemplatesCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('EditTemplatesCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("templatesdetail");
   $scope.menutitle = NavigationService.makeactive("Edit Templates");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
+    $scope.header={name:'Edit Templates'};
+    $scope.userForm={};
+    $scope.submitForm=function(formData,formValid){
+    console.log('user form:',$scope.userForm);
+    if(formValid.$valid)
+    {
+      $scope.formComplete=true;
+      $state.go("templates");
+    }
+  };
 })
 
 .controller('headerctrl', function($scope, TemplateService) {
