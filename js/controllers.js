@@ -198,7 +198,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     console.log('user form:',$scope.userForm);
     if(formValid.$valid){
       $scope.formCoplete=true;
-      $state.go("userplan");
+      $state.go("plan");
     }
 
   };
@@ -216,7 +216,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     console.log('user form:',$scope.userForm);
     if(formValid.$valid){
       $scope.formCoplete=true;
-      $state.go("userplan");
+      $state.go("plan");
     }
 
   };

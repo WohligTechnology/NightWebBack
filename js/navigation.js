@@ -29,25 +29,25 @@ var navigationservice = angular.module('navigationservice', [])
     name: "User Plan",
     classis: "active",
     anchor: "userplan",
-    icon: "user",
+    icon: "list-alt",
     subnav: []
   },{
     name: "Plan",
     classis: "active",
     anchor: "plan",
-    icon: "users",
+    icon: "calendar",
     subnav: []
   },{
     name: "Suggestion",
     classis: "active",
     anchor: "suggestion",
-    icon: "users",
+    icon: "lightbulb-o",
     subnav: []
   },{
     name: "Templates",
     classis: "active",
     anchor: "templates",
-    icon: "users",
+    icon: "newspaper-o",
     subnav: []
   }];
 
