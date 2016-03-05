@@ -78,7 +78,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.menutitle = NavigationService.makeactive("Create Notification");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
-  $scope.header={name:'Cteate User-Notification'};
+  $scope.header={name:'Create - User Notification'};
   $scope.userForm={};
   $scope.submitForm=function(formData,formValid){
   console.log($scope.userForm);
@@ -102,7 +102,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.menutitle = NavigationService.makeactive("Edit Notification");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
-  $scope.header={name:'Edit User-Notification'};
+  $scope.header={name:'Edit - User Notification'};
   $scope.userForm={};
   $scope.submitForm=function(formData,formValid){
   console.log($scope.userForm);
@@ -135,7 +135,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.menutitle = NavigationService.makeactive("Create User Plan");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
-  $scope.header={name:'Create User-Plan'};
+  $scope.header={name:'Create - User Plan'};
   $scope.userForm={};
   $scope.submitForm=function(formData,formValid){
   console.log($scope.userForm);
@@ -160,7 +160,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.menutitle = NavigationService.makeactive("Edit User Plan");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
-  $scope.header={name:'Edit User-Plan'};
+  $scope.header={name:'Edit - User Plan'};
   $scope.userForm={};
   $scope.submitForm=function(formData,formValid){
   console.log($scope.userForm);
@@ -193,7 +193,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
   $scope.userForm={};
-  $scope.header={name:'Creat User-Plan'};
+  $scope.header={name:'Create Plan'};
   $scope.submitForm=function(formData,formValid){
     console.log('user form:',$scope.userForm);
     if(formValid.$valid){
@@ -210,7 +210,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.menutitle = NavigationService.makeactive("Edit Plan");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
-  $scope.header={name:'Edit User-Plan'};
+  $scope.header={name:'Edit Plan'};
   $scope.userForm={};
   $scope.submitForm=function(formData,formValid){
     console.log('user form:',$scope.userForm);
