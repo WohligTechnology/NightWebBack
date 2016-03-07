@@ -25,13 +25,13 @@
             <label for="exampleInputName4">Login Type</label>
             <div class="form-group">
               <span class="ui-select" id="exampleInputName4">
-                  <select ng-model="userForm.loginType">
+                  <select ng-model="userForm.loginType" required>
                     <option></option>
                     <option value="Facebook">Facebook</option>
                     <option value="Twitter">Twitter</option>
                     <option value="Google">Google</option>
                   </select>
-                  <div class="error-msg" ng-show="user.loginType.$error.required && user.loginType.$touched">Please Enter Login Type.</div>
+                  <!-- <div class="error-msg" ng-show="user.loginType.$error.required && user.loginType.$touched">Please Enter Login Type.</div> -->
                 </span>
             </div>
             <div class="form-group">
@@ -57,6 +57,7 @@
             <div class="form-group">
               <label for="exampleInputName9">Contact</label>
               <input name="contact" required ng-model="userForm.contact" type="text" class="form-control" id="exampleInputName9" placeholder="Enter Contact number">
+                <div class="error-msg" ng-show="user.contact.$error.required && user.contact.$touched">Please Enter Your Contact no.</div>
             </div>
             <div class="upload-img text-center mar30">
               <button class="btn btn-sm btn-info" ng-click="submitForm(userForm,user)">Save</button>
