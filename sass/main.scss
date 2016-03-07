@@ -82,5 +82,10 @@ nav li:hover .dropdown-menu {
 .input-group-addon {
     min-width: 55px;
 }
+.own-style {
+    text-align: left !important;
+    padding: 0 0 0 15px;
+    background-color: #dfe0e6;
+}
 /* Start writing sass here */
 @import "fancybox-override";
