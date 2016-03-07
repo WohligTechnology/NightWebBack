@@ -23,28 +23,30 @@
               </div>
           </div>
       </div>
-      <table class="table table-hover table-responsive">
+      <table class="table table-hover table-bordered table-responsive">
         <thead>
           <tr>
             <th><div class="th">
-              #&nbsp;&nbsp;&nbsp;&nbsp;
-              <span class="fa fa-long-arrow-up">
+              #
+              <span class="fa fa-angle-up">
               </span>
-              <span class="fa fa-long-arrow-down">
-              </span>
-            </div></th>
-            <th><div class="th">
-              User&nbsp;&nbsp;&nbsp;&nbsp;
-              <span class="fa fa-long-arrow-up">
-              </span>
-              <span class="fa fa-long-arrow-down">
+              <span class="fa fa-angle-down">
               </span>
             </div></th>
             <th><div class="th">
-              Status&nbsp;&nbsp;&nbsp;&nbsp;
-              <span class="fa fa-long-arrow-up">
+              User
+              <span class="fa fa-angle-up" data-ng-click=" order('user') "
+              data-ng-class="{active: row == 'user'}">
               </span>
-              <span class="fa fa-long-arrow-down">
+              <span class="fa fa-angle-down" data-ng-click=" order('-user') "
+                data-ng-class="{active: row == '-user'}">
+              </span>
+            </div></th>
+            <th><div class="th">
+              Status
+              <span class="fa fa-angle-up">
+              </span>
+              <span class="fa fa-angle-down">
               </span>
             </div></th>
             <th><div class="th">
