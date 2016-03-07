@@ -91,10 +91,8 @@ nav li:hover .dropdown-menu {
 .pagination > .active > span,
 .pagination > .active > span:hover,
 .pagination > .active > span:focus {
-  z-index: 3;
-  color: #fff;
-  background-color: #242633 !important;
-  border-color: #242633 !important ;
-  cursor: default; }
+  background-color: #242633;
+  border-color: #242633;
+ }
 /* Start writing sass here */
 @import "fancybox-override";
