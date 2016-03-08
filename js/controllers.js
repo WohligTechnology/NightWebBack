@@ -216,7 +216,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 $scope.editPlan=function(formValid){
     $state.go("edit-plan");
   console.log('formvalid',formValid);
-NavigationService.editFormData({id: formValid}, function(data) {
+NavigationService.editFormData(formValid, function(data) {
     console.log('editFormData:',data);
     $.jStorage.set('plans', data.data);
     // if (data.value === true) {
@@ -278,7 +278,19 @@ console.log('userform',$scope.userForm);
     console.log('on the plan');
         if(formValid.$valid ){
       $scope.formComplete=true;
+      NavigationService.userCreateSubmit($scope.userForm, function(data) {
+          console.log('response:', data);
+          // $.jStorage.set('plans', data.data);
+          // if (data.value === true) {
+          //
+          //   $scope.allTableRecords();
+          // }
+          // if(data.value===true){
+          //       $scope.allTableRecords();
+          // }
 
+
+      });
 
 
 

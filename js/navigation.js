@@ -102,7 +102,9 @@ var navigationservice = angular.module('navigationservice', [])
                 method: 'POST',
                 withCredentials: true,
                 data: {
-                  "_id": formData.id,
+                  "_id": formData._id,
+                  "description": formData.description,
+                  "name": formData.name
 
                 }
               }).success(callback);
