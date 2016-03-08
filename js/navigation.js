@@ -1,17 +1,17 @@
-var adminURL = "";
+// var adminURL = "";
+var adminurl = "http://192.168.0.124:1337/plan/";
 
-
-if(isproduction)
-{
-  adminURL =  "http://www.wohlig.co.in/demo/index.php";
-}
-else {
-  adminURL = "http://localhost/demo/index.php";
-}
+// if(isproduction)
+// {
+//   adminURL =  "http://www.wohlig.co.in/demo/index.php";
+// }
+// else {
+//   adminURL = "http://localhost/demo/index.php";
+// }
 
 var navigationservice = angular.module('navigationservice', [])
 
-.factory('NavigationService', function() {
+.factory('NavigationService', function($http) {
   var navigation = [{
     name: "Users",
     classis: "active",
@@ -51,10 +51,52 @@ var navigationservice = angular.module('navigationservice', [])
     subnav: []
   }];
 
+
+
   return {
     getnav: function() {
       return navigation;
     },
+    createPlanSubmit: function(formData, callback) {
+        // console.log('form data: ', formData);
+        $http({
+          url: adminurl + 'create',
+          method: 'POST',
+          withCredentials: true,
+          data: {
+            "description": formData.description,
+            "name": formData.name
+          }
+        }).success(callback);
+      },
+      viewAllPlanSubmit: function(formData, callback) {
+          // console.log('form data: ', formData);
+          $http({
+            url: adminurl + 'viewAll',
+            method: 'POST',
+            withCredentials: true,
+            data: {
+              "description": formData.description,
+              "name": formData.name
+            }
+          }).success(callback);
+        },
+
+    userCreateSubmit: function(formData, callback) {
+        // console.log('form data: ', formData);
+        $http({
+          url: adminurl + 'create',
+          method: 'POST',
+          withCredentials: true,
+          data: {
+            "email": formData.email,
+            "id": formData.id,
+            "accessLevel": formData.accessLevel,
+            "name": formData.name,
+          }
+        }).success(callback);
+      },
+
     makeactive: function(menuname) {
       for (var i = 0; i < navigation.length; i++) {
         if (navigation[i].name == menuname) {

@@ -25,13 +25,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.userForm={};
   $scope.header={name:'Create User'};
   //console.log($scope.userForm);
-  $scope.submitForm=function(formData,formValid){
+  $scope.submitForm=function(formValid){
   //console.log('user form:',$scope.userForm);
-  console.log('form data:',formData);
+  //console.log('form data:',formData);
   if(formValid.$valid)
   {
-    $state.go("user");
+    //$state.go("user");
     $scope.formComplete=true;
+    NavigationService.userCreateSubmit($scope.userForm, function(data) {
+
+    });
 
   }
   else{
@@ -184,6 +187,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.menutitle = NavigationService.makeactive("Plan");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
+  $scope.userForm={};
+  NavigationService.viewAllPlanSubmit($scope.userForm, function(data) {
+    $scope.plandata=data.data;
+    console.log('plan data',data.data);
+
+  });
+
 })
 
 .controller('CreatePlanCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
@@ -194,14 +204,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.navigation = NavigationService.getnav();
   $scope.userForm={};
   $scope.header={name:'Create Plan'};
-  $scope.submitForm=function(formData,formValid){
+  $scope.submitForm=function(formValid){
+        $state.go("plan");
     console.log('user form:',$scope.userForm);
     if(formValid.$valid){
-      $scope.formCoplete=true;
-      $state.go("plan");
-    }
+      $scope.formComplete=true;
+
+
+  }
+  NavigationService.createPlanSubmit($scope.userForm, function(data) {
+
+console.log('userform',$scope.userForm);
+
+
+});
 
   };
+
 })
 
 .controller('EditPlanCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
@@ -313,8 +332,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 .controller('headerctrl', function($scope, TemplateService) {
   $scope.template = TemplateService;
-  $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
-    $(window).scrollTop(0);
-  });
+  // $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+  //   $(window).scrollTop(0);
+  // });
 })
 ;
