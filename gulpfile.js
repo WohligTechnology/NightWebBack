@@ -7,9 +7,12 @@ var jsArray = [
   './bower_components/angular-animate/angular-animate.min.js',
   './bower_components/angular-bootstrap/ui-bootstrap.min.js',
   './bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+  './bower_components/bootstrap-file-input/bootstrap.file-input.js',
   './bower_components/ui-router/release/angular-ui-router.min.js',
   './bower_components/angular-flexslider/angular-flexslider.js',
   './bower_components/lodash/lodash.js',
+  './bower_components/jStorage/jstorage.js',
+
   './js/app.js',
   './js/controllers.js',
   './js/templateservice.js',

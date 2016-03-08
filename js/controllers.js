@@ -181,18 +181,57 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('PlanCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('PlanCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("plan");
   $scope.menutitle = NavigationService.makeactive("Plan");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
   $scope.userForm={};
+  $scope.allTableRecords=function(){
+    NavigationService.viewAllPlanSubmit($scope.userForm, function(data) {
+      $scope.plandata=data.data;
+      console.log('plan data',data.data);
+    });
+  };
+
   NavigationService.viewAllPlanSubmit($scope.userForm, function(data) {
     $scope.plandata=data.data;
     console.log('plan data',data.data);
+  });
+
+
+  $scope.deletePlan=function(formValid){
+    console.log('formvalid',formValid);
+  NavigationService.deleteFormData({id: formValid}, function(data) {
+      console.log('delete data:',data);
+      if (data.value === true) {
+
+        $scope.allTableRecords();
+      }
 
   });
+};
+
+$scope.editPlan=function(formValid){
+    $state.go("edit-plan");
+  console.log('formvalid',formValid);
+NavigationService.editFormData({id: formValid}, function(data) {
+    console.log('editFormData:',data);
+    $.jStorage.set('plans', data.data);
+    // if (data.value === true) {
+    //
+    //   $scope.allTableRecords();
+    // }
+    if(data.value===true){
+          $scope.allTableRecords();
+    }
+
+
+});
+};
+
+
 
 })
 
@@ -230,12 +269,21 @@ console.log('userform',$scope.userForm);
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
   $scope.header={name:'Edit Plan'};
-  $scope.userForm={};
-  $scope.submitForm=function(formData,formValid){
+  console.log('jStorage', $.jStorage.get('plans'));
+  $scope.userForm = $.jStorage.get('plans');
+
+  $scope.submitForm=function(formValid){
     console.log('user form:',$scope.userForm);
-    if(formValid.$valid){
-      $scope.formCoplete=true;
-      $state.go("plan");
+    $state.go("plan");
+    console.log('on the plan');
+        if(formValid.$valid ){
+      $scope.formComplete=true;
+
+
+
+
+
+
     }
 
   };

@@ -82,6 +82,32 @@ var navigationservice = angular.module('navigationservice', [])
           }).success(callback);
         },
 
+        deleteFormData: function(formData, callback) {
+            // console.log('form data: ', formData);
+            $http({
+              url: adminurl + 'delete',
+              method: 'POST',
+              withCredentials: true,
+              data: {
+                "_id": formData.id,
+
+              }
+            }).success(callback);
+          },
+
+          editFormData: function(formData, callback) {
+              // console.log('form data: ', formData);
+              $http({
+                url: adminurl + 'view',
+                method: 'POST',
+                withCredentials: true,
+                data: {
+                  "_id": formData.id,
+
+                }
+              }).success(callback);
+            },
+
     userCreateSubmit: function(formData, callback) {
         // console.log('form data: ', formData);
         $http({
