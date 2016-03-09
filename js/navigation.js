@@ -192,8 +192,8 @@ var navigationservice = angular.module('navigationservice', [])
         method: 'POST',
         withCredentials: true,
         data: {
+            "_id": formData._id,
           "email": formData.email,
-          "_id": formData._id,
           "accessLevel": formData.accessLevel,
           "name": formData.name
         }

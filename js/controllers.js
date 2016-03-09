@@ -83,20 +83,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     name: 'Edit User'
   };
   NavigationService.getUserEditDetail($stateParams.id, function(data) {
-    console.log(data);
+    console.log('getUserEditDetail',data);
     $scope.userForm = data.data;
   });
 
   $scope.userSubmitForm = function(formValid) {
     console.log($scope.userForm);
     $state.go("user");
+    console.log('on the user');
     if (formValid.$valid) {
       $scope.formComplete = true;
-      NavigationService.editUserSubmit($scope.userForm, function(data) {
-        console.log('response:', data);
-      });
 
     }
+    NavigationService.editUserSubmit($scope.userForm, function(data) {
+      console.log('response:', data);
+    });
 
   };
 })
@@ -310,7 +311,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   };
 
   NavigationService.getPlanDetail($stateParams.id, function(data) {
-    console.log(data);
+    console.log('on edit plan');
+    console.log('getPlanDetail',data);
     $scope.userForm = data.data;
   });
 
