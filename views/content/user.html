@@ -79,24 +79,24 @@
           </tr>
         </thead> -->
       <tbody>
-        <tr>
-          <td>1</td>
+        <tr ng-repeat="data in userdata">
+          <td>{{data._id}}</td>
           <td>
             <span>
-                Raj Shah
+                {{data.name}}
               </span>
           </td>
           <td>
-            <span>rshah4316@gmail.com</span>
+            <span>{{data.email}}</span>
           </td>
           <td>
             <span>
-              <button class="btn btn-sm btn-info" ui-sref="edituser"><i class="fa fa-pencil-square-o"></i></button>&nbsp;&nbsp;&nbsp;
-              <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+              <button class="btn btn-sm btn-info" ui-sref="edituser({id:data._id})"><i class="fa fa-pencil-square-o"></i></button>&nbsp;&nbsp;&nbsp;
+              <button class="btn btn-sm btn-danger" ng-click="deleteUser(data._id)"><i class="fa fa-trash"></i></button>
             </span>
           </td>
         </tr>
-        <tr>
+        <!-- <tr>
           <td>2</td>
           <td>
             <span>
@@ -112,7 +112,7 @@
               <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
             </span>
           </td>
-        </tr>
+        </tr> -->
       </tbody>
     </table>
     <footer class="table-footer">

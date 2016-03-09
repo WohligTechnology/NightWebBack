@@ -1,12 +1,12 @@
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap','ngAnimate', 'ngSanitize', 'angular-flexslider', 'ui.tinymce', ])
-// 'tableSort'
-.controller('LoginCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-  //Used to name the .html file
-  $scope.template = TemplateService.changecontent("login");
-  $scope.menutitle = NavigationService.makeactive("Login");
-  TemplateService.title = $scope.menutitle;
-  $scope.navigation = NavigationService.getnav();
-})
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ui.tinymce', ])
+  // 'tableSort'
+  .controller('LoginCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("login");
+    $scope.menutitle = NavigationService.makeactive("Login");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+  })
 
 .controller('UserCtrl', function($scope, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
@@ -14,6 +14,36 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.menutitle = NavigationService.makeactive("Users");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
+  $scope.userForm = {};
+  $scope.allUserRecords = function() {
+    NavigationService.userViewAllSubmit($scope.userForm, function(data) {
+      $scope.userdata = data.data;
+      console.log('user data', data.data);
+    });
+  };
+
+  NavigationService.userViewAllSubmit($scope.userForm, function(data) {
+    $scope.userdata = data.data;
+    console.log('user data', data.data);
+  });
+
+
+  $scope.deleteUser = function(formValid) {
+    console.log('formvalid', formValid);
+    NavigationService.deleteUserData({
+      id: formValid
+    }, function(data) {
+      console.log('delete data:', data);
+      if (data.value === true) {
+
+        $scope.allUserRecords();
+      }
+
+    });
+  };
+
+
+
 })
 
 .controller('CreateUserCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
@@ -22,47 +52,51 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.menutitle = NavigationService.makeactive("Create User");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
-  $scope.userForm={};
-  $scope.header={name:'Create User'};
+  $scope.userForm = {};
+  $scope.header = {
+    name: 'Create User'
+  };
   //console.log($scope.userForm);
-  $scope.submitForm=function(formValid){
-  //console.log('user form:',$scope.userForm);
-  //console.log('form data:',formData);
-  if(formValid.$valid)
-  {
-    //$state.go("user");
-    $scope.formComplete=true;
+  $scope.userSubmitForm = function(formValid) {
+      $state.go("user");
+    if (formValid.$valid)
+    {
+      $scope.formComplete = true;
+
+    }
+
     NavigationService.userCreateSubmit($scope.userForm, function(data) {
-
+  console.log('userform', $scope.userForm);
     });
-
-  }
-  else{
-
-  }
 
   };
 
 })
 
-.controller('EditUserCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+.controller('EditUserCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("userdetail");
   $scope.menutitle = NavigationService.makeactive("Edit User");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
-  $scope.header={name:'Edit User'};
-  $scope.submitForm=function(formData,formValid){
-  console.log($scope.userForm);
-  if(formValid.$valid)
-  {
-      $state.go("user");
-    $scope.formComplete=true;
+  $scope.header = {
+    name: 'Edit User'
+  };
+  NavigationService.getUserEditDetail($stateParams.id, function(data) {
+    console.log(data);
+    $scope.userForm = data.data;
+  });
 
-  }
-  else{
+  $scope.userSubmitForm = function(formValid) {
+    console.log($scope.userForm);
+    $state.go("user");
+    if (formValid.$valid) {
+      $scope.formComplete = true;
+      NavigationService.editUserSubmit($scope.userForm, function(data) {
+        console.log('response:', data);
+      });
 
-  }
+    }
 
   };
 })
@@ -81,19 +115,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.menutitle = NavigationService.makeactive("Create Notification");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
-  $scope.header={name:'Create - User Notification'};
-  $scope.userForm={};
-  $scope.submitForm=function(formData,formValid){
-  console.log($scope.userForm);
-  if(formValid.$valid)
-  {
+  $scope.header = {
+    name: 'Create - User Notification'
+  };
+  $scope.userForm = {};
+  $scope.submitForm = function(formData, formValid) {
+    console.log($scope.userForm);
+    if (formValid.$valid) {
       $state.go("usernotification");
-    $scope.formComplete=true;
+      $scope.formComplete = true;
 
-  }
-  else{
+    } else {
 
-  }
+    }
 
   };
 
@@ -105,19 +139,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.menutitle = NavigationService.makeactive("Edit Notification");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
-  $scope.header={name:'Edit - User Notification'};
-  $scope.userForm={};
-  $scope.submitForm=function(formData,formValid){
-  console.log($scope.userForm);
-  if(formValid.$valid)
-  {
+  $scope.header = {
+    name: 'Edit - User Notification'
+  };
+  $scope.userForm = {};
+  $scope.submitForm = function(formData, formValid) {
+    console.log($scope.userForm);
+    if (formValid.$valid) {
       $state.go("usernotification");
-    $scope.formComplete=true;
+      $scope.formComplete = true;
 
-  }
-  else{
+    } else {
 
-  }
+    }
 
   };
 
@@ -138,19 +172,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.menutitle = NavigationService.makeactive("Create User Plan");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
-  $scope.header={name:'Create - User Plan'};
-  $scope.userForm={};
-  $scope.submitForm=function(formData,formValid){
-  console.log($scope.userForm);
-  if(formValid.$valid)
-  {
+  $scope.header = {
+    name: 'Create - User Plan'
+  };
+  $scope.userForm = {};
+  $scope.submitForm = function(formData, formValid) {
+    console.log($scope.userForm);
+    if (formValid.$valid)
+     {
       $state.go("userplan");
-    $scope.formComplete=true;
+      $scope.formComplete = true;
 
-  }
-  else{
+    } else {
 
-  }
+    }
 
   };
 
@@ -163,19 +198,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.menutitle = NavigationService.makeactive("Edit User Plan");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
-  $scope.header={name:'Edit - User Plan'};
-  $scope.userForm={};
-  $scope.submitForm=function(formData,formValid){
-  console.log($scope.userForm);
-  if(formValid.$valid)
-  {
+  $scope.header = {
+    name: 'Edit - User Plan'
+  };
+  $scope.userForm = {};
+  $scope.submitForm = function(formData, formValid) {
+    console.log($scope.userForm);
+    if (formValid.$valid) {
       $state.go("userplan");
-    $scope.formComplete=true;
+      $scope.formComplete = true;
 
-  }
-  else{
+    } else {
 
-  }
+    }
 
   };
 
@@ -187,49 +222,49 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.menutitle = NavigationService.makeactive("Plan");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
-  $scope.userForm={};
-  $scope.allTableRecords=function(){
+  $scope.userForm = {};
+  $scope.allTableRecords = function() {
     NavigationService.viewAllPlanSubmit($scope.userForm, function(data) {
-      $scope.plandata=data.data;
-      console.log('plan data',data.data);
+      $scope.plandata = data.data;
+      console.log('plan data', data.data);
     });
   };
 
   NavigationService.viewAllPlanSubmit($scope.userForm, function(data) {
-    $scope.plandata=data.data;
-    console.log('plan data',data.data);
+    $scope.plandata = data.data;
+    console.log('plan data', data.data);
   });
 
 
-  $scope.deletePlan=function(formValid){
-    console.log('formvalid',formValid);
-  NavigationService.deleteFormData({id: formValid}, function(data) {
-      console.log('delete data:',data);
+  $scope.deletePlan = function(formValid) {
+    console.log('formvalid', formValid);
+    NavigationService.deleteFormData({
+      id: formValid
+    }, function(data) {
+      console.log('delete data:', data);
       if (data.value === true) {
 
         $scope.allTableRecords();
       }
 
-  });
-};
+    });
+  };
 
-$scope.editPlan=function(formValid){
-    $state.go("edit-plan");
-  console.log('formvalid',formValid);
-NavigationService.editFormData(formValid, function(data) {
-    console.log('editFormData:',data);
-    $.jStorage.set('plans', data.data);
-    // if (data.value === true) {
-    //
-    //   $scope.allTableRecords();
-    // }
-    if(data.value===true){
-          $scope.allTableRecords();
-    }
-
-
-});
-};
+  // $scope.editPlan = function(formValid) {
+  //   $state.go("edit-plan");
+  //   console.log('formvalid', formValid);
+  //   NavigationService.editFormData(formValid, function(data) {
+  //     console.log('editFormData:', data);
+  //     $.jStorage.set('plans', data.data);
+  //     // if (data.value === true) {
+  //     //
+  //     //   $scope.allTableRecords();
+  //     // }
+  //     if (data.value === true) {
+  //       $scope.allTableRecords();
+  //     }
+  //   });
+  // };
 
 
 
@@ -241,63 +276,55 @@ NavigationService.editFormData(formValid, function(data) {
   $scope.menutitle = NavigationService.makeactive("Create Plan");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
-  $scope.userForm={};
-  $scope.header={name:'Create Plan'};
-  $scope.submitForm=function(formValid){
-        $state.go("plan");
-    console.log('user form:',$scope.userForm);
-    if(formValid.$valid){
-      $scope.formComplete=true;
+  $scope.userForm = {};
+  $scope.header = {
+    name: 'Create Plan'
+  };
+  $scope.submitForm = function(formValid) {
+    $state.go("plan");
+    console.log('user form:', $scope.userForm);
+    if (formValid.$valid) {
+      $scope.formComplete = true;
 
 
-  }
-  NavigationService.createPlanSubmit($scope.userForm, function(data) {
+    }
+    NavigationService.createPlanSubmit($scope.userForm, function(data) {
 
-console.log('userform',$scope.userForm);
+      console.log('userform', $scope.userForm);
 
 
-});
+    });
 
   };
 
 })
 
-.controller('EditPlanCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+.controller('EditPlanCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("plandetail");
   $scope.menutitle = NavigationService.makeactive("Edit Plan");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
-  $scope.header={name:'Edit Plan'};
-  console.log('jStorage', $.jStorage.get('plans'));
-  $scope.userForm = $.jStorage.get('plans');
+  $scope.header = {
+    name: 'Edit Plan'
+  };
 
-  $scope.submitForm=function(formValid){
-    console.log('user form:',$scope.userForm);
+  NavigationService.getPlanDetail($stateParams.id, function(data) {
+    console.log(data);
+    $scope.userForm = data.data;
+  });
+
+  $scope.submitForm = function(formValid) {
+
+    console.log('user form:', $scope.userForm);
     $state.go("plan");
     console.log('on the plan');
-        if(formValid.$valid ){
-      $scope.formComplete=true;
-      NavigationService.userCreateSubmit($scope.userForm, function(data) {
-          console.log('response:', data);
-          // $.jStorage.set('plans', data.data);
-          // if (data.value === true) {
-          //
-          //   $scope.allTableRecords();
-          // }
-          // if(data.value===true){
-          //       $scope.allTableRecords();
-          // }
-
-
+    if (formValid.$valid) {
+      $scope.formComplete = true;
+      NavigationService.editPlanSubmit($scope.userForm, function(data) {
+        console.log('response:', data);
       });
-
-
-
-
-
     }
-
   };
 })
 
@@ -315,12 +342,14 @@ console.log('userform',$scope.userForm);
   $scope.menutitle = NavigationService.makeactive("Create Suggestion");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
-  $scope.header={name:'Create Suggestion'};
-  $scope.userForm={};
-  $scope.submitForm=function(formData,formValid){
-    console.log('user form:',$scope.userForm);
-    if(formValid.$valid){
-      $scope.formCoplete=true;
+  $scope.header = {
+    name: 'Create Suggestion'
+  };
+  $scope.userForm = {};
+  $scope.submitForm = function(formData, formValid) {
+    console.log('user form:', $scope.userForm);
+    if (formValid.$valid) {
+      $scope.formCoplete = true;
       $state.go("suggestion");
     }
 
@@ -333,12 +362,14 @@ console.log('userform',$scope.userForm);
   $scope.menutitle = NavigationService.makeactive("Edit Suggestion");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
-  $scope.header={name:'Edit Suggestion'};
-  $scope.userForm={};
-  $scope.submitForm=function(formData,formValid){
-    console.log('user form:',$scope.userForm);
-    if(formValid.$valid){
-      $scope.formCoplete=true;
+  $scope.header = {
+    name: 'Edit Suggestion'
+  };
+  $scope.userForm = {};
+  $scope.submitForm = function(formData, formValid) {
+    console.log('user form:', $scope.userForm);
+    if (formValid.$valid) {
+      $scope.formCoplete = true;
       $state.go("suggestion");
     }
 
@@ -359,16 +390,17 @@ console.log('userform',$scope.userForm);
   $scope.menutitle = NavigationService.makeactive("Create Templates");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
-  $scope.header={name:'Create Templates'};
-  $scope.userForm={};
-  $scope.submitForm=function(formData,formValid){
-  console.log('user form:',$scope.userForm);
-  if(formValid.$valid)
-  {
-    $scope.formComplete=true;
-    $state.go("templates");
-  }
-};
+  $scope.header = {
+    name: 'Create Templates'
+  };
+  $scope.userForm = {};
+  $scope.submitForm = function(formData, formValid) {
+    console.log('user form:', $scope.userForm);
+    if (formValid.$valid) {
+      $scope.formComplete = true;
+      $state.go("templates");
+    }
+  };
 
 })
 
@@ -378,13 +410,14 @@ console.log('userform',$scope.userForm);
   $scope.menutitle = NavigationService.makeactive("Edit Templates");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
-    $scope.header={name:'Edit Templates'};
-    $scope.userForm={};
-    $scope.submitForm=function(formData,formValid){
-    console.log('user form:',$scope.userForm);
-    if(formValid.$valid)
-    {
-      $scope.formComplete=true;
+  $scope.header = {
+    name: 'Edit Templates'
+  };
+  $scope.userForm = {};
+  $scope.submitForm = function(formData, formValid) {
+    console.log('user form:', $scope.userForm);
+    if (formValid.$valid) {
+      $scope.formComplete = true;
       $state.go("templates");
     }
   };
@@ -395,5 +428,4 @@ console.log('userform',$scope.userForm);
   // $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
   //   $(window).scrollTop(0);
   // });
-})
-;
+});

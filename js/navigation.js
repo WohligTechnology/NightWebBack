@@ -1,5 +1,5 @@
 // var adminURL = "";
-var adminurl = "http://192.168.0.124:1337/plan/";
+var adminurl = "http://192.168.0.124:1337/";
 
 // if(isproduction)
 // {
@@ -18,32 +18,31 @@ var navigationservice = angular.module('navigationservice', [])
     anchor: "user",
     icon: "users",
     subnav: []
-  },
-  {
+  }, {
     name: "User Notification",
     classis: "active",
     anchor: "usernotification",
     icon: "bell",
     subnav: []
-  },{
+  }, {
     name: "User Plan",
     classis: "active",
     anchor: "userplan",
     icon: "list-alt",
     subnav: []
-  },{
+  }, {
     name: "Plan",
     classis: "active",
     anchor: "plan",
     icon: "calendar",
     subnav: []
-  },{
+  }, {
     name: "Suggestion",
     classis: "active",
     anchor: "suggestion",
     icon: "lightbulb-o",
     subnav: []
-  },{
+  }, {
     name: "Templates",
     classis: "active",
     anchor: "templates",
@@ -57,73 +56,149 @@ var navigationservice = angular.module('navigationservice', [])
     getnav: function() {
       return navigation;
     },
+    editPlanSubmit: function(formData, callback) {
+      console.log('In service : ', formData);
+      $http({
+        url: adminurl + 'plan/create',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "_id": formData._id,
+          "description": formData.description,
+          "name": formData.name
+        }
+      }).success(callback);
+    },
     createPlanSubmit: function(formData, callback) {
-        // console.log('form data: ', formData);
-        $http({
-          url: adminurl + 'create',
-          method: 'POST',
-          withCredentials: true,
-          data: {
-            "description": formData.description,
-            "name": formData.name
-          }
-        }).success(callback);
-      },
-      viewAllPlanSubmit: function(formData, callback) {
-          // console.log('form data: ', formData);
-          $http({
-            url: adminurl + 'viewAll',
-            method: 'POST',
-            withCredentials: true,
-            data: {
-              "description": formData.description,
-              "name": formData.name
-            }
-          }).success(callback);
-        },
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'plan/create',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "description": formData.description,
+          "name": formData.name
+        }
+      }).success(callback);
+    },
+    viewAllPlanSubmit: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'plan/viewAll',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "description": formData.description,
+          "name": formData.name
+        }
+      }).success(callback);
+    },
+    getPlanDetail: function(id, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'plan/view',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "_id": id
+        }
+      }).success(callback);
+    },
+    deleteFormData: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'plan/delete',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "_id": formData.id,
 
-        deleteFormData: function(formData, callback) {
-            // console.log('form data: ', formData);
-            $http({
-              url: adminurl + 'delete',
-              method: 'POST',
-              withCredentials: true,
-              data: {
-                "_id": formData.id,
+        }
+      }).success(callback);
+    },
 
-              }
-            }).success(callback);
-          },
+    // editFormData: function(formData, callback) {
+    //   // console.log('form data: ', formData);
+    //   $http({
+    //     url: adminurl + 'plan/view',
+    //     method: 'POST',
+    //     withCredentials: true,
+    //     data: {
+    //       "_id": formData._id,
+    //       "description": formData.description,
+    //       "name": formData.name
+    //
+    //     }
+    //   }).success(callback);
+    // },
 
-          editFormData: function(formData, callback) {
-              // console.log('form data: ', formData);
-              $http({
-                url: adminurl + 'view',
-                method: 'POST',
-                withCredentials: true,
-                data: {
-                  "_id": formData._id,
-                  "description": formData.description,
-                  "name": formData.name
 
-                }
-              }).success(callback);
-            },
+    userViewAllSubmit: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'user/viewAll',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "email": formData.email,
+          "name": formData.name
+        }
+      }).success(callback);
+    },
 
     userCreateSubmit: function(formData, callback) {
-        // console.log('form data: ', formData);
-        $http({
-          url: adminurl + 'create',
-          method: 'POST',
-          withCredentials: true,
-          data: {
-            "email": formData.email,
-            "id": formData.id,
-            "accessLevel": formData.accessLevel,
-            "name": formData.name,
-          }
-        }).success(callback);
-      },
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'user/create',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "email": formData.email,
+          "_id": formData._id,
+          "accessLevel": formData.accessLevel,
+          "name": formData.name
+        }
+      }).success(callback);
+    },
+
+    deleteUserData: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'user/delete',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "_id": formData.id,
+
+        }
+      }).success(callback);
+    },
+
+    getUserEditDetail: function(id, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'user/view',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "_id": id
+        }
+      }).success(callback);
+    },
+    editUserSubmit: function(formData, callback) {
+      console.log('In service : ', formData);
+      $http({
+        url: adminurl + 'user/create',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "email": formData.email,
+          "_id": formData._id,
+          "accessLevel": formData.accessLevel,
+          "name": formData.name
+        }
+      }).success(callback);
+    },
 
     makeactive: function(menuname) {
       for (var i = 0; i < navigation.length; i++) {

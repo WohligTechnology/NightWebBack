@@ -29,7 +29,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
       })
 
       .state('edituser', {
-        url: "/edituser",
+        url: "/edituser/:id",
         templateUrl: "views/template.html",
         controller: 'EditUserCtrl'
       })
@@ -83,7 +83,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
       })
 
       .state('edit-plan', {
-        url: "/edit-plan",
+        url: "/edit-plan/:id",
         templateUrl: "views/template.html",
         controller: 'EditPlanCtrl'
       })
