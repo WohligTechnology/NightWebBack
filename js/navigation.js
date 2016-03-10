@@ -147,7 +147,7 @@ var navigationservice = angular.module('navigationservice', [])
     },
 
     userCreateSubmit: function(formData, callback) {
-      // console.log('form data: ', formData);
+      console.log('Navigation form data: ', formData);
       $http({
         url: adminurl + 'user/create',
         method: 'POST',
@@ -155,8 +155,13 @@ var navigationservice = angular.module('navigationservice', [])
         data: {
           "email": formData.email,
           "_id": formData._id,
-          "accessLevel": formData.accessLevel,
-          "name": formData.name
+          "accesslevel": formData.accesslevel,
+          "name": formData.name,
+          "contact":formData.contact,
+          "facebook":formData.facebook,
+          "google":formData.google,
+          "logintype":formData.logintype,
+          "twitter":formData.twitter
         }
       }).success(callback);
     },
@@ -194,8 +199,13 @@ var navigationservice = angular.module('navigationservice', [])
         data: {
             "_id": formData._id,
           "email": formData.email,
-          "accessLevel": formData.accessLevel,
-          "name": formData.name
+          "accesslevel": formData.accesslevel,
+          "name": formData.name,
+          "contact":formData.contact,
+          "facebook":formData.facebook,
+          "google":formData.google,
+          "logintype":formData.logintype,
+          "twitter":formData.twitter
         }
       }).success(callback);
     },

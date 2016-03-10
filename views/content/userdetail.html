@@ -8,7 +8,7 @@
         <div class="col-md-8">
           <form name="user">
             <div class="form-group">
-              <input name="id" required ng-model="userForm.id" type="hidden" class="form-control" id="exampleInputName1" placeholder="User Id">
+              <input name="_id" required ng-model="userForm._id" type="hidden" class="form-control" id="exampleInputName1" placeholder="User Id">
             </div>
             <div class="form-group">
               <label for="exampleInputName2">Name</label>
@@ -23,7 +23,7 @@
             <label for="exampleInputName4">Login Type</label>
             <div class="form-group">
               <span class="ui-select" id="exampleInputName4">
-                  <select ng-model="userForm.loginType" required>
+                  <select ng-model="userForm.logintype" required>
                     <option></option>
                     <option value="Facebook">Facebook</option>
                     <option value="Twitter">Twitter</option>
@@ -34,22 +34,22 @@
             </div>
             <div class="form-group">
               <label for="exampleInputName5">Facebook</label>
-              <input name="facebookId" ng-model="userForm.facebookId" type="text" class="form-control" id="exampleInputName5" placeholder="Facebook Id">
+              <input name="facebook" ng-model="userForm.facebook" type="text" class="form-control" id="exampleInputName5" placeholder="Facebook Id">
               <!-- <div class="error-msg" ng-show="user.facebookId.$error.required && user.facebookId.$touched">Please Enter Facebook id.</div> -->
             </div>
             <div class="form-group">
               <label for="exampleInputName6">Twitter</label>
-              <input name="twitterId" ng-model="userForm.twittrId" type="text" class="form-control" id="exampleInputName6" placeholder="Twitter Id">
+              <input name="twitter" ng-model="userForm.twitter" type="text" class="form-control" id="exampleInputName6" placeholder="Twitter Id">
               <!-- <div class="error-msg" ng-show="user.twitterId.$error.required && user.twitterId.$touched">Please Enter Twitter id. -->
             </div>
             <div class="form-group">
               <label for="exampleInputName7">Google</label>
-              <input name="googleId" ng-model="userForm.googleId" type="text" class="form-control" id="exampleInputName7" placeholder="Google Id">
+              <input name="google" ng-model="userForm.google" type="text" class="form-control" id="exampleInputName7" placeholder="Google Id">
               <!-- <div class="error-msg" ng-show="user.googleId.$error.required && user.googleId.$touched">Please Enter Google id.</div> -->
             </div>
             <div class="form-group">
               <label for="exampleInputName8">Access Level</label>
-              <input name="accessLevel" required ng-model="userForm.accessLevel" type="text" class="form-control" id="exampleInputName8" placeholder="Enter Access Level">
+              <input name="accesslevel" required ng-model="userForm.accesslevel" type="text" class="form-control" id="exampleInputName8" placeholder="Enter Access Level">
               <div class="error-msg" ng-show="user.accessLevel.$error.required && user.accessLevel.$touched">Please Enter Access Level.</div>
             </div>
             <div class="form-group">
