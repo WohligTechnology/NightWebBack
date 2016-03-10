@@ -11,12 +11,31 @@
                   <!-- <label for="exampleInputName1">Id</label> -->
                   <input name="id" ng-model="userForm.id" type="hidden" class="form-control" id="exampleInputName1" placeholder="User Id" readonly="">
                 </div>
+
                 <div class="form-group">
+                <label for="exampleInputName2">User</label>
+                   <!-- <span class="u-select" id="exampleInputName2"> -->
+                      <select name="users" ui-select2 ng-model="userForm.users" data-placeholder="Select Users" ng-required="true" multiple="multiple" class="userselect" style="min-width:300px;z-index: 99;display: block;position: relative;
+                      border-color:#ccc;border-width: 1px;box-shadow: none">
+                        <option></option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="Twitter">Twitter</option>
+                        <option value="Google">Google</option>
+                        <option value="Facebook1">Facebook1</option>
+                        <option value="Twitter1">Twitter1</option>
+                        <option value="Google1">Google1</option>
+                        <option value="Facebook2">Facebook2</option>
+                        <option value="Twitter2">Twitter2</option>
+                        <option value="Google2">Google2</option>
+                      </select>
+                    <!-- </span> -->
+                    <!-- <div class="error-msg" ng-show="user.users.$error.required && user.users.$touched">Please select multiple user.
+                    </div> -->
+                </div>
+                <!-- <div class="form-group">
                   <label for="exampleInputName2">User</label>
                   <input name="userName" required ng-model="userForm.userName" type="text" class="form-control" id="exampleInputName2" placeholder="Enter User">
-                  <div class="error-msg" ng-show="user.userName.$error.required && user.userName.$touched">Please Enter Your Name.
-                  </div>
-                </div>
+                </div> -->
                 <div class="form-group">
                   <label for="exampleInputName3">Start Time</label>
                   <input name="startTime" ng-model="userForm.startTime" type="text" class="form-control" id="exampleInputName3" placeholder="Start Time">
