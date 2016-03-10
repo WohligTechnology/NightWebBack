@@ -65,7 +65,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
       })
 
       .state('edit-userplan', {
-        url: "/edit-userplan",
+        url: "/edit-userplan/:id",
         templateUrl: "views/template.html",
         controller: 'EditUserPlanCtrl'
       })
@@ -101,7 +101,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
       })
 
       .state('edit-suggest', {
-        url: "/edit-suggest",
+        url: "/edit-suggest/:id",
         templateUrl: "views/template.html",
         controller: 'EditSuggestCtrl'
       })

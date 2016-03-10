@@ -4,9 +4,10 @@
             <strong>{{header.name}}</strong>
           </div>
         <div class="panel-body">
+            <form name="user">
         <div class="row">
           <div class="col-md-8">
-              <form name="user">
+
                 <div class="form-group">
                   <!-- <label for="exampleInputName1">Id</label> -->
                   <input name="id" ng-model="userForm._id" type="hidden" class="form-control" id="exampleInputName1" placeholder="User Id">
@@ -23,15 +24,17 @@
                   </div>
                 </div>
                 <div class="upload-img text-center mar30">
-                  <button class="btn btn-sm btn-info" ng-click="submitForm(user)">Save</button>
+                  <button class="btn btn-sm btn-info" ng-class="{'disabled' : !user.$valid }" ng-click="submitForm(user)">Save</button>
                 <a href="#/plan">  <button class="btn btn-sm btn-info">Cancel</button></a>
                 </div>
+                  </div>
+                  </div>
               </form>
-          </div>
-          <div class="text-center" ng-show="formComplete">
+
+          <!-- <div class="text-center" ng-show="formComplete">
               <h3>Submitted Successfully, Thank You!</h3>
-          </div>
-        </div>
+          </div> -->
+
       </div>
       </div>
 </section>

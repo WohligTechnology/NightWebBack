@@ -131,6 +131,79 @@ var navigationservice = angular.module('navigationservice', [])
     //     }
     //   }).success(callback);
     // },
+    viewAllSuggestionSubmit: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'suggestion/viewAll',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "email": formData.email,
+          "name": formData.name
+        }
+      }).success(callback);
+    },
+    createSuggestionSubmit: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'suggestion/create',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "email": formData.email,
+          "name": formData.name,
+          "contact":formData.contact,
+          "subject":formData.subject,
+          "query":formData.query,
+          //"user":formData.user
+          // "query":formData.query,
+          // "user":formData.user
+        }
+      }).success(callback);
+    },
+    deleteSuggestionData: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'suggestion/delete',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "_id": formData.id,
+
+        }
+      }).success(callback);
+    },
+    editSuggestionSubmit: function(formData, callback) {
+      console.log('In service : ', formData);
+      $http({
+        url: adminurl + 'suggestion/create',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "_id": formData._id,
+          "email": formData.email,
+          "name": formData.name,
+          "contact":formData.contact,
+          "subject":formData.subject,
+          "query":formData.query,
+          "user":formData.user
+        }
+      }).success(callback);
+    },
+    getSuggestionDetail: function(id, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'suggestion/view',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "_id": id
+        }
+      }).success(callback);
+    },
+
+
+
 
 
     userViewAllSubmit: function(formData, callback) {
@@ -209,6 +282,167 @@ var navigationservice = angular.module('navigationservice', [])
         }
       }).success(callback);
     },
+
+
+
+    userNotificationViewAllSubmit: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'usernotification/viewAll',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "user": formData.user,
+          "status": formData.status
+        }
+      }).success(callback);
+    },
+
+    userNotificationCreateSubmit: function(formData, callback) {
+      console.log('Navigation form data: ', formData);
+      $http({
+        url: adminurl + 'usernotification/create',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "user": formData.user,
+          "_id": formData._id,
+          "status": formData.status
+          // "name": formData.name,
+          // "contact":formData.contact,
+          // "facebook":formData.facebook,
+          // "google":formData.google,
+          // "logintype":formData.logintype,
+          // "twitter":formData.twitter
+        }
+      }).success(callback);
+    },
+
+    deleteUserNotificationData: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'usernotification/delete',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "_id": formData.id,
+
+        }
+      }).success(callback);
+    },
+
+    getUserNotificationEditDetail: function(id, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'usernotification/view',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "_id": id
+        }
+      }).success(callback);
+    },
+    editUserNotificationSubmit: function(formData, callback) {
+      console.log('In service : ', formData);
+      $http({
+        url: adminurl + 'usernotification/create',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+            "_id": formData._id,
+          "user": formData.user,
+          "accesslevel": formData.accesslevel,
+          "name": formData.name,
+          "contact":formData.contact,
+          "facebook":formData.facebook,
+          "google":formData.google,
+          "logintype":formData.logintype,
+          "twitter":formData.twitter
+        }
+      }).success(callback);
+    },
+
+
+
+
+    userPlanViewAllSubmit: function(formData, callback) {
+           console.log('userPlanViewAllSubmit data: ', formData);
+          $http({
+            url: adminurl + 'userplan/viewAll',
+            method: 'POST',
+            withCredentials: true,
+            data: {
+              "plan": formData.plan,
+              "user": formData.userName
+            }
+          }).success(callback);
+        },
+
+        userPlanCreateSubmit: function(formData, callback) {
+          // console.log('form data: ', formData);
+          $http({
+            url: adminurl + 'userplan/create',
+            method: 'POST',
+            withCredentials: true,
+            data: {
+              "plan": formData.plan,
+              "starttime": formData.starttime,
+              "endtime": formData.endtime,
+              "url": formData.url,
+              "android": formData.android,
+              "ios": formData.ios,
+              "serverdetail": formData.serverdetail,
+              "foldername": formData.foldername,
+
+
+            }
+          }).success(callback);
+        },
+
+        editUserPlanSubmit: function(formData, callback) {
+          console.log('In service : ', formData);
+          $http({
+            url: adminurl + 'userplan/create',
+            method: 'POST',
+            withCredentials: true,
+            data: {
+              "_id": formData._id,
+              "plan": formData.plan,
+              "starttime": formData.starttime,
+              "endtime": formData.endtime,
+              "url": formData.url,
+              "android": formData.android,
+              "ios": formData.ios,
+              "serverdetail": formData.serverdetail,
+              "foldername": formData.foldername,
+            }
+          }).success(callback);
+        },
+
+        getUserPlanEditDetail: function(id, callback) {
+          // console.log('form data: ', formData);
+          $http({
+            url: adminurl + 'userplan/view',
+            method: 'POST',
+            withCredentials: true,
+            data: {
+              "_id": id
+            }
+          }).success(callback);
+        },
+
+        deleteUserPlanData: function(formData, callback) {
+          // console.log('form data: ', formData);
+          $http({
+            url: adminurl + 'userplan/delete',
+            method: 'POST',
+            withCredentials: true,
+            data: {
+              "_id": formData.id,
+
+            }
+          }).success(callback);
+        },
 
     makeactive: function(menuname) {
       for (var i = 0; i < navigation.length; i++) {
