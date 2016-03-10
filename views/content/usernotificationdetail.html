@@ -9,7 +9,7 @@
               <form name="user">
                 <div class="form-group">
                   <!-- <label for="exampleInputName1">Id</label> -->
-                  <input name="id" ng-model="userForm.id" type="hidden" class="form-control" id="exampleInputName1" placeholder="User Id" readonly="">
+                  <input name="_id" ng-model="userForm._id" type="hidden" class="form-control" id="exampleInputName1" placeholder="User Id" readonly="">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputName2">User</label>
@@ -55,7 +55,7 @@
                   </div>
                 </div>
                 <div class="upload-img text-center mar30">
-                  <button class="btn btn-sm btn-info" ng-click="submitForm(user)">Save</button>
+                  <button class="btn btn-sm btn-info" ng-click="userNotificationSubmitForm(user)">Save</button>
                 <a href="#/usernotification">  <button class="btn btn-sm btn-info">Cancel</button></a>
                 </div>
               </form>

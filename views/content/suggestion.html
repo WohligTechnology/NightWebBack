@@ -1,4 +1,3 @@
-table-bordered
   <div class="panel panel-default table-dynamic">
     <div class="panel-heading">
       <strong>{{menutitle}}</strong>
@@ -55,24 +54,24 @@ table-bordered
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
+          <tr ng-repeat="data in sugestdata">
+            <td>{{data._id}}</td>
             <td>
               <span>
-                Raj Shah
+                {{data.name}}
               </span>
             </td>
             <td>
-              <span>rshah4316@gmail.com</span>
+              <span>{{data.email}}</span>
             </td>
             <td>
               <span>
-              <button class="btn btn-sm btn-info" ui-sref="edit-suggest"><i class="fa fa-pencil-square-o"></i></button>&nbsp;&nbsp;&nbsp;
-              <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+              <button class="btn btn-sm btn-info" ui-sref="edit-suggest({id:data._id})"><i class="fa fa-pencil-square-o"></i></button>&nbsp;&nbsp;&nbsp;
+              <button class="btn btn-sm btn-danger" ng-click="deleteSuggestion(data._id)"><i class="fa fa-trash"></i></button>
             </span>
             </td>
           </tr>
-          <tr>
+          <!-- <tr>
             <td>2</td>
             <td>
               <span>
@@ -88,7 +87,7 @@ table-bordered
               <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
             </span>
             </td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
       <footer class="table-footer">

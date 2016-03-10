@@ -55,24 +55,24 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
+          <tr ng-repeat="data in userdata">
+            <td>{{data._id}}</td>
             <td>
               <span>
-                Raj Shah
+                {{data.user}}
               </span>
             </td>
             <td>
-              <span>1</span>
+              <span>{{data.status}}</span>
             </td>
             <td>
               <span>
-              <button class="btn btn-sm btn-info" ui-sref="edit-user-notification"><i class="fa fa-pencil-square-o"></i></button>&nbsp;&nbsp;&nbsp;
-              <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+              <button class="btn btn-sm btn-info" ui-sref="edit-user-notification({id:data._id})"><i class="fa fa-pencil-square-o"></i></button>&nbsp;&nbsp;&nbsp;
+              <button class="btn btn-sm btn-danger" ng-click="deleteUserNotification(data._id)"><i class="fa fa-trash"></i></button>
             </span>
             </td>
           </tr>
-          <tr>
+          <!-- <tr>
             <td>2</td>
             <td>
               <span>
@@ -88,7 +88,7 @@
               <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
             </span>
             </td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
       <footer class="table-footer">
