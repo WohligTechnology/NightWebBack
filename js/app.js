@@ -136,7 +136,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
       })
 
       .state('edit-blog', {
-        url: "/edit-blog",
+        url: "/edit-blog/:id",
         templateUrl: "views/template.html",
         controller: 'EditBlogCtrl'
       })
@@ -154,7 +154,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
       })
 
       .state('edit-documentationcategory', {
-        url: "/edit-documentationcategory",
+        url: "/edit-documentationcategory/:id",
         templateUrl: "views/template.html",
         controller: 'EditDocumentationCategoryCtrl'
       })
@@ -172,7 +172,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
       })
 
       .state('edit-documentation', {
-        url: "/edit-documentation",
+        url: "/edit-documentation/:id",
         templateUrl: "views/template.html",
         controller: 'EditDocumentationCtrl'
       });

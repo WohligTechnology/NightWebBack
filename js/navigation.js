@@ -171,9 +171,9 @@ var navigationservice = angular.module('navigationservice', [])
         data: {
           "email": formData.email,
           "name": formData.name,
-          "contact":formData.contact,
-          "subject":formData.subject,
-          "query":formData.query,
+          "contact": formData.contact,
+          "subject": formData.subject,
+          "query": formData.query,
           //"user":formData.user
           // "query":formData.query,
           // "user":formData.user
@@ -202,10 +202,10 @@ var navigationservice = angular.module('navigationservice', [])
           "_id": formData._id,
           "email": formData.email,
           "name": formData.name,
-          "contact":formData.contact,
-          "subject":formData.subject,
-          "query":formData.query,
-          "user":formData.user
+          "contact": formData.contact,
+          "subject": formData.subject,
+          "query": formData.query,
+          "user": formData.user
         }
       }).success(callback);
     },
@@ -261,9 +261,9 @@ var navigationservice = angular.module('navigationservice', [])
           "_id": formData._id,
           "image": formData.image,
           "name": formData.name,
-          "images":formData.images,
-          "text":formData.text,
-          "description":formData.description,
+          "images": formData.images,
+          "text": formData.text,
+          "description": formData.description,
         }
       }).success(callback);
     },
@@ -288,9 +288,9 @@ var navigationservice = angular.module('navigationservice', [])
           "_id": formData._id,
           "image": formData.image,
           "name": formData.name,
-          "images":formData.images,
-          "text":formData.text,
-          "description":formData.description,
+          "images": formData.images,
+          "text": formData.text,
+          "description": formData.description,
         }
       }).success(callback);
     },
@@ -327,11 +327,11 @@ var navigationservice = angular.module('navigationservice', [])
           "_id": formData._id,
           "accesslevel": formData.accesslevel,
           "name": formData.name,
-          "contact":formData.contact,
-          "facebook":formData.facebook,
-          "google":formData.google,
-          "logintype":formData.logintype,
-          "twitter":formData.twitter
+          "contact": formData.contact,
+          "facebook": formData.facebook,
+          "google": formData.google,
+          "logintype": formData.logintype,
+          "twitter": formData.twitter
         }
       }).success(callback);
     },
@@ -367,15 +367,15 @@ var navigationservice = angular.module('navigationservice', [])
         method: 'POST',
         withCredentials: true,
         data: {
-            "_id": formData._id,
+          "_id": formData._id,
           "email": formData.email,
           "accesslevel": formData.accesslevel,
           "name": formData.name,
-          "contact":formData.contact,
-          "facebook":formData.facebook,
-          "google":formData.google,
-          "logintype":formData.logintype,
-          "twitter":formData.twitter
+          "contact": formData.contact,
+          "facebook": formData.facebook,
+          "google": formData.google,
+          "logintype": formData.logintype,
+          "twitter": formData.twitter
         }
       }).success(callback);
     },
@@ -405,12 +405,12 @@ var navigationservice = angular.module('navigationservice', [])
           "user": formData.user,
           "_id": formData._id,
           "status": formData.status
-          // "name": formData.name,
-          // "contact":formData.contact,
-          // "facebook":formData.facebook,
-          // "google":formData.google,
-          // "logintype":formData.logintype,
-          // "twitter":formData.twitter
+            // "name": formData.name,
+            // "contact":formData.contact,
+            // "facebook":formData.facebook,
+            // "google":formData.google,
+            // "logintype":formData.logintype,
+            // "twitter":formData.twitter
         }
       }).success(callback);
     },
@@ -446,15 +446,15 @@ var navigationservice = angular.module('navigationservice', [])
         method: 'POST',
         withCredentials: true,
         data: {
-            "_id": formData._id,
+          "_id": formData._id,
           "user": formData.user,
           "accesslevel": formData.accesslevel,
           "name": formData.name,
-          "contact":formData.contact,
-          "facebook":formData.facebook,
-          "google":formData.google,
-          "logintype":formData.logintype,
-          "twitter":formData.twitter
+          "contact": formData.contact,
+          "facebook": formData.facebook,
+          "google": formData.google,
+          "logintype": formData.logintype,
+          "twitter": formData.twitter
         }
       }).success(callback);
     },
@@ -463,83 +463,210 @@ var navigationservice = angular.module('navigationservice', [])
 
 
     userPlanViewAllSubmit: function(formData, callback) {
-           console.log('userPlanViewAllSubmit data: ', formData);
-          $http({
-            url: adminurl + 'userplan/viewAll',
-            method: 'POST',
-            withCredentials: true,
-            data: {
-              "plan": formData.plan,
-              "user": formData.userName
-            }
-          }).success(callback);
-        },
+      console.log('userPlanViewAllSubmit data: ', formData);
+      $http({
+        url: adminurl + 'userplan/viewAll',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "plan": formData.plan,
+          "user": formData.userName
+        }
+      }).success(callback);
+    },
 
-        userPlanCreateSubmit: function(formData, callback) {
-          // console.log('form data: ', formData);
-          $http({
-            url: adminurl + 'userplan/create',
-            method: 'POST',
-            withCredentials: true,
-            data: {
-              "plan": formData.plan,
-              "starttime": formData.starttime,
-              "endtime": formData.endtime,
-              "url": formData.url,
-              "android": formData.android,
-              "ios": formData.ios,
-              "serverdetail": formData.serverdetail,
-              "foldername": formData.foldername,
+    userPlanCreateSubmit: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'userplan/create',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "plan": formData.plan,
+          "starttime": formData.starttime,
+          "endtime": formData.endtime,
+          "url": formData.url,
+          "android": formData.android,
+          "ios": formData.ios,
+          "serverdetail": formData.serverdetail,
+          "foldername": formData.foldername,
 
 
-            }
-          }).success(callback);
-        },
+        }
+      }).success(callback);
+    },
 
-        editUserPlanSubmit: function(formData, callback) {
-          console.log('In service : ', formData);
-          $http({
-            url: adminurl + 'userplan/create',
-            method: 'POST',
-            withCredentials: true,
-            data: {
-              "_id": formData._id,
-              "plan": formData.plan,
-              "starttime": formData.starttime,
-              "endtime": formData.endtime,
-              "url": formData.url,
-              "android": formData.android,
-              "ios": formData.ios,
-              "serverdetail": formData.serverdetail,
-              "foldername": formData.foldername,
-            }
-          }).success(callback);
-        },
+    editUserPlanSubmit: function(formData, callback) {
+      console.log('In service : ', formData);
+      $http({
+        url: adminurl + 'userplan/create',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "_id": formData._id,
+          "plan": formData.plan,
+          "starttime": formData.starttime,
+          "endtime": formData.endtime,
+          "url": formData.url,
+          "android": formData.android,
+          "ios": formData.ios,
+          "serverdetail": formData.serverdetail,
+          "foldername": formData.foldername,
+        }
+      }).success(callback);
+    },
 
-        getUserPlanEditDetail: function(id, callback) {
-          // console.log('form data: ', formData);
-          $http({
-            url: adminurl + 'userplan/view',
-            method: 'POST',
-            withCredentials: true,
-            data: {
-              "_id": id
-            }
-          }).success(callback);
-        },
+    getUserPlanEditDetail: function(id, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'userplan/view',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "_id": id
+        }
+      }).success(callback);
+    },
 
-        deleteUserPlanData: function(formData, callback) {
-          // console.log('form data: ', formData);
-          $http({
-            url: adminurl + 'userplan/delete',
-            method: 'POST',
-            withCredentials: true,
-            data: {
-              "_id": formData.id,
+    deleteUserPlanData: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'userplan/delete',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "_id": formData.id,
 
-            }
-          }).success(callback);
-        },
+        }
+      }).success(callback);
+    },
+
+    createDocumentationCategorySubmit: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'documentationcategory/create',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "description": formData.description,
+          "name": formData.name,
+          "status": formData.status
+        }
+      }).success(callback);
+    },
+    viewAllDocumentationCategorySubmit: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'documentationcategory/viewAll',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "description": formData.description,
+          "name": formData.name
+        }
+      }).success(callback);
+    },
+    getDocumentationCategoryEditDetail: function(id, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'documentationcategory/view',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "_id": id
+        }
+      }).success(callback);
+    },
+    editDocumentationCategorySubmit: function(formData, callback) {
+      console.log('In service : ', formData);
+      $http({
+        url: adminurl + 'documentationcategory/create',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "_id": formData._id,
+          "description": formData.description,
+          "name": formData.name,
+          "status": formData.status
+        }
+      }).success(callback);
+    },
+    deleteDocumentationCategoryData: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'documentationcategory/delete',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "_id": formData.id,
+
+        }
+      }).success(callback);
+    },
+
+    createBlogSubmit: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'blog/create',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "content": formData.content,
+          "title": formData.title,
+          //“user”:formData.user,
+          "status": formData.status
+        }
+      }).success(callback);
+    },
+    viewAllBlogSubmit: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'blog/viewAll',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "title": formData.title,
+          "status": formData.status,
+        }
+      }).success(callback);
+    },
+    getBlogEditDetail: function(id, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'blog/view',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "_id": id
+        }
+      }).success(callback);
+    },
+    editBlogSubmit: function(formData, callback) {
+      console.log('In service : ', formData);
+      $http({
+        url: adminurl + 'blog/create',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "_id": formData._id,
+          "content": formData.content,
+          "title": formData.title,
+          //“user”:formData.user,
+          "status": formData.status
+        }
+      }).success(callback);
+    },
+    deleteBlogData: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'blog/delete',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "_id": formData.id,
+        }
+      }).success(callback);
+    },
 
     makeactive: function(menuname) {
       for (var i = 0; i < navigation.length; i++) {
