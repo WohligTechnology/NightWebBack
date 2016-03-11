@@ -122,7 +122,61 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
         url: "/edit-templates/:id",
         templateUrl: "views/template.html",
         controller: 'EditTemplatesCtrl'
+      })
+      .state('blog', {
+        url: "/blog",
+        templateUrl: "views/template.html",
+        controller: 'BlogCtrl'
+      })
+
+      .state('create-blog', {
+        url: "/create-blog",
+        templateUrl: "views/template.html",
+        controller: 'CreateBlogCtrl'
+      })
+
+      .state('edit-blog', {
+        url: "/edit-blog",
+        templateUrl: "views/template.html",
+        controller: 'EditBlogCtrl'
+      })
+
+      .state('documentationcategory', {
+        url: "/documentationcategory",
+        templateUrl: "views/template.html",
+        controller: 'DocumentationCategoryCtrl'
+      })
+
+      .state('create-documentationcategory', {
+        url: "/create-documentationcategory",
+        templateUrl: "views/template.html",
+        controller: 'CreateDocumentationCategoryCtrl'
+      })
+
+      .state('edit-documentationcategory', {
+        url: "/edit-documentationcategory",
+        templateUrl: "views/template.html",
+        controller: 'EditDocumentationCategoryCtrl'
+      })
+
+      .state('documentation', {
+        url: "/documentation",
+        templateUrl: "views/template.html",
+        controller: 'DocumentationCtrl'
+      })
+
+      .state('create-documentation', {
+        url: "/create-documentation",
+        templateUrl: "views/template.html",
+        controller: 'CreateDocumentationCtrl'
+      })
+
+      .state('edit-documentation', {
+        url: "/edit-documentation",
+        templateUrl: "views/template.html",
+        controller: 'EditDocumentationCtrl'
       });
+
   $urlRouterProvider.otherwise("/user");
   $locationProvider.html5Mode(isproduction);
 });

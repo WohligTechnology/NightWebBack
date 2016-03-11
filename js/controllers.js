@@ -528,6 +528,144 @@ if(formValid.$valid){
     };
 })
 
+.controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("blog");
+    $scope.menutitle = NavigationService.makeactive("Blog");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+})
+
+.controller('CreateBlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("blogdetail");
+    $scope.menutitle = NavigationService.makeactive("Create Blog");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    $scope.header = {
+        name: 'Create Blog'
+    };
+    $scope.userForm = {};
+    $scope.submitForm = function(formData, formValid) {
+        console.log('user form:', $scope.userForm);
+        if (formValid.$valid) {
+            $scope.formComplete = true;
+            $state.go("blog");
+        }
+    };
+
+})
+
+.controller('EditBlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+  //Used to name the .html file
+  $scope.template = TemplateService.changecontent("blogdetail");
+  $scope.menutitle = NavigationService.makeactive("Edit Blog");
+  TemplateService.title = $scope.menutitle;
+  $scope.navigation = NavigationService.getnav();
+  $scope.header = {
+    name: 'Edit Blog'
+  };
+  $scope.userForm = {};
+  $scope.submitForm = function(formData, formValid) {
+    console.log('user form:', $scope.userForm);
+    if (formValid.$valid) {
+      $scope.formComplete = true;
+      $state.go("blog");
+    }
+  };
+})
+
+.controller('DocumentationCategoryCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  //Used to name the .html file
+  $scope.template = TemplateService.changecontent("documentationcategory");
+  $scope.menutitle = NavigationService.makeactive("Documentation Category");
+  TemplateService.title = $scope.menutitle;
+  $scope.navigation = NavigationService.getnav();
+})
+
+.controller('CreateDocumentationCategoryCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+  //Used to name the .html file
+  $scope.template = TemplateService.changecontent("documentationcategorydetail");
+  $scope.menutitle = NavigationService.makeactive("Create Documentation Category");
+  TemplateService.title = $scope.menutitle;
+  $scope.navigation = NavigationService.getnav();
+  $scope.header = {
+    name: 'Create Documentation Category'
+  };
+  $scope.userForm = {};
+  $scope.submitForm = function(formData, formValid) {
+    console.log('user form:', $scope.userForm);
+    if (formValid.$valid) {
+      $scope.formComplete = true;
+      $state.go("documentationcategory");
+    }
+  };
+})
+
+.controller('EditDocumentationCategoryCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+  //Used to name the .html file
+  $scope.template = TemplateService.changecontent("documentationcategorydetail");
+  $scope.menutitle = NavigationService.makeactive("Edit Documentation Category");
+  TemplateService.title = $scope.menutitle;
+  $scope.navigation = NavigationService.getnav();
+  $scope.header = {
+    name: 'Edit Documentation Category'
+  };
+  $scope.userForm = {};
+  $scope.submitForm = function(formData, formValid) {
+    console.log('user form:', $scope.userForm);
+    if (formValid.$valid) {
+      $scope.formComplete = true;
+      $state.go("documentationcategory");
+    }
+  };
+})
+.controller('DocumentationCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("documentation");
+    $scope.menutitle = NavigationService.makeactive("Documentation");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+})
+
+.controller('CreateDocumentationCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("documentationdetail");
+    $scope.menutitle = NavigationService.makeactive("Create Documentation");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    $scope.header = {
+        name: 'Create Documentation'
+    };
+    $scope.userForm = {};
+    $scope.submitForm = function(formData, formValid) {
+        console.log('user form:', $scope.userForm);
+        if (formValid.$valid) {
+            $scope.formComplete = true;
+            $state.go("documentation");
+        }
+    };
+})
+
+.controller('EditDocumentationCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+  //Used to name the .html file
+  $scope.template = TemplateService.changecontent("documentationdetail");
+  $scope.menutitle = NavigationService.makeactive("Edit Documentation");
+  TemplateService.title = $scope.menutitle;
+  $scope.navigation = NavigationService.getnav();
+  $scope.header = {
+    name: 'Edit Documentation'
+  };
+  $scope.userForm = {};
+  $scope.submitForm = function(formData, formValid) {
+    console.log('user form:', $scope.userForm);
+    if (formValid.$valid) {
+      $scope.formComplete = true;
+      $state.go("documentation");
+    }
+  };
+})
+
 .controller('headerctrl', function($scope, TemplateService) {
     $scope.template = TemplateService;
     // $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {

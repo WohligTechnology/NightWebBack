@@ -48,6 +48,24 @@ var navigationservice = angular.module('navigationservice', [])
     anchor: "templates",
     icon: "newspaper-o",
     subnav: []
+  }, {
+    name: "Blog",
+    classis: "active",
+    anchor: "blog",
+    icon: "newspaper-o",
+    subnav: []
+  }, {
+    name: "Documentation Category",
+    classis: "active",
+    anchor: "documentationcategory",
+    icon: "newspaper-o",
+    subnav: []
+  }, {
+    name: "Documentation",
+    classis: "active",
+    anchor: "documentation",
+    icon: "newspaper-o",
+    subnav: []
   }];
 
 
