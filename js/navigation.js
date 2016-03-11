@@ -206,6 +206,27 @@ var navigationservice = angular.module('navigationservice', [])
 
 
 
+
+    templatesViewAllSubmit: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'template/viewAll',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "description": formData.description,
+          "name": formData.name,
+          "text": formData.text
+        }
+      }).success(callback);
+    },
+
+
+
+
+
+
+
     userViewAllSubmit: function(formData, callback) {
       // console.log('form data: ', formData);
       $http({

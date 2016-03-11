@@ -1,74 +1,76 @@
 <section>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <strong>{{header.name}}</strong>
-    </div>
-    <div class="panel-body">
-      <div class="row">
-        <div class="col-md-8">
-          <form name="user">
-            <div class="form-group">
-              <input name="_id" required ng-model="userForm._id" type="hidden" class="form-control" id="exampleInputName1" placeholder="User Id">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputName2">Name</label>
-              <input name="name" required ng-model="userForm.name" type="text" class="form-control" id="exampleInputName2" placeholder="Enter Name">
-              <div class="error-msg" ng-show="user.name.$error.required && user.name.$touched">Please Enter Your Name.</div>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputName3">Email</label>
-              <input name="email" required ng-model="userForm.email" type="email" class="form-control" id="exampleInputName3" placeholder="Enter Email Address">
-              <div class="error-msg" ng-show="user.email.$error.required && user.email.$touched">Please Enter Your Email id.</div>
-            </div>
-            <label for="exampleInputName4">Login Type</label>
-            <div class="form-group">
-              <span class="ui-select" id="exampleInputName4">
-                  <select ng-model="userForm.logintype" required>
-                    <option></option>
-                    <option value="Facebook">Facebook</option>
-                    <option value="Twitter">Twitter</option>
-                    <option value="Google">Google</option>
-                  </select>
-                  <!-- <div class="error-msg" ng-show="user.loginType.$error.required && user.loginType.$touched">Please Enter Login Type.</div> -->
-                </span>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputName5">Facebook</label>
-              <input name="facebook" ng-model="userForm.facebook" type="text" class="form-control" id="exampleInputName5" placeholder="Facebook Id">
-              <!-- <div class="error-msg" ng-show="user.facebookId.$error.required && user.facebookId.$touched">Please Enter Facebook id.</div> -->
-            </div>
-            <div class="form-group">
-              <label for="exampleInputName6">Twitter</label>
-              <input name="twitter" ng-model="userForm.twitter" type="text" class="form-control" id="exampleInputName6" placeholder="Twitter Id">
-              <!-- <div class="error-msg" ng-show="user.twitterId.$error.required && user.twitterId.$touched">Please Enter Twitter id. -->
-            </div>
-            <div class="form-group">
-              <label for="exampleInputName7">Google</label>
-              <input name="google" ng-model="userForm.google" type="text" class="form-control" id="exampleInputName7" placeholder="Google Id">
-              <!-- <div class="error-msg" ng-show="user.googleId.$error.required && user.googleId.$touched">Please Enter Google id.</div> -->
-            </div>
-            <div class="form-group">
-              <label for="exampleInputName8">Access Level</label>
-              <input name="accesslevel" required ng-model="userForm.accesslevel" type="text" class="form-control" id="exampleInputName8" placeholder="Enter Access Level">
-              <div class="error-msg" ng-show="user.accessLevel.$error.required && user.accessLevel.$touched">Please Enter Access Level.</div>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputName9">Contact</label>
-              <input name="contact" required ng-model="userForm.contact" type="text" class="form-control" id="exampleInputName9" placeholder="Enter Contact number">
-                <div class="error-msg" ng-show="user.contact.$error.required && user.contact.$touched">Please Enter Your Contact no.</div>
-            </div>
-            <div class="upload-img text-center mar30">
-              <button class="btn btn-sm btn-info" ng-click="userSubmitForm(user)">Save</button>
-              <a href="#/user">
-                <button class="btn btn-sm btn-info">Cancel</button>
-              </a>
-            </div>
-          </form>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <strong>{{header.name}}</strong>
         </div>
-        <div class="text-center" ng-show="formComplete">
+        <div class="panel-body">
+            <form name="user">
+                <div class="row">
+                    <div class="col-md-8">
+
+                        <!-- <div class="form-group">
+                            <input name="_id" required ng-model="userForm._id" type="hidden" class="form-control" id="exampleInputName1" placeholder="User Id">
+                        </div> -->
+                        <div class="form-group">
+                            <label for="exampleInputName2">Name</label>
+                            <input name="name" required ng-model="userForm.name" type="text" class="form-control" id="exampleInputName2" placeholder="Enter Name">
+                            <div class="error-msg" ng-show="user.name.$error.required && user.name.$touched">Please Enter Your Name.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputName3">Email</label>
+                            <input name="email" required ng-model="userForm.email" type="email" class="form-control" id="exampleInputName3" placeholder="Enter Email Address">
+                            <div class="error-msg" ng-show="user.email.$error.required && user.email.$touched">Please Enter Your Email id.</div>
+                        </div>
+                        <label for="exampleInputName4">Login Type</label>
+                        <div class="form-group">
+                            <span class="ui-select" id="exampleInputName4">
+                                <select ng-model="userForm.logintype" required>
+                                    <option></option>
+                                    <option value="Facebook">Facebook</option>
+                                    <option value="Twitter">Twitter</option>
+                                    <option value="Google">Google</option>
+                                </select>
+                                <!-- <div class="error-msg" ng-show="user.loginType.$error.required && user.loginType.$touched">Please Enter Login Type.</div> -->
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputName5">Facebook</label>
+                            <input name="facebook" required ng-model="userForm.facebook" type="text" class="form-control" id="exampleInputName5" placeholder="Facebook Id">
+                            <div class="error-msg" ng-show="user.facebookId.$error.required && user.facebookId.$touched">Please Enter Facebook id.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputName6">Twitter</label>
+                            <input name="twitter" required ng-model="userForm.twitter" type="text" class="form-control" id="exampleInputName6" placeholder="Twitter Id">
+                            <div class="error-msg" ng-show="user.twitterId.$error.required && user.twitterId.$touched">Please Enter Twitter id.
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputName7">Google</label>
+                            <input name="google" required ng-model="userForm.google" type="text" class="form-control" id="exampleInputName7" placeholder="Google Id">
+                            <div class="error-msg" ng-show="user.googleId.$error.required && user.googleId.$touched">Please Enter Google id.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputName8">Access Level</label>
+                            <input name="accesslevel" required ng-model="userForm.accesslevel" type="text" class="form-control" id="exampleInputName8" placeholder="Enter Access Level">
+                            <div class="error-msg" ng-show="user.accessLevel.$error.required && user.accessLevel.$touched">Please Enter Access Level.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputName9">Contact</label>
+                            <input name="contact" required ng-model="userForm.contact" type="text" class="form-control" id="exampleInputName9" placeholder="Enter Contact number">
+                            <div class="error-msg" ng-show="user.contact.$error.required && user.contact.$touched">Please Enter Your Contact no.</div>
+                        </div>
+                        <div class="upload-img text-center mar30">
+                            <button class="btn btn-sm btn-info" ng-class="{'disabled' : !user.$valid }"  ng-click="userSubmitForm(user)">Save</button>
+                            <a href="#/user">
+                                <button class="btn btn-sm btn-info">Cancel</button>
+                            </a>
+                        </div>
+
+                    </div>
+                    <!-- <div class="text-center" ng-show="formComplete">
           <h3>Submitted Successfully, Thank You!</h3>
+        </div> -->
+                </div>
+            </form>
         </div>
-      </div>
     </div>
-  </div>
 </section>

@@ -57,18 +57,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         name: 'Create User'
     };
     //console.log($scope.userForm);
+//$scope.formvalid={};
+
     $scope.userSubmitForm = function(formValid) {
+if(formValid.$valid){
+  NavigationService.userCreateSubmit($scope.userForm, function(data) {
+      console.log('userform', $scope.userForm);
         $state.go("user");
-        if (formValid.$valid) {
-            $scope.formComplete = true;
+  });
 
-        }
+}
+};
 
-        NavigationService.userCreateSubmit($scope.userForm, function(data) {
-            console.log('userform', $scope.userForm);
-        });
-
-    };
 
 })
 
@@ -228,14 +228,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
 
         $scope.userPlanSubmitForm = function(formValid) {
-            $state.go("userplan");
+
             //console.log($scope.userForm);
             if (formValid.$valid) {
-                $scope.formComplete = true;
+              NavigationService.userPlanCreateSubmit($scope.userForm, function(data) {
+                  console.log('userplanform', $scope.userForm);
+              });
+              $state.go("userplan");
+
             }
-            NavigationService.userPlanCreateSubmit($scope.userForm, function(data) {
-                console.log('userplanform', $scope.userForm);
-            });
 
         };
     })
@@ -337,12 +338,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         name: 'Create Plan'
     };
     $scope.submitForm = function(formValid) {
-        $state.go("plan");
         console.log('user form:', $scope.userForm);
         if (formValid.$valid) {
           NavigationService.createPlanSubmit($scope.userForm, function(data) {
               console.log('userform', $scope.userForm);
           });
+            $state.go("plan");
         }
     };
 
@@ -423,14 +424,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         name: 'Create Suggestion'
     };
     $scope.suggestionSubmitForm = function(formValid) {
-        $state.go("suggestion");
+
         console.log('user form:', $scope.userForm);
         if (formValid.$valid) {
-            $scope.formComplete = true;
+          NavigationService.createSuggestionSubmit($scope.userForm, function(data) {
+              console.log('suggestform', $scope.userForm);
+              $state.go("suggestion");
+          });
         }
-        NavigationService.createSuggestionSubmit($scope.userForm, function(data) {
-            console.log('suggestform', $scope.userForm);
-        });
+
     };
 })
 
@@ -472,6 +474,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Templates");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+
+    $scope.userForm = {};
+    $scope.allTemplatesRecords = function() {
+        NavigationService.templatesViewAllSubmit($scope.userForm, function(data) {
+            $scope.templatesdata = data.data;
+            console.log('templates data', data.data);
+        });
+    };
+
+    NavigationService.templatesViewAllSubmit($scope.userForm, function(data) {
+        $scope.templatesdata = data.data;
+        console.log('templates data', data.data);
+    });
 })
 
 .controller('CreateTemplatesCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {

@@ -55,15 +55,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
+          <tr ng-repeat="data in templatesdata">
+            <td>{{data._id}}</td>
             <td>
               <span>
-                Raj Shah
+                {{data.name}}
               </span>
             </td>
             <td>
-              <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum necessitatibus assumenda, recusandae facere a autem tenetur dolore non fugiat sed asperiores deserunt doloribus blanditiis dignissimos excepturi pariatur ipsum corrupti nisi.</span>
+              <span>{{data.description}}</span>
             </td>
             <td>
               <span>
@@ -72,7 +72,7 @@
             </span>
             </td>
           </tr>
-          <tr>
+          <!-- <tr>
             <td>2</td>
             <td>
               <span>
@@ -88,7 +88,7 @@
               <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
             </span>
             </td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
       <footer class="table-footer">

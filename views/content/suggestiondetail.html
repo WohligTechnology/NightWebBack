@@ -1,66 +1,70 @@
 <section>
-        <div class="panel panel-default">
-          <div class="panel-heading">
+    <div class="panel panel-default">
+        <div class="panel-heading">
             <strong>{{header.name}}</strong>
-          </div>
-        <div class="panel-body">
-        <div class="row">
-          <div class="col-md-8">
-              <form name="suggestUser">
-                <div class="form-group">
-                  <!-- <label for="exampleInputName1">Id</label> -->
-                  <input name="_id" ng-model="userForm._id" required type="hidden" class="form-control" id="exampleInputName1" placeholder="User Id">
-                </div>
-                <label for="exampleInputName2">User</label>
-                <div class="form-group">
-                  <span class="ui-select" id="exampleInputName2">
-                      <select ng-model="userForm.user" required>
-                        <option></option>
-                        <option value="Facebook">Facebook</option>
-                        <option value="Twitter">Twitter</option>
-                        <option value="Google">Google</option>
-                      </select>
-                      <!-- <div class="error-msg" ng-show="user.loginType.$error.required && user.loginType.$touched">Please Enter Login Type.</div> -->
-                    </span>
-                </div>
-
-                <div class="form-group">
-                  <label for="exampleInputName3">Name</label>
-                  <input name="name" required ng-model="userForm.name"  type="text" class="form-control" id="exampleInputName3" placeholder="Enter Name">
-                  <div class="error-msg" ng-show="suggestUser.name.$error.required && suggestUser.name.$touched">Please Enter Your Name.
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputName4">Email</label>
-                  <input name="email" required ng-model="userForm.email" type="email" class="form-control" id="exampleInputName4" placeholder="Enter Email Address">
-                  <div class="error-msg" ng-show="suggestUser.email.$error.required && suggestUser.email.$touched">Please Enter Email id.
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputName5">Contact</label>
-                  <input name="contact" required ng-model="userForm.contact" type="text" class="form-control" id="exampleInputName5" placeholder="Enter Contact number">
-                  <div class="error-msg" ng-show="suggestUser.contact.$error.required && user.contact.$touched">Please Enter Contact.
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputName6">Subject</label>
-                  <input name="subject" required ng-model="userForm.subject" type="text" class="form-control" id="exampleInputName6" placeholder="Enter Subject">
-                  <div class="error-msg" ng-show="suggestUser.subject.$error.required && suggestUser.subject.$touched">Please Enter Subject.
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputName7">Query</label>
-                  <textarea name="query" required ng-model="userForm.query" id="exampleInputName7" class="form-control"></textarea>
-                  <div class="error-msg" ng-show="suggestUser.query.$error.required && user.query.$touched">Please Enter Query.
-                  </div>
-                </div>
-                <div class="upload-img text-center mar30">
-                  <button class="btn btn-sm btn-info" ng-click="suggestionSubmitForm(suggestUser)">Save</button>
-                <a href="#/suggestion">  <button class="btn btn-sm btn-info">Cancel</button></a>
-                </div>
-              </form>
-          </div>
         </div>
-      </div>
-      </div>
+        <div class="panel-body">
+            <form name="suggestUser">
+                <div class="row">
+                    <div class="col-md-8">
+
+                        <!-- <div class="form-group">
+                            <label for="exampleInputName1">Id</label>
+                            <input name="_id" ng-model="userForm._id" required type="hidden" class="form-control" id="exampleInputName1" placeholder="User Id">
+                        </div> -->
+                        <label for="exampleInputName2">User</label>
+                        <div class="form-group">
+                            <span class="ui-select" id="exampleInputName2">
+                                <select ng-model="userForm.user" >
+                                    <option></option>
+                                    <option value="Facebook">Facebook</option>
+                                    <option value="Twitter">Twitter</option>
+                                    <option value="Google">Google</option>
+                                </select>
+                                <!-- <div class="error-msg" ng-show="user.loginType.$error.required && user.loginType.$touched">Please Enter Login Type.</div> -->
+                            </span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputName3">Name</label>
+                            <input name="name" required ng-model="userForm.name" type="text" class="form-control" id="exampleInputName3" placeholder="Enter Name">
+                            <div class="error-msg" ng-show="suggestUser.name.$error.required && suggestUser.name.$touched">Please Enter Your Name.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputName4">Email</label>
+                            <input name="email" required ng-model="userForm.email" type="email" class="form-control" id="exampleInputName4" placeholder="Enter Email Address">
+                            <div class="error-msg" ng-show="suggestUser.email.$error.required && suggestUser.email.$touched">Please Enter Email id.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputName5">Contact</label>
+                            <input name="contact" required ng-model="userForm.contact" type="text" class="form-control" id="exampleInputName5" placeholder="Enter Contact number">
+                            <div class="error-msg" ng-show="suggestUser.contact.$error.required && user.contact.$touched">Please Enter Contact.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputName6">Subject</label>
+                            <input name="subject" required ng-model="userForm.subject" type="text" class="form-control" id="exampleInputName6" placeholder="Enter Subject">
+                            <div class="error-msg" ng-show="suggestUser.subject.$error.required && suggestUser.subject.$touched">Please Enter Subject.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputName7">Query</label>
+                            <textarea name="query" required ng-model="userForm.query" id="exampleInputName7" class="form-control"></textarea>
+                            <div class="error-msg" ng-show="suggestUser.query.$error.required && user.query.$touched">Please Enter Query.
+                            </div>
+                        </div>
+                        <div class="upload-img text-center mar30">
+                            <button class="btn btn-sm btn-info" ng-class="{'disabled' : !user.$valid }" ng-click="suggestionSubmitForm(suggestUser)" >Save</button>
+                            <a href="#/suggestion">
+                                <button class="btn btn-sm btn-info">Cancel</button>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </section>

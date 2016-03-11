@@ -119,7 +119,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
       })
 
       .state('edit-templates', {
-        url: "/edit-templates",
+        url: "/edit-templates/:id",
         templateUrl: "views/template.html",
         controller: 'EditTemplatesCtrl'
       });
