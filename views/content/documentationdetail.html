@@ -1,0 +1,56 @@
+<section>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <strong>{{header.name}}</strong>
+          </div>
+        <div class="panel-body">
+        <div class="row">
+          <div class="col-md-8">
+              <form name="doc">
+                <div class="form-group">
+                  <!-- <label for="exampleInputName1">Id</label> -->
+                  <input name="_id" ng-model="userForm._id" required type="hidden" class="form-control" id="exampleInputName1" placeholder="User Id">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputName2">Title</label>
+                  <input name="title" required ng-model="userForm.title"  type="text" class="form-control" id="exampleInputName2" placeholder="Enter Title">
+                  <div class="error-msg" ng-show="doc.title.$error.required && doc.title.$touched">Please Enter Title.
+                  </div>
+                </div>
+                <label for="exampleInputName4">Documentation Category</label>
+                <div class="form-group">
+                  <span class="ui-select" id="exampleInputName4">
+                      <select ng-model="userForm.documentationcategory" required>
+                        <option></option>
+                        <option value="First Preview Of Android">First Preview Of Android</option>
+                        <option value="Second Preview Of Android">Second Preview Of Android</option>
+                        <option value="Third Preview Of Android">Third Preview Of Android</option>
+                      </select>
+                      <!-- <div class="error-msg" ng-show="user.loginType.$error.required && user.loginType.$touched">Please Enter Login Type.</div> -->
+                    </span>
+                  </div>
+                <div class="form-group">
+                  <label for="exampleInputName4">Content</label>
+                  <textarea name="content" required ng-model="userForm.content" id="exampleInputName4" class="form-control"></textarea>
+                  <div class="error-msg" ng-show="doc.content.$error.required && doc.content.$touched">Please Enter Content.
+                  </div>
+                </div>
+                <label for="exampleInputName5">Status</label>
+                <div class="form-group">
+                  <div class="ui-select" id="exampleInputName5">
+                    <select ng-model="userForm.status" required>
+                      <option></option>
+                      <option value="Enable">Enable</option>
+                      <option value="Disable">Disable</option>
+                    </select>
+                  </div>
+                <div class="upload-img text-center mar30">
+                  <button class="btn btn-sm btn-info" ng-click="documentationSubmitForm(doc)">Save</button>
+                <a href="#/documentation">   <button class="btn btn-sm btn-info">Cancel</button></a>
+                </div>
+              </form>
+          </div>
+        </div>
+      </div>
+      </div>
+</section>
