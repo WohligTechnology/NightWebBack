@@ -33,7 +33,16 @@
             </span>
           </div></th>
           <th><div class="th">
-            Status
+            Name
+            <span class="fa fa-angle-up" data-ng-click=" order('name') "
+            data-ng-class="{active: row == 'name'}">
+            </span>
+            <span class="fa fa-angle-down" data-ng-click=" order('-name') "
+              data-ng-class="{active: row == '-name'}">
+            </span>
+          </div></th>
+          <th><div class="th">
+            Description
             <span class="fa fa-angle-up">
             </span>
             <span class="fa fa-angle-down">
@@ -45,10 +54,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <!-- <tr>
           <td>1</td>
           <td>
-            <span>Enable</span>
+            <span>
+                Raj Dand
+              </span>
+          </td>
+          <td>
+            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa facere incidunt, at sequi minima inventore! Nihil illo dicta iure laborum.</span>
           </td>
           <td>
             <span>
@@ -56,11 +70,14 @@
             <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
           </span>
           </td>
-        </tr>
-        <!-- <tr ng-repeat="data in sugestdata">
+        </tr> -->
+        <tr ng-repeat="data in documentationcategorydata">
           <td>{{data._id}}</td>
           <td>
-            <span>{{data.status}}</span>
+            <span>{{data.name}}</span>
+          </td>
+          <td>
+            <span>{{data.description}}</span>
           </td>
           <td>
             <span>
@@ -68,11 +85,16 @@
             <button class="btn btn-sm btn-danger" ng-click="deletedocumentationcategory(data._id)"><i class="fa fa-trash"></i></button>
           </span>
           </td>
-        </tr> -->
-        <tr>
+        </tr>
+        <!-- <tr>
           <td>2</td>
           <td>
-            <span>Disable</span>
+            <span>
+                Raj Dand
+              </span>
+          </td>
+          <td>
+            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa facere incidunt, at sequi minima inventore! Nihil illo dicta iure laborum.</span>
           </td>
           <td>
             <span>
@@ -80,7 +102,7 @@
             <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
           </span>
           </td>
-        </tr>
+        </tr> -->
       </tbody>
     </table>
     <footer class="table-footer">

@@ -6,7 +6,7 @@
         <div class="panel-body">
         <div class="row">
           <div class="col-md-8">
-              <form name="user">
+              <form name="notify">
                 <div class="form-group">
                   <!-- <label for="exampleInputName1">Id</label> -->
                   <input name="_id" ng-model="userForm._id" type="hidden" class="form-control" id="exampleInputName1" placeholder="User Id" readonly="">
@@ -29,7 +29,7 @@
                         <option value="Google2">Google2</option>
                       </select>
                     <!-- </span> -->
-                    <!-- <div class="error-msg" ng-show="user.users.$error.required && user.users.$touched">Please select multiple user.
+                    <!-- <div class="error-msg" ng-show="notify.users.$error.required && notify.users.$touched">Please select multiple notify.
                     </div> -->
                 </div>
                 <!-- <div class="form-group">
@@ -39,25 +39,25 @@
                 <div class="form-group">
                   <label for="exampleInputName3">Start Time</label>
                   <input name="startTime" ng-model="userForm.startTime" type="text" class="form-control" id="exampleInputName3" placeholder="Start Time">
-                  <div class="error-msg" ng-show="user.startTime.$error.required && user.startTime.$touched">Please Enter Your Start Time.
+                  <div class="error-msg" ng-show="notify.startTime.$error.required && notify.startTime.$touched">Please Enter Your Start Time.
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputName4">End Time</label>
                   <input name="endTime" ng-model="userForm.endTime" type="text" class="form-control" id="exampleInputName4" placeholder="End Time">
-                  <div class="error-msg" ng-show="user.endTime.$error.required && user.endTime.$touched">Please Enter End Time.
+                  <div class="error-msg" ng-show="notify.endTime.$error.required && notify.endTime.$touched">Please Enter End Time.
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputName5">Creation Time</label>
                   <input name="creationTime" ng-model="userForm.creationTime" type="text" class="form-control" id="exampleInputName5" placeholder="Creation Time">
-                  <div class="error-msg" ng-show="user.creationTime.$error.required && user.creationTime.$touched">Please Enter Creation Time.
+                  <div class="error-msg" ng-show="notify.creationTime.$error.required && notify.creationTime.$touched">Please Enter Creation Time.
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputName6">Modification Time</label>
                   <input name="modificationTime" ng-model="userForm.modificationTime" type="text" class="form-control" id="exampleInputName6" placeholder="Modification Time">
-                  <div class="error-msg" ng-show="user.modificationTime.$error.required && user.modificationTime.$touched">Please Enter Modification Time.
+                  <div class="error-msg" ng-show="notify.modificationTime.$error.required && notify.modificationTime.$touched">Please Enter Modification Time.
                   </div>
                 </div>
                 <label for="exampleInputName7">Status</label>
@@ -70,12 +70,12 @@
                     </select>
                   </div>
                   <!-- <input name="status" ng-model="userForm.status" required type="text" class="form-control" id="exampleInputName7" placeholder="Enter Status "> -->
-                  <div class="error-msg" ng-show="user.status.$error.required && user.status.$touched">Please Enter Status.
+                  <div class="error-msg" ng-show="notify.status.$error.required && notify.status.$touched">Please Enter Status.
                   </div>
                 </div>
                 <div class="upload-img text-center mar30">
-                  <button class="btn btn-sm btn-info" ng-click="userNotificationSubmitForm(user)">Save</button>
-                <a href="#/usernotification">  <button class="btn btn-sm btn-info">Cancel</button></a>
+                  <button class="btn btn-sm btn-info" ng-class="{'disabled' : !notify.$valid }" ng-click="userNotificationSubmitForm(notify)">Save</button>
+                <a ui-sref="usernotification()">  <button class="btn btn-sm btn-info">Cancel</button></a>
                 </div>
               </form>
           </div>
