@@ -9,7 +9,7 @@
               <form name="docs">
                 <div class="form-group">
                   <!-- <label for="exampleInputName1">Id</label> -->
-                  <input name="_id" ng-model="userForm._id" required type="hidden" class="form-control" id="exampleInputName1" placeholder="User Id">
+                  <input name="_id" ng-model="userForm._id" type="hidden" class="form-control" id="exampleInputName1" placeholder="User Id">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputName2">Name</label>
@@ -33,8 +33,8 @@
                     </div>
                   </div>
                 <div class="upload-img text-center mar30">
-                  <button class="btn btn-sm btn-info" ng-click="documentationcategorySubmitForm(docs)">Save</button>
-                <a href="#/documentationcategory">   <button class="btn btn-sm btn-info">Cancel</button></a>
+                  <button class="btn btn-sm btn-info" ng-class="{'disabled' : !docs.$valid }" ng-click="documentationcategorySubmitForm(docs)">Save</button>
+                <a ui-sref="documentationcategory()">   <button class="btn btn-sm btn-info">Cancel</button></a>
                 </div>
               </form>
           </div>

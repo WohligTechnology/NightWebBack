@@ -4,7 +4,7 @@
             <strong>{{header.name}}</strong>
         </div>
         <div class="panel-body">
-            <form name="user">
+            <form name="uplan">
                 <div class="row">
                     <div class="col-md-8">
 
@@ -15,13 +15,13 @@
                         <label for="exampleInputName2">User</label>
                         <div class="form-group">
                           <span class="ui-select" id="exampleInputName2">
-                              <select ng-model="userForm.user" required>
+                              <select ng-model="userForm.uplan" required>
                                 <option></option>
                                 <option value="Facebook">Facebook</option>
                                 <option value="Twitter">Twitter</option>
                                 <option value="Google">Google</option>
                               </select>
-                              <!-- <div class="error-msg" ng-show="user.loginType.$error.required && user.loginType.$touched">Please Enter Login Type.</div> -->
+                              <!-- <div class="error-msg" ng-show="uplan.loginType.$error.required && uplan.loginType.$touched">Please Enter Login Type.</div> -->
                             </span>
                         </div>
                         <label for="exampleInputName3">Plan</label>
@@ -34,60 +34,60 @@
                                     <option value="Dinner">Dinner</option>
                                 </select>
                             </span>
-                            <div class="error-msg" ng-show="user.plan.$error.required && user.plan.$touched">Please Select Your Plan.
+                            <div class="error-msg" ng-show="uplan.plan.$error.required && uplan.plan.$touched">Please Select Your Plan.
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputName4">Start Time</label>
                             <input name="starttime" required ng-model="userForm.starttime" type="date" class="form-control" id="exampleInputName4" placeholder="Start Time">
-                            <div class="error-msg" ng-show="user.startTime.$error.required && user.startTime.$touched">Please Enter Start Time.
+                            <div class="error-msg" ng-show="uplan.startTime.$error.required && uplan.startTime.$touched">Please Enter Start Time.
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputName5">End Time</label>
                             <input name="endtime" required ng-model="userForm.endtime" type="date" class="form-control" id="exampleInputName5" placeholder="End Time">
-                            <div class="error-msg" ng-show="user.endTime.$error.required && user.endTime.$touched">Please Enter End Time.
+                            <div class="error-msg" ng-show="uplan.endTime.$error.required && uplan.endTime.$touched">Please Enter End Time.
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputName6">Timestamp</label>
                             <input name="timeStamp"  ng-model="userForm.timeStamp" type="text" class="form-control" id="exampleInputName6" placeholder="Timestamp" readonly>
-                            <!-- <div class="error-msg" ng-show="user.timeStamp.$error.required && user.timeStamp.$touched">Please Enter Timestamp.
+                            <!-- <div class="error-msg" ng-show="uplan.timeStamp.$error.required && uplan.timeStamp.$touched">Please Enter Timestamp.
                   </div> -->
                         </div>
                         <div class="form-group">
                             <label for="exampleInputName7">URL</label>
                             <input name="url" required ng-model="userForm.url" type="url" class="form-control" id="exampleInputName7" placeholder="Enter URL">
-                            <div class="error-msg" ng-show="user.url.$error.required && user.url.$touched">Please Enter Url.
+                            <div class="error-msg" ng-show="uplan.url.$error.required && uplan.url.$touched">Please Enter Url.
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputName8">Android</label>
                             <input name="android" required ng-model="userForm.android" type="text" class="form-control" id="exampleInputName8" placeholder="Enter Android Version">
-                            <div class="error-msg" ng-show="user.android.$error.required && user.android.$touched">Please Enter Android Version.
+                            <div class="error-msg" ng-show="uplan.android.$error.required && uplan.android.$touched">Please Enter Android Version.
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputName9">IOS</label>
                             <input name="ios" required ng-model="userForm.ios" type="text" class="form-control" id="exampleInputName9" placeholder="Enter IOS number">
-                            <div class="error-msg" ng-show="user.ios.$error.required && user.ios.$touched">Please Enter IOS.
+                            <div class="error-msg" ng-show="uplan.ios.$error.required && uplan.ios.$touched">Please Enter IOS.
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputName0">Server Detail</label>
                             <input name="serverdetail" required ng-model="userForm.serverdetail" type="text" class="form-control" id="exampleInputName0" placeholder="Enter Server Detail">
-                            <div class="error-msg" ng-show="user.serverdetail.$error.required && user.serverdetail.$touched">Please Enter Server Detail.
+                            <div class="error-msg" ng-show="uplan.serverdetail.$error.required && uplan.serverdetail.$touched">Please Enter Server Detail.
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputName10">Folder Name</label>
                             <input name="foldername" required ng-model="userForm.foldername" type="text" class="form-control" id="exampleInputName10" placeholder="Enter Folder Name">
-                            <div class="error-msg" ng-show="user.foldername.$error.required && user.foldername.$touched">Please Enter Folder Name.
+                            <div class="error-msg" ng-show="uplan.foldername.$error.required && uplan.foldername.$touched">Please Enter Folder Name.
                             </div>
                         </div>
                         <div class="upload-img text-center mar30">
-                            <button class="btn btn-sm btn-info" ng-class="{'disabled' : !user.$valid }" ng-click="userPlanSubmitForm(user)">Save</button>
-                            <a href="#/userplan">
+                            <button class="btn btn-sm btn-info" ng-class="{'disabled' : !uplan.$valid }" ng-click="userPlanSubmitForm(uplan)">Save</button>
+                            <a ui-sref="userplan()">
                                 <button class="btn btn-sm btn-info">Cancel</button>
                             </a>
                         </div>
