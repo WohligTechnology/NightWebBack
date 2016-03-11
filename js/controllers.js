@@ -1,4 +1,5 @@
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ui.tinymce','ui.select2' ])
+window.uploadurl = "http://192.168.0.126/uploadfile/upload/";
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ui.tinymce', 'ui.select2', 'angularFileUpload'])
     // 'tableSort'
     .controller('LoginCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
@@ -57,17 +58,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         name: 'Create User'
     };
     //console.log($scope.userForm);
-//$scope.formvalid={};
+    //$scope.formvalid={};
 
     $scope.userSubmitForm = function(formValid) {
-if(formValid.$valid){
-  NavigationService.userCreateSubmit($scope.userForm, function(data) {
-      console.log('userform', $scope.userForm);
-        $state.go("user");
-  });
+        if (formValid.$valid) {
+            NavigationService.userCreateSubmit($scope.userForm, function(data) {
+                console.log('userform', $scope.userForm);
+                $state.go("user");
+            });
 
-}
-};
+        }
+    };
 
 
 })
@@ -231,10 +232,10 @@ if(formValid.$valid){
 
             //console.log($scope.userForm);
             if (formValid.$valid) {
-              NavigationService.userPlanCreateSubmit($scope.userForm, function(data) {
-                  console.log('userplanform', $scope.userForm);
-              });
-              $state.go("userplan");
+                NavigationService.userPlanCreateSubmit($scope.userForm, function(data) {
+                    console.log('userplanform', $scope.userForm);
+                });
+                $state.go("userplan");
 
             }
 
@@ -340,9 +341,9 @@ if(formValid.$valid){
     $scope.submitForm = function(formValid) {
         console.log('user form:', $scope.userForm);
         if (formValid.$valid) {
-          NavigationService.createPlanSubmit($scope.userForm, function(data) {
-              console.log('userform', $scope.userForm);
-          });
+            NavigationService.createPlanSubmit($scope.userForm, function(data) {
+                console.log('userform', $scope.userForm);
+            });
             $state.go("plan");
         }
     };
@@ -427,10 +428,10 @@ if(formValid.$valid){
 
         console.log('user form:', $scope.userForm);
         if (formValid.$valid) {
-          NavigationService.createSuggestionSubmit($scope.userForm, function(data) {
-              console.log('suggestform', $scope.userForm);
-              $state.go("suggestion");
-          });
+            NavigationService.createSuggestionSubmit($scope.userForm, function(data) {
+                console.log('suggestform', $scope.userForm);
+                $state.go("suggestion");
+            });
         }
 
     };
@@ -487,6 +488,22 @@ if(formValid.$valid){
         $scope.templatesdata = data.data;
         console.log('templates data', data.data);
     });
+
+    $scope.deleteTemplates = function(formValid) {
+        console.log('formvalid', formValid);
+        NavigationService.deleteTemplatesData({
+            id: formValid
+        }, function(data) {
+            console.log('delete data:', data);
+            if (data.value === true) {
+
+                $scope.allTemplatesRecords();
+            }
+
+        });
+    };
+
+
 })
 
 .controller('CreateTemplatesCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
@@ -499,17 +516,21 @@ if(formValid.$valid){
         name: 'Create Templates'
     };
     $scope.userForm = {};
-    $scope.submitForm = function(formData, formValid) {
+    $scope.userForm.images=[];
+    $scope.templatesSubmitForm = function(formValid) {
         console.log('user form:', $scope.userForm);
-        if (formValid.$valid) {
-            $scope.formComplete = true;
+        //  if (formValid.$valid) {
+        NavigationService.templatesCreateSubmit($scope.userForm, function(data) {
+            console.log('suggestform', $scope.userForm);
             $state.go("templates");
-        }
+        });
+
+        //}
     };
 
 })
 
-.controller('EditTemplatesCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+.controller('EditTemplatesCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("templatesdetail");
     $scope.menutitle = NavigationService.makeactive("Edit Templates");
@@ -519,13 +540,20 @@ if(formValid.$valid){
         name: 'Edit Templates'
     };
     $scope.userForm = {};
-    $scope.submitForm = function(formData, formValid) {
+    NavigationService.getTemplatesEditDetail($stateParams.id, function(data) {
+        console.log('on suggest plan');
+        console.log('getSuggestionDetail', data);
+        $scope.userForm = data.data;
+    });
+    $scope.templatesSubmitForm = function(formData, formValid) {
         console.log('user form:', $scope.userForm);
         if (formValid.$valid) {
-            $scope.formComplete = true;
+          NavigationService.editTemplatesSubmit($scope.userForm, function(data) {
+              console.log('response:', data);
             $state.go("templates");
-        }
-    };
+        });
+    }
+};
 })
 
 .controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -557,76 +585,76 @@ if(formValid.$valid){
 })
 
 .controller('EditBlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
-  //Used to name the .html file
-  $scope.template = TemplateService.changecontent("blogdetail");
-  $scope.menutitle = NavigationService.makeactive("Edit Blog");
-  TemplateService.title = $scope.menutitle;
-  $scope.navigation = NavigationService.getnav();
-  $scope.header = {
-    name: 'Edit Blog'
-  };
-  $scope.userForm = {};
-  $scope.submitForm = function(formData, formValid) {
-    console.log('user form:', $scope.userForm);
-    if (formValid.$valid) {
-      $scope.formComplete = true;
-      $state.go("blog");
-    }
-  };
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("blogdetail");
+    $scope.menutitle = NavigationService.makeactive("Edit Blog");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    $scope.header = {
+        name: 'Edit Blog'
+    };
+    $scope.userForm = {};
+    $scope.submitForm = function(formData, formValid) {
+        console.log('user form:', $scope.userForm);
+        if (formValid.$valid) {
+            $scope.formComplete = true;
+            $state.go("blog");
+        }
+    };
 })
 
 .controller('DocumentationCategoryCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-  //Used to name the .html file
-  $scope.template = TemplateService.changecontent("documentationcategory");
-  $scope.menutitle = NavigationService.makeactive("Documentation Category");
-  TemplateService.title = $scope.menutitle;
-  $scope.navigation = NavigationService.getnav();
-})
-
-.controller('CreateDocumentationCategoryCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
-  //Used to name the .html file
-  $scope.template = TemplateService.changecontent("documentationcategorydetail");
-  $scope.menutitle = NavigationService.makeactive("Create Documentation Category");
-  TemplateService.title = $scope.menutitle;
-  $scope.navigation = NavigationService.getnav();
-  $scope.header = {
-    name: 'Create Documentation Category'
-  };
-  $scope.userForm = {};
-  $scope.submitForm = function(formData, formValid) {
-    console.log('user form:', $scope.userForm);
-    if (formValid.$valid) {
-      $scope.formComplete = true;
-      $state.go("documentationcategory");
-    }
-  };
-})
-
-.controller('EditDocumentationCategoryCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
-  //Used to name the .html file
-  $scope.template = TemplateService.changecontent("documentationcategorydetail");
-  $scope.menutitle = NavigationService.makeactive("Edit Documentation Category");
-  TemplateService.title = $scope.menutitle;
-  $scope.navigation = NavigationService.getnav();
-  $scope.header = {
-    name: 'Edit Documentation Category'
-  };
-  $scope.userForm = {};
-  $scope.submitForm = function(formData, formValid) {
-    console.log('user form:', $scope.userForm);
-    if (formValid.$valid) {
-      $scope.formComplete = true;
-      $state.go("documentationcategory");
-    }
-  };
-})
-.controller('DocumentationCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
-    $scope.template = TemplateService.changecontent("documentation");
-    $scope.menutitle = NavigationService.makeactive("Documentation");
+    $scope.template = TemplateService.changecontent("documentationcategory");
+    $scope.menutitle = NavigationService.makeactive("Documentation Category");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 })
+
+.controller('CreateDocumentationCategoryCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("documentationcategorydetail");
+    $scope.menutitle = NavigationService.makeactive("Create Documentation Category");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    $scope.header = {
+        name: 'Create Documentation Category'
+    };
+    $scope.userForm = {};
+    $scope.submitForm = function(formData, formValid) {
+        console.log('user form:', $scope.userForm);
+        if (formValid.$valid) {
+            $scope.formComplete = true;
+            $state.go("documentationcategory");
+        }
+    };
+})
+
+.controller('EditDocumentationCategoryCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("documentationcategorydetail");
+        $scope.menutitle = NavigationService.makeactive("Edit Documentation Category");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        $scope.header = {
+            name: 'Edit Documentation Category'
+        };
+        $scope.userForm = {};
+        $scope.submitForm = function(formData, formValid) {
+            console.log('user form:', $scope.userForm);
+            if (formValid.$valid) {
+                $scope.formComplete = true;
+                $state.go("documentationcategory");
+            }
+        };
+    })
+    .controller('DocumentationCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("documentation");
+        $scope.menutitle = NavigationService.makeactive("Documentation");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+    })
 
 .controller('CreateDocumentationCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
     //Used to name the .html file
@@ -648,23 +676,157 @@ if(formValid.$valid){
 })
 
 .controller('EditDocumentationCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
-  //Used to name the .html file
-  $scope.template = TemplateService.changecontent("documentationdetail");
-  $scope.menutitle = NavigationService.makeactive("Edit Documentation");
-  TemplateService.title = $scope.menutitle;
-  $scope.navigation = NavigationService.getnav();
-  $scope.header = {
-    name: 'Edit Documentation'
-  };
-  $scope.userForm = {};
-  $scope.submitForm = function(formData, formValid) {
-    console.log('user form:', $scope.userForm);
-    if (formValid.$valid) {
-      $scope.formComplete = true;
-      $state.go("documentation");
-    }
-  };
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("documentationdetail");
+    $scope.menutitle = NavigationService.makeactive("Edit Documentation");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    $scope.header = {
+        name: 'Edit Documentation'
+    };
+    $scope.userForm = {};
+    $scope.submitForm = function(formData, formValid) {
+        console.log('user form:', $scope.userForm);
+        if (formValid.$valid) {
+            $scope.formComplete = true;
+            $state.go("documentation");
+        }
+    };
 })
+
+
+.controller('UploadCtrl', function($scope, $upload, $timeout) {
+
+    var uploadres = [];
+    //
+    $scope.usingFlash = FileAPI && FileAPI.upload !== null;
+    $scope.fileReaderSupported = window.FileReader !== null && (window.FileAPI === null || FileAPI.html5 !== false);
+    $scope.uploadRightAway = true;
+    $scope.changeAngularVersion = function() {
+        window.location.hash = $scope.angularVersion;
+        window.location.reload(true);
+    };
+
+    $scope.hasUploader = function(index) {
+        return $scope.upload[index] !== null;
+    };
+
+    $scope.abort = function(index) {
+        $scope.upload[index].abort();
+        $scope.upload[index] = null;
+    };
+    $scope.angularVersion = window.location.hash.length > 1 ? (window.location.hash.indexOf('/') === 1 ?
+        window.location.hash.substring(2) : window.location.hash.substring(1)) : '1.2.20';
+    // $scope.uploader.onSuccess(function () {
+    //   console.log('successfully uploaded!')
+    // });
+
+    $scope.onFileSelect = function($files,whichone) {
+        $scope.isloading = true;
+        $scope.selectedFiles = [];
+        $scope.progress = [];
+
+        console.log($files);
+
+        if ($scope.upload && $scope.upload.length > 0) {
+            for (var i = 0; i < $scope.upload.length; i++) {
+                if ($scope.upload[i] !== null) {
+                    $scope.upload[i].abort();
+                }
+            }
+        }
+
+        $scope.upload = [];
+        $scope.uploadResult = uploadres;
+        $scope.selectedFiles = $files;
+        $scope.dataUrls = [];
+
+        for (var i = 0; i < $files.length; i++) {
+            var $file = $files[i];
+            console.log('$files', $files);
+            if ($scope.fileReaderSupported && ($file.type.indexOf('image') || $file.type.indexOf('pdf')) > -1) {
+                var fileReader = new FileReader();
+                fileReader.readAsDataURL($files[i]);
+
+                var loadFile = function(fileReader, index) {
+
+                    fileReader.onload = function(e) {
+                        $timeout(function() {
+                            $scope.dataUrls[index] = e.target.result;
+                        });
+                    };
+                }(fileReader, i);
+            }
+            $scope.progress[i] = -1;
+            if ($scope.uploadRightAway) {
+                $scope.start(i,whichone);
+            }
+        }
+    };
+
+    $scope.start = function(index,whichone) {
+        // cfpLoadingBar.start();
+        $scope.progress[index] = 0;
+        $scope.errorMsg = null;
+        $scope.howToSend = 1;
+        if ($scope.howToSend == 1) {
+            $scope.upload[index] = $upload.upload({
+                url: uploadurl,
+                method: "POST",
+                headers: {
+                    'Content-Type': 'Content-Type'
+                },
+                data: {
+                    myModel: $scope.myModel
+                },
+                file: $scope.selectedFiles[index],
+                fileFormDataName: 'file'
+            });
+            $scope.upload[index].then(function(response) {
+                    $timeout(function() {
+                        // cfpLoadingBar.complete();
+                        $scope.uploadResult.push(response.data);
+                        console.log(response);
+                        if (response.data.files[0].fd !== "") {
+                            $scope.isloading = false;
+                            if (whichone == 1) {
+                                $scope.userForm.image = response.data.files[0].fd;
+                            } else {
+                                $scope.userForm.images.push(response.data.files[0].fd);
+                            }
+                        }
+                        console.log('response.data', response.data);
+                    });
+                },
+                function(response) {
+                    if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
+                },
+                function(evt) {
+                    $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+                });
+            $scope.upload[index].xhr(function(xhr) {});
+        } else {
+            var fileReader = new FileReader();
+            fileReader.onload = function(e) {
+                $scope.upload[index] = $upload.http({
+                    url: imgpath,
+                    headers: {
+                        'Content-Type': $scope.selectedFiles[index].type
+                    },
+                    data: e.target.result
+                }).then(function(response) {
+                    $scope.uploadResult.push(response.data);
+                }, function(response) {
+                    if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
+                }, function(evt) {
+                    $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+                });
+            };
+            fileReader.readAsArrayBuffer($scope.selectedFiles[index]);
+        }
+    };
+})
+
 
 .controller('headerctrl', function($scope, TemplateService) {
     $scope.template = TemplateService;

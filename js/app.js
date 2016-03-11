@@ -251,3 +251,15 @@ firstapp.directive('uiFileUpload', function($compile, $parse) {
     }
   };
 });
+firstapp.filter('serverimage', function() {
+  return function(input) {
+    if (input) {
+      // console.log('serverimage: ', input);
+      // return input;
+      return imgpath + input;
+      // return "http://192.168.0.123/eurobackend/uploads"+input;
+    } else {
+      return "img/logo.png";
+    }
+  };
+});

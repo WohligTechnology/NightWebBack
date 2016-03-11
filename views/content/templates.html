@@ -67,8 +67,8 @@
             </td>
             <td>
               <span>
-              <button class="btn btn-sm btn-info" ui-sref="edit-templates"><i class="fa fa-pencil-square-o"></i></button>&nbsp;&nbsp;&nbsp;
-              <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+              <button class="btn btn-sm btn-info" ui-sref="edit-templates({id:data._id})"><i class="fa fa-pencil-square-o"></i></button>&nbsp;&nbsp;&nbsp;
+              <button class="btn btn-sm btn-danger" ng-click="deleteTemplates(data._id)"><i class="fa fa-trash"></i></button>
             </span>
             </td>
           </tr>

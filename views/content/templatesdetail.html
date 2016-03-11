@@ -1,45 +1,57 @@
 <section>
-        <div class="panel panel-default">
-          <div class="panel-heading">
+    <div class="panel panel-default">
+        <div class="panel-heading">
             <strong>{{header.name}}</strong>
-          </div>
-        <div class="panel-body">
-        <div class="row">
-          <div class="col-md-8">
-              <form name="user">
-                <div class="form-group">
-                  <!-- <label for="exampleInputName1">Id</label> -->
-                  <input name="id" ng-model="userForm.id" type="hidden" class="form-control" id="exampleInputName1" placeholder="User Id" readonly="">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputName2">Name</label>
-                  <input name="name" required ng-model="userForm.name" type="text" class="form-control" id="exampleInputName2" placeholder="Enter Name">
-                  <div class="error-msg" ng-show="user.name.$error.required && user.name.$touched">Please Enter Your Name.</div>
-                </div>
-                      <div class="form-group">
-                        <input type="file" title="Choose File" class="btn-primary" ui-file-upload>
-                      </div>
-                      <div class="form-group">
-                        <input type="file" title="Choose File" class="btn-primary" ui-file-upload multiple>
-                      </div>
-                <div class="form-group">
-                  <label for="exampleInputName5">Text</label>
-                  <input name="text" required ng-model="userForm.text" type="text" class="form-control" id="exampleInputName5" placeholder="Enter Text">
-                  <div class="error-msg" ng-show="user.text.$error.required && user.text.$touched">Please Enter Text.</div>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputName6">Description</label>
-                  <textarea name="description" required ng-model="userForm.description" id="exampleInputName6" class="form-control"></textarea>
-                  <div class="error-msg" ng-show="user.description.$error.required && user.description.$touched">Please Enter Description.
-                  </div>
-                </div>
-                <div class="upload-img text-center mar30">
-                  <button class="btn btn-sm btn-info" ng-click="submitForm(userForm,user)">Save</button>
-                <a href="#/templates">  <button class="btn btn-sm btn-info">Cancel</button></a>
-                </div>
-              </form>
-          </div>
         </div>
-      </div>
-      </div>
+        <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-8">
+                      <form name="user">
+                        <div class="form-group">
+                            <!-- <label for="exampleInputName1">Id</label> -->
+                            <input name="id" ng-model="userForm.id" type="hidden" class="form-control" id="exampleInputName1" placeholder="User Id" readonly="">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputName2">Name</label>
+                            <input name="name" required ng-model="userForm.name" type="text" class="form-control" id="exampleInputName2" placeholder="Enter Name">
+                            <div class="error-msg" ng-show="user.name.$error.required && user.name.$touched">Please Enter Your Name.</div>
+                        </div>
+                        <div ng-controller="UploadCtrl">
+                        <div class="form-group">
+                          <input type="file" name="image" ng-file-select="onFileSelect($files,1)" onclick="this.value=null" title="Choose File" required ng-model="userForm.image" accept=".jpg,.png" class="form-control ab" class="btn-primary" ui-file-upload>
+                            <!-- <input name="image" type="file" ng-model="userForm.image" title="Choose File" class="btn-primary" ui-file-upload> -->
+                        </div>
+                        <div ng-if="userForm.image">
+                          <div ng-init="httpMethod = 'POST';howToSend = 1;"></div>
+                        </div>
+                        <div class="form-group">
+                          <input type="file" name="images" ng-file-select="onFileSelect($files,2)" onclick="this.value=null" title="Choose File" required ng-model="userForm.images" accept=".jpg,.png" class="form-control ab" class="btn-primary" ui-file-upload multiple>
+                            <!-- <input name="images" type="file" ng-model="userForm.images" title="Choose File" class="btn-primary" ui-file-upload multiple> -->
+                        </div>
+                        <div ng-if="userForm.images">
+                          <div ng-init="httpMethod = 'POST';howToSend = 1;"></div>
+                        </div>
+                      </div>
+                        <div class="form-group">
+                            <label for="exampleInputName5">Title</label>
+                            <input name="text" required ng-model="userForm.text" type="text" class="form-control" id="exampleInputName5" placeholder="Enter Title">
+                            <div class="error-msg" ng-show="user.text.$error.required && user.text.$touched">Please Enter Title.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputName6">Description</label>
+                            <textarea name="description" required ng-model="userForm.description" id="exampleInputName6" class="form-control"></textarea>
+                            <div class="error-msg" ng-show="user.description.$error.required && user.description.$touched">Please Enter Description.
+                            </div>
+                        </div>
+                        <div class="upload-img text-center mar30">
+                            <button class="btn btn-sm btn-info" ng-class="{'disabled' : !user.$valid }"  ng-click="templatesSubmitForm(user)">Save</button>
+                            <a ui-sref="templates">
+                                <button class="btn btn-sm btn-info">Cancel</button>
+                            </a>
+                        </div>
+                      </form>
+                    </div>
+                </div>
+        </div>
+    </div>
 </section>

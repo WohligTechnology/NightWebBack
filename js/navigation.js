@@ -1,5 +1,6 @@
 // var adminURL = "";
 var adminurl = "http://192.168.0.124:1337/";
+var imgpath = "http://vignesh.com/uploadfile/upload/";
 
 // if(isproduction)
 // {
@@ -52,19 +53,19 @@ var navigationservice = angular.module('navigationservice', [])
     name: "Blog",
     classis: "active",
     anchor: "blog",
-    icon: "newspaper-o",
+    icon: "rss",
     subnav: []
   }, {
     name: "Documentation Category",
     classis: "active",
     anchor: "documentationcategory",
-    icon: "newspaper-o",
+    icon: "book",
     subnav: []
   }, {
     name: "Documentation",
     classis: "active",
     anchor: "documentation",
-    icon: "newspaper-o",
+    icon: "book",
     subnav: []
   }];
 
@@ -238,6 +239,63 @@ var navigationservice = angular.module('navigationservice', [])
         }
       }).success(callback);
     },
+    deleteTemplatesData: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'template/delete',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "_id": formData.id,
+
+        }
+      }).success(callback);
+    },
+    templatesCreateSubmit: function(formData, callback) {
+      console.log('Navigation form data: ', formData);
+      $http({
+        url: adminurl + 'template/create',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "_id": formData._id,
+          "image": formData.image,
+          "name": formData.name,
+          "images":formData.images,
+          "text":formData.text,
+          "description":formData.description,
+        }
+      }).success(callback);
+    },
+    getTemplatesEditDetail: function(id, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'template/view',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "_id": id
+        }
+      }).success(callback);
+    },
+    editTemplatesSubmit: function(formData, callback) {
+      console.log('In service : ', formData);
+      $http({
+        url: adminurl + 'template/create',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "_id": formData._id,
+          "image": formData.image,
+          "name": formData.name,
+          "images":formData.images,
+          "text":formData.text,
+          "description":formData.description,
+        }
+      }).success(callback);
+    },
+
+
 
 
 

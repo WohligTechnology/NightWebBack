@@ -48,10 +48,16 @@
                             <input name="google" required ng-model="userForm.google" type="text" class="form-control" id="exampleInputName7" placeholder="Google Id">
                             <div class="error-msg" ng-show="user.googleId.$error.required && user.googleId.$touched">Please Enter Google id.</div>
                         </div>
+                        <label for="exampleInputName8">Access Level</label>
                         <div class="form-group">
-                            <label for="exampleInputName8">Access Level</label>
-                            <input name="accesslevel" required ng-model="userForm.accesslevel" type="text" class="form-control" id="exampleInputName8" placeholder="Enter Access Level">
-                            <div class="error-msg" ng-show="user.accessLevel.$error.required && user.accessLevel.$touched">Please Enter Access Level.</div>
+                            <span class="ui-select" id="exampleInputName8">
+                                <select ng-model="userForm.accesslevel" required>
+                                    <option></option>
+                                    <option value="Admin">Admin</option>
+                                    <option value="User">User</option>
+                                </select>
+                                <!-- <div class="error-msg" ng-show="user.loginType.$error.required && user.loginType.$touched">Please Enter Login Type.</div> -->
+                            </span>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputName9">Contact</label>
