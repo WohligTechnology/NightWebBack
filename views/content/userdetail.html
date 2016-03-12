@@ -26,6 +26,7 @@
               <span class="ui-select" id="exampleInputName4">
                                 <select ng-model="userForm.logintype" data-placeholder="select login type" required>
                                     <option value="">select login type</option>
+                                    <option value="Email">Email</option>
                                     <option value="Facebook">Facebook</option>
                                     <option value="Twitter">Twitter</option>
                                     <option value="Google">Google</option>
@@ -35,17 +36,17 @@
             </div>
             <div class="form-group">
               <label for="exampleInputName5">Facebook</label>
-              <input name="facebook" required ng-model="userForm.facebook" type="text" class="form-control" id="exampleInputName5" placeholder="Facebook Id">
+              <input name="facebook" ng-model="userForm.facebook" type="text" class="form-control" id="exampleInputName5" placeholder="Facebook Id">
               <div class="error-msg" ng-show="user.facebookId.$error.required && user.facebookId.$touched">Please Enter Facebook id.</div>
             </div>
             <div class="form-group">
               <label for="exampleInputName6">Twitter</label>
-              <input name="twitter" required ng-model="userForm.twitter" type="text" class="form-control" id="exampleInputName6" placeholder="Twitter Id">
+              <input name="twitter" ng-model="userForm.twitter" type="text" class="form-control" id="exampleInputName6" placeholder="Twitter Id">
               <div class="error-msg" ng-show="user.twitterId.$error.required && user.twitterId.$touched">Please Enter Twitter id.
               </div>
               <div class="form-group">
                 <label for="exampleInputName7">Google</label>
-                <input name="google" required ng-model="userForm.google" type="text" class="form-control" id="exampleInputName7" placeholder="Google Id">
+                <input name="google" ng-model="userForm.google" type="text" class="form-control" id="exampleInputName7" placeholder="Google Id">
                 <div class="error-msg" ng-show="user.googleId.$error.required && user.googleId.$touched">Please Enter Google id.</div>
               </div>
 <label for="exampleInputName8">Access Level</label>
