@@ -729,6 +729,33 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.menutitle = NavigationService.makeactive("Documentation");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
+  $scope.userForm = {};
+  $scope.allDocumentationRecords = function() {
+    NavigationService.viewAllDocumentationSubmit($scope.userForm, function(data) {
+      $scope.documentationdata = data.data;
+      console.log('user data', data.data);
+    });
+  };
+
+  NavigationService.viewAllDocumentationSubmit($scope.userForm, function(data) {
+    $scope.documentationdata = data.data;
+    console.log('user data', data.data);
+  });
+
+
+  $scope.deletedocumentation = function(formValid) {
+    console.log('formvalid', formValid);
+    NavigationService.deleteDocumentationData({
+      id: formValid
+    }, function(data) {
+      console.log('delete data:', data);
+      if (data.value === true) {
+
+        $scope.allDocumentationRecords();
+      }
+
+    });
+  };
 })
 
 .controller('CreateDocumentationCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
@@ -741,16 +768,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     name: 'Create Documentation'
   };
   $scope.userForm = {};
-  $scope.submitForm = function(formData, formValid) {
+  $scope.documentationSubmitForm = function(formValid) {
     console.log('user form:', $scope.userForm);
     if (formValid.$valid) {
       $scope.formComplete = true;
-      $state.go("documentation");
+          NavigationService.createDocumentationSubmit($scope.userForm, function(data) {
+            console.log('userform', $scope.userForm);
+            $state.go("documentation");
+          });
     }
   };
 })
 
-.controller('EditDocumentationCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+.controller('EditDocumentationCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("documentationdetail");
   $scope.menutitle = NavigationService.makeactive("Edit Documentation");
@@ -759,13 +789,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.header = {
     name: 'Edit Documentation'
   };
+  NavigationService.getDocumentationEditDetail($stateParams.id, function(data) {
+    console.log('getUserEditDetail', data);
+    $scope.userForm = data.data;
+  });
   $scope.userForm = {};
-  $scope.submitForm = function(formData, formValid) {
+  $scope.documentationSubmitForm = function(formValid) {
     console.log('user form:', $scope.userForm);
     if (formValid.$valid) {
       $scope.formComplete = true;
       $state.go("documentation");
     }
+    NavigationService.editDocumentationSubmit($scope.userForm, function(data) {
+      console.log('response:', data);
+    });
   };
 })
 

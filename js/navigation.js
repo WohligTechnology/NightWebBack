@@ -668,6 +668,70 @@ var navigationservice = angular.module('navigationservice', [])
       }).success(callback);
     },
 
+    createDocumentationSubmit: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'documentation/create',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "content": formData.content,
+          "title": formData.title,
+          //"documentationcategory":formData.documentationcategory,
+          "status": formData.status
+        }
+      }).success(callback);
+    },
+    viewAllDocumentationSubmit: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'documentation/viewAll',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "title": formData.title,
+          "status": formData.status,
+        }
+      }).success(callback);
+    },
+    getDocumentationEditDetail: function(id, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'documentation/view',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "_id": id
+        }
+      }).success(callback);
+    },
+    editDocumentationSubmit: function(formData, callback) {
+      console.log('In service : ', formData);
+      $http({
+        url: adminurl + 'documentation/create',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "_id": formData._id,
+          "content": formData.content,
+          "title": formData.title,
+          //"documentationcategory":formData.documentationcategory,
+          "status": formData.status
+        }
+      }).success(callback);
+    },
+    deleteDocumentationData: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'documentation/delete',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "_id": formData.id,
+        }
+      }).success(callback);
+    },
+
     makeactive: function(menuname) {
       for (var i = 0; i < navigation.length; i++) {
         if (navigation[i].name == menuname) {
