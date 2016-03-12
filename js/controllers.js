@@ -228,6 +228,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       name: 'Create - User Plan'
     };
 
+    NavigationService.userViewAllSubmit($scope.userForm, function(data) {
+      $scope.userdata = data.data;
+      console.log('user viewall', data.data);
+    });
+
+
+
     $scope.userPlanSubmitForm = function(formValid) {
 
       //console.log($scope.userForm);
@@ -285,6 +292,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     NavigationService.viewAllPlanSubmit($scope.userForm, function(data) {
       $scope.plandata = data.data;
       console.log('plan data', data.data);
+      console.log('plan name',data.data.name);
     });
   };
 
