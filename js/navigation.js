@@ -106,10 +106,6 @@ var navigationservice = angular.module('navigationservice', [])
         url: adminurl + 'plan/viewAll',
         method: 'POST',
         withCredentials: true,
-        data: {
-          "description": formData.description,
-          "name": formData.name
-        }
       }).success(callback);
     },
     getPlanDetail: function(id, callback) {
@@ -174,7 +170,7 @@ var navigationservice = angular.module('navigationservice', [])
           "contact": formData.contact,
           "subject": formData.subject,
           "query": formData.query,
-          //"user":formData.user
+          "user":formData.user
           // "query":formData.query,
           // "user":formData.user
         }
@@ -297,11 +293,19 @@ var navigationservice = angular.module('navigationservice', [])
 
 
 
-
-
-
-
-
+    searchUser: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'user/findlimited',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "search": formData.search,
+          "pagesize,": formData.pagesize,
+          "pagenumber,": formData.pagenumber,
+        }
+      }).success(callback);
+    },
 
     userViewAllSubmit: function(formData, callback) {
       // console.log('form data: ', formData);
@@ -309,10 +313,6 @@ var navigationservice = angular.module('navigationservice', [])
         url: adminurl + 'user/viewAll',
         method: 'POST',
         withCredentials: true,
-        data: {
-          "email": formData.email,
-          "name": formData.name
-        }
       }).success(callback);
     },
 
@@ -470,7 +470,7 @@ var navigationservice = angular.module('navigationservice', [])
         withCredentials: true,
         data: {
           "plan": formData.plan,
-          "user": formData.userName
+          //"user": formData.userName
         }
       }).success(callback);
     },
@@ -491,6 +491,7 @@ var navigationservice = angular.module('navigationservice', [])
           "ios": formData.ios,
           "serverdetail": formData.serverdetail,
           "foldername": formData.foldername,
+
 
 
         }
@@ -514,6 +515,7 @@ var navigationservice = angular.module('navigationservice', [])
           "ios": formData.ios,
           "serverdetail": formData.serverdetail,
           "foldername": formData.foldername,
+
         }
       }).success(callback);
     },
@@ -615,7 +617,7 @@ var navigationservice = angular.module('navigationservice', [])
         data: {
           "content": formData.content,
           "title": formData.title,
-          //“user”:formData.user,
+          "user":formData.user,
           "status": formData.status
         }
       }).success(callback);
@@ -653,7 +655,7 @@ var navigationservice = angular.module('navigationservice', [])
           "_id": formData._id,
           "content": formData.content,
           "title": formData.title,
-          //“user”:formData.user,
+          "user":formData.user,
           "status": formData.status
         }
       }).success(callback);
@@ -679,7 +681,7 @@ var navigationservice = angular.module('navigationservice', [])
         data: {
           "content": formData.content,
           "title": formData.title,
-          //"documentationcategory":formData.documentationcategory,
+          "DocumentationCategory":formData.DocumentationCategory,
           "status": formData.status
         }
       }).success(callback);
@@ -717,7 +719,7 @@ var navigationservice = angular.module('navigationservice', [])
           "_id": formData._id,
           "content": formData.content,
           "title": formData.title,
-          //"documentationcategory":formData.documentationcategory,
+          "DocumentationCategory":formData.DocumentationCategory,
           "status": formData.status
         }
       }).success(callback);

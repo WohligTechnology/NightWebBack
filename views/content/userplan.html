@@ -47,7 +47,7 @@
        <tbody>
          <tr ng-repeat="data in userplandata">
            <td>{{data._id}}</td>
-           <td>{{data.plan}}</td>
+           <td>{{data.plan.name}}</td>
            <td>
              <span>
              <button class="btn btn-sm btn-info" ui-sref="edit-userplan({id:data._id})"><i class="fa fa-pencil-square-o"></i></button>&nbsp;&nbsp;&nbsp;

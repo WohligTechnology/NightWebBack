@@ -20,12 +20,14 @@
                 <label for="exampleInputName4">Documentation Category</label>
                 <div class="form-group">
                   <span class="ui-select" id="exampleInputName4">
-                      <select ng-model="userForm.documentationcategory" required>
+                    <select ng-options="user._id as user.name for user in documentationcategorydata" ng-model="userForm.DocumentationCategory">
+                    </select>
+                      <!-- <select ng-model="userForm.documentationcategory" required>
                         <option></option>
                         <option value="First Preview Of Android">First Preview Of Android</option>
                         <option value="Second Preview Of Android">Second Preview Of Android</option>
                         <option value="Third Preview Of Android">Third Preview Of Android</option>
-                      </select>
+                      </select> -->
                       <!-- <div class="error-msg" ng-show="user.loginType.$error.required && user.loginType.$touched">Please Enter Login Type.</div> -->
                     </span>
                   </div>

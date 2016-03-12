@@ -14,12 +14,14 @@
                         <label for="exampleInputName2">User</label>
                         <div class="form-group">
                             <span class="ui-select" id="exampleInputName2">
-                                <select ng-model="userForm.user" >
+                              <select ng-options="user._id as user.name for user in userdata" ng-model="userForm.user">
+                              </select>
+                                <!-- <select ng-model="userForm.user" >
                                     <option></option>
                                     <option value="Facebook">Facebook</option>
                                     <option value="Twitter">Twitter</option>
                                     <option value="Google">Google</option>
-                                </select>
+                                </select> -->
                                 <!-- <div class="error-msg" ng-show="user.loginType.$error.required && user.loginType.$touched">Please Enter Login Type.</div> -->
                             </span>
                         </div>
