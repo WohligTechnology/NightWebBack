@@ -4,38 +4,40 @@
             <strong>{{header.name}}</strong>
         </div>
         <div class="panel-body">
-            <form name="uplan">
-                <div class="row">
-                    <div class="col-md-8">
-
+            <div class="row">
+                <div class="col-md-8">
+                    <form name="uplan">
                         <div class="form-group">
                             <!-- <label for="exampleInputName1">Id</label> -->
-                            <input name="id" ng-model="userForm.id" type="hidden" class="form-control" id="exampleInputName1" placeholder="User Id" readonly="">
+                            <input name="id" ng-model="userForm._id" type="hidden" class="form-control" id="exampleInputName1" placeholder="User Id" readonly="">
                         </div>
                         <label for="exampleInputName2">User</label>
                         <div class="form-group">
-                          <span class="ui-select" id="exampleInputName2">
-                              <select ng-model="userForm.uplan" required>
+                            <span class="ui-select" id="exampleInputName2">
+                                <select ng-options="user._id as user.name for user in userdata" ng-model="userForm.user">
+                                </select>
+                                <!-- <select ng-model="userForm.uplan" required>
                                 <option></option>
                                 <option value="Facebook">Facebook</option>
                                 <option value="Twitter">Twitter</option>
                                 <option value="Google">Google</option>
-                              </select>
-                              <!-- <div class="error-msg" ng-show="uplan.loginType.$error.required && uplan.loginType.$touched">Please Enter Login Type.</div> -->
+                              </select> -->
+                                <!-- <div class="error-msg" ng-show="uplan.loginType.$error.required && uplan.loginType.$touched">Please Enter Login Type.</div> -->
                             </span>
                         </div>
                         <label for="exampleInputName3">Plan</label>
                         <div class="form-group" id="exampleInputName3">
                             <span class="ui-select">
-                                <select name="plan" ng-model="userForm.plan" required>
+                                <select ng-options="plan._id as plan.name for plan in plandata" ng-model="userForm.plan"></select>
+                                <!-- <select name="plan" ng-model="userForm.plan" required>
                                     <option></option>
                                     <option value="Party">Party</option>
                                     <option value="Picnic">Picnic</option>
                                     <option value="Dinner">Dinner</option>
-                                </select>
+                                </select> -->
                             </span>
-                            <div class="error-msg" ng-show="uplan.plan.$error.required && uplan.plan.$touched">Please Select Your Plan.
-                            </div>
+                            <!-- <div class="error-msg" ng-show="uplan.plan.$error.required && uplan.plan.$touched">Please Select Your Plan.
+                            </div> -->
                         </div>
                         <div class="form-group">
                             <label for="exampleInputName4">Start Time</label>
@@ -51,7 +53,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputName6">Timestamp</label>
-                            <input name="timeStamp"  ng-model="userForm.timeStamp" type="text" class="form-control" id="exampleInputName6" placeholder="Timestamp" readonly>
+                            <input name="timeStamp" ng-model="userForm.timestamp" type="text" class="form-control" id="exampleInputName6" placeholder="Timestamp" readonly="true">
                             <!-- <div class="error-msg" ng-show="uplan.timeStamp.$error.required && uplan.timeStamp.$touched">Please Enter Timestamp.
                   </div> -->
                         </div>
@@ -91,10 +93,10 @@
                                 <button class="btn btn-sm btn-info">Cancel</button>
                             </a>
                         </div>
-
-                    </div>
+                    </form>
                 </div>
-            </form>
+            </div>
+
         </div>
     </div>
 </section>

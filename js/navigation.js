@@ -483,6 +483,7 @@ var navigationservice = angular.module('navigationservice', [])
         withCredentials: true,
         data: {
           "plan": formData.plan,
+          "user":formData.user,
           "starttime": formData.starttime,
           "endtime": formData.endtime,
           "url": formData.url,
@@ -505,6 +506,7 @@ var navigationservice = angular.module('navigationservice', [])
         data: {
           "_id": formData._id,
           "plan": formData.plan,
+          "user":formData.user,
           "starttime": formData.starttime,
           "endtime": formData.endtime,
           "url": formData.url,

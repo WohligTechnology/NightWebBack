@@ -230,8 +230,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     NavigationService.userViewAllSubmit($scope.userForm, function(data) {
       $scope.userdata = data.data;
-      console.log('user viewall', data.data);
+      console.log('user viewall for user', data.data);
     });
+
+    NavigationService.viewAllPlanSubmit($scope.userForm, function(data) {
+      $scope.plandata = data.data;
+      console.log('plan viewall for plan', data.data);
+    });
+
+
 
 
 
