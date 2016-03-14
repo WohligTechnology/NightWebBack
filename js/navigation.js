@@ -292,21 +292,6 @@ var navigationservice = angular.module('navigationservice', [])
     },
 
 
-
-    searchUser: function(formData, callback) {
-      // console.log('form data: ', formData);
-      $http({
-        url: adminurl + 'user/findlimited',
-        method: 'POST',
-        withCredentials: true,
-        data: {
-          "search": formData.search,
-          "pagesize": parseInt(formData.limit),
-          "pagenumber": parseInt(formData.page),
-        }
-      }).success(callback);
-    },
-
     userViewAllSubmit: function(formData, callback) {
       // console.log('form data: ', formData);
       $http({
@@ -732,6 +717,124 @@ var navigationservice = angular.module('navigationservice', [])
         withCredentials: true,
         data: {
           "_id": formData.id,
+        }
+      }).success(callback);
+    },
+
+    searchUser: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'user/findlimited',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "search": formData.search,
+          "pagesize": parseInt(formData.limit),
+          "pagenumber": parseInt(formData.page),
+        }
+      }).success(callback);
+    },
+    searchUserplan: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'userplan/findlimited',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "search": formData.search,
+          "pagesize": parseInt(formData.limit),
+          "pagenumber": parseInt(formData.page),
+        }
+      }).success(callback);
+    },
+    searchUsernotification: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'usernotification/findlimited',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "search": formData.search,
+          "pagesize": parseInt(formData.limit),
+          "pagenumber": parseInt(formData.page),
+        }
+      }).success(callback);
+    },
+    searchPlan: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'plan/findlimited',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "search": formData.search,
+          "pagesize": parseInt(formData.limit),
+          "pagenumber": parseInt(formData.page),
+        }
+      }).success(callback);
+    },
+    searchSuggestion: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'suggestion/findlimited',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "search": formData.search,
+          "pagesize": parseInt(formData.limit),
+          "pagenumber": parseInt(formData.page),
+        }
+      }).success(callback);
+    },
+    searchTemplate: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'template/findlimited',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "search": formData.search,
+          "pagesize": parseInt(formData.limit),
+          "pagenumber": parseInt(formData.page),
+        }
+      }).success(callback);
+    },
+    searchBlog: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'blog/findlimited',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "search": formData.search,
+          "pagesize": parseInt(formData.limit),
+          "pagenumber": parseInt(formData.page),
+        }
+      }).success(callback);
+    },
+    searchDocumentationCategory: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'documentationcategory/findlimited',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "search": formData.search,
+          "pagesize": parseInt(formData.limit),
+          "pagenumber": parseInt(formData.page),
+        }
+      }).success(callback);
+    },
+    searchDocumentation: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'documentation/findlimited',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "search": formData.search,
+          "pagesize": parseInt(formData.limit),
+          "pagenumber": parseInt(formData.page),
         }
       }).success(callback);
     },
