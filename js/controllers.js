@@ -1,5 +1,5 @@
 window.uploadurl = "http://192.168.0.126/uploadfile/upload/";
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ui.tinymce', 'ui.select2', 'angularFileUpload'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ui.select2', 'angularFileUpload'])
     // 'tableSort'
     .controller('LoginCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file

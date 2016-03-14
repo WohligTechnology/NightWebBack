@@ -11,7 +11,14 @@ var jsArray = [
   './bower_components/ui-router/release/angular-ui-router.min.js',
   './bower_components/angular-flexslider/angular-flexslider.js',
   './bower_components/lodash/lodash.js',
-  './bower_components/jStorage/jstorage.js',
+  './bower_components/select2/select2.js',
+  './bower_components/angular-ui-select2/src/select2.js',
+
+  './lib/fileupload/angular-file-upload.js',
+  './lib/fileupload/angular-file-upload-html5-shim.js',
+  './lib/fileupload/angular-file-upload-shim.js',
+  './lib/fileupload/FileAPI.min.js',
+  './lib/fileupload/upload.js',
 
   './js/app.js',
   './js/controllers.js',

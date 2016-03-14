@@ -25,7 +25,7 @@
                           <div ng-init="httpMethod = 'POST';howToSend = 1;"></div>
                         </div>
                         <div class="form-group">
-                          <input type="file" name="images" ng-file-select="onFileSelect($files,2)" onclick="this.value=null" title="Choose File"  ng-model="userForm.images" accept=".jpg,.png" class="form-control ab" class="btn-primary" ui-file-upload multiple>
+                          <input type="file" name="images" ng-file-select="onFileSelect($files,2)" onclick="this.value=null" title="Choose Files"  ng-model="userForm.images" accept=".jpg,.png" class="form-control ab" class="btn-primary" ui-file-upload multiple>
                             <!-- <input name="images" type="file" ng-model="userForm.images" title="Choose File" class="btn-primary" ui-file-upload multiple> -->
                         </div>
                         <div ng-if="userForm.images">

@@ -27,6 +27,7 @@
                 <div class="form-group">
                   <span class="ui-select" id="exampleInputName4">
                     <select ng-options="user._id as user.name for user in userdata" ng-model="userForm.user">
+                    <option value="">select User</option>
                     </select>
                       <!-- <select ng-model="userForm.user" required>
                         <option></option>
@@ -47,7 +48,7 @@
                 <div class="form-group">
                   <div class="ui-select" id="exampleInputName6">
                     <select ng-model="userForm.status" required>
-                      <option></option>
+                        <option value="">select status</option>
                       <option value="Enable">Enable</option>
                       <option value="Disable">Disable</option>
                     </select>

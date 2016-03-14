@@ -15,6 +15,7 @@
                         <div class="form-group">
                             <span class="ui-select" id="exampleInputName2">
                                 <select ng-options="user._id as user.name for user in userdata" ng-model="userForm.user">
+                                    <option value="">select User</option>
                                 </select>
                                 <!-- <select ng-model="userForm.uplan" required>
                                 <option></option>
@@ -28,7 +29,10 @@
                         <label for="exampleInputName3">Plan</label>
                         <div class="form-group" id="exampleInputName3">
                             <span class="ui-select">
-                                <select ng-options="plan._id as plan.name for plan in plandata" ng-model="userForm.plan"></select>
+                                <select ng-options="plan._id as plan.name for plan in plandata" ng-model="userForm.plan">
+                                  <option value="">select plan</option>
+                                </select>
+
                                 <!-- <select name="plan" ng-model="userForm.plan" required>
                                     <option></option>
                                     <option value="Party">Party</option>
