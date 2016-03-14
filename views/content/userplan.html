@@ -33,6 +33,13 @@
              </span>
            </div></th>
            <th><div class="th">
+            User
+             <span class="fa fa-angle-up">
+             </span>
+             <span class="fa fa-angle-down">
+             </span>
+           </div></th>
+           <th><div class="th">
             Plan
              <span class="fa fa-angle-up">
              </span>
@@ -47,6 +54,7 @@
        <tbody>
          <tr ng-repeat="data in userplandata">
            <td>{{data._id}}</td>
+           <td>{{data.user.name}}</td>
            <td>{{data.plan.name}}</td>
            <td>
              <span>
