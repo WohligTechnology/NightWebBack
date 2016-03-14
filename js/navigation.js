@@ -301,8 +301,8 @@ var navigationservice = angular.module('navigationservice', [])
         withCredentials: true,
         data: {
           "search": formData.search,
-          "pagesize,": formData.pagesize,
-          "pagenumber,": formData.pagenumber,
+          "pagesize": parseInt(formData.limit),
+          "pagenumber": parseInt(formData.page),
         }
       }).success(callback);
     },

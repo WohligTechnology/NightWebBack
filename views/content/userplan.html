@@ -20,7 +20,7 @@
        </div>
        <div class="col-sm-3 col-xs-6 filter-result-info">
          <span>
-                     Showing 25/25 entries
+                     Showing {{pagedata.limit}}/{{userdata.data.length}} entries
                  </span>
        </div>
      </div>
@@ -55,7 +55,7 @@
          </tr>
        </thead>
        <tbody>
-         <tr ng-repeat="data in userplandata">
+         <tr ng-repeat="data in userplandata | limitTo:pagedata.limit">
            <td>{{data._id}}</td>
            <td>{{data.user.name}}</td>
            <td>{{data.plan.name}}</td>
@@ -78,8 +78,8 @@
                              data-ng-options="num for num in numPerPageOpt"
                              data-ng-change="onNumPerPageChange()">
                      </select>  -->
-                     <select>
-                       <option value="10">10</option>
+                     <select ng-model="pagedata.limit">
+                       <option value="2">2</option>
                        <option value="25">25</option>
                        <option value="50">50</option>
                        <option value="100">100</option>

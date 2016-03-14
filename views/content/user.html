@@ -1,55 +1,64 @@
 <div class="panel panel-default table-dynamic">
-  <div class="panel-heading">
-    <strong>{{menutitle}}</strong>
-    <button class="btn btn-info pull-right" ui-sref="createuser" style="margin-top: -7px;"><i class="fa fa-user-plus"></i> Create</button>
-  </div>
-  <div class="panel-body">
-    <div class="table-filters">
-      <div class="row">
-        <div class="col-sm-4 col-xs-6">
-          <form>
-            <input type="text" placeholder="Search..." class="form-control" ng-model="pagedata.search" ng-change="search(pagedata)">
-          </form>
-        </div>
-        <div class="col-sm-3 col-xs-6 filter-result-info">
-          <span>
-                      Showing 25/25 entries
-                  </span>
-        </div>
-      </div>
+    <div class="panel-heading">
+        <strong>{{menutitle}}</strong>
+        <button class="btn btn-info pull-right" ui-sref="createuser" style="margin-top: -7px;">
+            <i class="fa fa-user-plus"></i>
+            Create</button>
     </div>
-    <table class="table table-hover table-bordered table-responsive">
-      <thead>
-        <tr>
-          <th><div class="th">
-            #
-            <span class="fa fa-angle-up">
-            </span>
-            <span class="fa fa-angle-down">
-            </span>
-          </div></th>
-          <th><div class="th">
-            Name
-            <span class="fa fa-angle-up" data-ng-click=" order('name') "
-            data-ng-class="{active: row == 'name'}">
-            </span>
-            <span class="fa fa-angle-down" data-ng-click=" order('-name') "
-              data-ng-class="{active: row == '-name'}">
-            </span>
-          </div></th>
-          <th><div class="th">
-            Email
-            <span class="fa fa-angle-up">
-            </span>
-            <span class="fa fa-angle-down">
-            </span>
-          </div></th>
-          <th><div class="th">
-            Action
-          </div></th>
-        </tr>
-      </thead>
-      <!-- <table class="table table-hover table-bordered table-responsive" ts-wrapper>
+    <div class="panel-body">
+        <div class="table-filters">
+            <div class="row">
+                <div class="col-sm-4 col-xs-6">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <input type="text" placeholder="Search..." class="form-control" ng-model="pagedata.search">
+                            </div>
+                            <div class="col-md-2">
+                                <input type="submit" class="btn btn-info" value="Search" ng-click="search(pagedata)">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-3 col-xs-6 filter-result-info">
+                    <span>
+                        Showing {{userdata.data.length}}/{{userdata.total}} entries
+                    </span>
+                </div>
+            </div>
+        </div>
+        <table class="table table-hover table-bordered table-responsive">
+            <thead>
+                <tr>
+                    <th>
+                        <div class="th">
+                            #
+                            <span class="fa fa-angle-up"></span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="th">
+                            Name
+                            <span class="fa fa-angle-up" data-ng-click=" order('name') " data-ng-class="{active: row == 'name'}"></span>
+                            <span class="fa fa-angle-down" data-ng-click=" order('-name') " data-ng-class="{active: row == '-name'}"></span>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="th">
+                            Email
+                            <span class="fa fa-angle-up"></span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="th">
+                            Action
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <!-- <table class="table table-hover table-bordered table-responsive" ts-wrapper>
         <thead>
           <tr>
             <th ts-criteria="Id"><div class="th">
@@ -78,7 +87,7 @@
             </div></th>
           </tr>
         </thead> -->
-        <!-- <tbody>
+            <!-- <tbody>
           <tr ng-repeat="data in userdata">
             <td>{{data._id}}</td>
             <td>
@@ -98,53 +107,65 @@
           </tr>
         </tbody> -->
 
-
-
-
-      <tbody>
-        <tr ng-repeat="data in userdata">
-          <td>{{data._id}}</td>
-          <td>
-            <span>
-                {{data.name}}
-              </span>
-          </td>
-          <td>
-            <span>{{data.email}}</span>
-          </td>
-          <td>
-            <span>
-              <button class="btn btn-sm btn-info" ui-sref="edituser({id:data._id})"><i class="fa fa-pencil-square-o"></i></button>&nbsp;&nbsp;&nbsp;
-              <button class="btn btn-sm btn-danger" ng-click="deleteUser(data._id)"><i class="fa fa-trash"></i></button>
-            </span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <footer class="table-footer">
-      <div class="row">
-        <div class="col-md-6 page-num-info">
-          <span>
-                      Show
-                      <!-- <select data-ng-model="numPerPage"
+            <tbody>
+                <tr ng-repeat="data in userdata.data | limitTo:pagedata.limit">
+                    <td>{{data._id}}</td>
+                    <td>
+                        <span>
+                            {{data.name}}
+                        </span>
+                    </td>
+                    <td>
+                        <span>{{data.email}}</span>
+                    </td>
+                    <td>
+                        <span>
+                            <button class="btn btn-sm btn-info" ui-sref="edituser({id:data._id})">
+                                <i class="fa fa-pencil-square-o"></i>
+                            </button>&nbsp;&nbsp;&nbsp;
+                            <button class="btn btn-sm btn-danger" ng-click="deleteUser(data._id)">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <footer class="table-footer">
+            <div class="row">
+                <div class="col-md-6 page-num-info">
+                    <span>
+                        Show
+                        <!-- <select data-ng-model="numPerPage"
                               data-ng-options="num for num in numPerPageOpt"
                               data-ng-change="onNumPerPageChange()">
                       </select>  -->
-                      <select>
-                        <option value="10">10</option>
-                        <option value="25">25</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                      </select>
-                      entries per page
-                  </span>
-        </div>
-        <div class="col-md-6 text-right pagination-container">
-          <uib-pagination class="pagination-sm" ng-model="currentPage" total-items="filteredStores.length" max-size="4" ng-change="select(currentPage)" items-per-page="numPerPage" rotate="false" previous-text="&lsaquo;" next-text="&rsaquo;" boundary-links="true"></uib-pagination>
-            <!-- <uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" previous-text="&lsaquo;" next-text="&rsaquo;"></uib-pagination> -->
-        </div>
-      </div>
-    </footer>
-  </div>
+                        <select ng-model="pagedata.limit" ng-change="search();">
+                            <option value="10" selected>10</option>
+                            <option value="12">12</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>
+                        entries per page
+                    </span>
+                </div>
+                <div class="col-md-6 text-right pagination-container">
+                  <!-- <nav>
+                      <ul class="pagination">
+                          <li ng-class="page.class" ng-repeat="page in pages"><a ng-click="reload({page:page.pageno,limit:pagedata.limit,search:pagedata.search});">{{page.pageno}}</a>
+                          </li>
+                      </ul>
+                  </nav> -->
+
+                    <!-- <uib-pagination class="pagination-sm" ng-model="page.pageno" total-items="filteredStores.length" max-size="4" ng-change="search({page:page.pageno,limit:pagedata.limit,search:pagedata.search});"  rotate="false" num-pages="numPages" previous-text="&lsaquo;" next-text="&rsaquo;" boundary-links="true"></uib-pagination> -->
+                    <uib-pagination total-items="totalItems" ng-model="pagedata.page" max-size="5" class="pagination-sm" boundary-link-numbers="true" ng-change="search();" ng-hide="userdata.totalpages==1"></uib-pagination>
+
+
+
+                    <!-- <uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" previous-text="&lsaquo;" next-text="&rsaquo;"></uib-pagination> -->
+                </div>
+            </div>
+        </footer>
+    </div>
 </div>
 </div>

@@ -18,21 +18,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.userForm = {};
     $scope.pagedata = {};
     $scope.pagedata.page = 1;
-    //$cope.pagedata.limit = '20';
+    $scope.pagedata.limit = '10';
     $scope.pagedata.search = '';
-    $scope.search = function(pagedata) {
-      $scope.pagedata = pagedata;
+    $scope.search = function() {
         NavigationService.searchUser($scope.pagedata, function(data) {
-            $scope.userdata = data.data.data;
-            console.log('searchdata', $scope.searchdata);
+            console.log(data);
+            $scope.userdata = data.data;
+            $scope.totalItems = data.data.total;
         });
 
     };
+    $scope.search();
 
     $scope.allUserRecords = function() {
         NavigationService.userViewAllSubmit($scope.userForm, function(data) {
             $scope.userdata = data.data;
             console.log('user data', data.data);
+
         });
     };
 
@@ -208,6 +210,33 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.userForm = {};
+        $scope.pagedata = {};
+        $scope.pagedata.page = 1;
+        $scope.pagedata.limit = '2';
+        $scope.pagedata.search = '';
+        $scope.search = function(pagedata) {
+            $scope.pagedata = pagedata;
+            NavigationService.searchUser($scope.pagedata, function(data) {
+                $scope.userplandata = data.data;
+                //console.log('searchdata', $scope.userdata);
+                $scope.pages = [];
+                var newclass = '';
+                for (var i = 1; i <= data.totalpages; i++) {
+                    if (pagedata.page == i) {
+                        newclass = 'active';
+                    } else {
+                        newclass = '';
+                    }
+                    $scope.pages.push({
+                        pageno: i,
+                        class: newclass
+                    });
+                }
+            });
+
+        };
+        $scope.search($scope.pagedata);
+
         $scope.allUserPlanRecords = function() {
             NavigationService.userPlanViewAllSubmit($scope.userForm, function(data) {
                 $scope.userplandata = data.data;
