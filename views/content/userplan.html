@@ -20,7 +20,7 @@
        </div>
        <div class="col-sm-3 col-xs-6 filter-result-info">
          <span>
-                     Showing {{pagedata.limit}}/{{userdata.data.length}} entries
+                     Showing {{userdata.data.length}}/{{userdata.total}} entries
                  </span>
        </div>
      </div>
@@ -55,7 +55,7 @@
          </tr>
        </thead>
        <tbody>
-         <tr ng-repeat="data in userplandata | limitTo:pagedata.limit">
+         <tr ng-repeat="data in userplandata.data | limitTo:pagedata.limit">
            <td>{{data._id}}</td>
            <td>{{data.user.name}}</td>
            <td>{{data.plan.name}}</td>
@@ -78,7 +78,7 @@
                              data-ng-options="num for num in numPerPageOpt"
                              data-ng-change="onNumPerPageChange()">
                      </select>  -->
-                     <select ng-model="pagedata.limit">
+                     <select ng-model="pagedata.limit" ng-change="search();">
                        <option value="2">2</option>
                        <option value="25">25</option>
                        <option value="50">50</option>
@@ -88,15 +88,7 @@
                  </span>
              </div>
              <div class="col-md-6 text-right pagination-container">
-                 <uib-pagination class="pagination-sm"
-                             ng-model="currentPage"
-                             total-items="filteredStores.length"
-                             max-size="4"
-                             ng-change="select(currentPage)"
-                             items-per-page="numPerPage"
-                             rotate="false"
-                             previous-text="&lsaquo;" next-text="&rsaquo;"
-                             boundary-links="true"></uib-pagination>
+              <uib-pagination total-items="totalItems" ng-model="pagedata.page" max-size="5" class="pagination-sm" boundary-link-numbers="true" ng-change="search();" ng-hide="userdata.totalpages==1"></uib-pagination>
              </div>
          </div>
      </footer>

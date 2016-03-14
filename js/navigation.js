@@ -293,19 +293,7 @@ var navigationservice = angular.module('navigationservice', [])
 
 
 
-    searchUser: function(formData, callback) {
-      // console.log('form data: ', formData);
-      $http({
-        url: adminurl + 'user/findlimited',
-        method: 'POST',
-        withCredentials: true,
-        data: {
-          "search": formData.search,
-          "pagesize": parseInt(formData.limit),
-          "pagenumber": parseInt(formData.page),
-        }
-      }).success(callback);
-    },
+
 
     userViewAllSubmit: function(formData, callback) {
       // console.log('form data: ', formData);
@@ -735,6 +723,24 @@ var navigationservice = angular.module('navigationservice', [])
         }
       }).success(callback);
     },
+
+
+
+
+    searchUser: function(formData, callback) {
+      // console.log('form data: ', formData);
+      $http({
+        url: adminurl + 'user/findlimited',
+        method: 'POST',
+        withCredentials: true,
+        data: {
+          "search": formData.search,
+          "pagesize": parseInt(formData.limit),
+          "pagenumber": parseInt(formData.page),
+        }
+      }).success(callback);
+    },
+
 
     makeactive: function(menuname) {
       for (var i = 0; i < navigation.length; i++) {
