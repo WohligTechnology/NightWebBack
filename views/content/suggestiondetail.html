@@ -29,7 +29,7 @@
 
                         <div class="form-group">
                             <label for="exampleInputName3">Name</label>
-                            <input name="name" required ng-model="userForm.name" type="text" class="form-control" id="exampleInputName3" placeholder="Enter Name">
+                            <input name="name" capitalize-first required ng-model="userForm.name" type="text" class="form-control" id="exampleInputName3" placeholder="Enter Name">
                             <div class="error-msg" ng-show="suggestUser.name.$error.required && suggestUser.name.$touched">Please Enter Your Name.
                             </div>
                         </div>
