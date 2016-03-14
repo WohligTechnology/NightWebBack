@@ -9,7 +9,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
     })
 
-.controller('UserCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('UserCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("user");
     $scope.menutitle = NavigationService.makeactive("Users");
@@ -20,11 +20,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.pagedata.page = 1;
     //$cope.pagedata.limit = '20';
     $scope.pagedata.search = '';
-    $scope.search = function() {
+    $scope.search = function(pagedata) {
+      $scope.pagedata = pagedata;
         NavigationService.searchUser($scope.pagedata, function(data) {
-            $scope.searchdata = data.data.data;
+            $scope.userdata = data.data.data;
             console.log('searchdata', $scope.searchdata);
         });
+
     };
 
     $scope.allUserRecords = function() {
@@ -100,15 +102,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.userSubmitForm = function(formValid) {
         console.log($scope.userForm);
-        $state.go("user");
+
         console.log('on the user');
         if (formValid.$valid) {
             $scope.formComplete = true;
-
+            NavigationService.editUserSubmit($scope.userForm, function(data) {
+                console.log('response:', data);
+                $state.go("user");
+            });
         }
-        NavigationService.editUserSubmit($scope.userForm, function(data) {
-            console.log('response:', data);
-        });
+
 
     };
 })
@@ -411,12 +414,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.submitForm = function(formValid) {
 
         console.log('user form:', $scope.userForm);
-        $state.go("plan");
+
         console.log('on the plan');
         if (formValid.$valid) {
             $scope.formComplete = true;
             NavigationService.editPlanSubmit($scope.userForm, function(data) {
                 console.log('response:', data);
+                $state.go("plan");
             });
         }
     };
