@@ -20,8 +20,8 @@
           </div>
           <div class="col-sm-3 col-xs-6 filter-result-info">
             <span>
-                        Showing 25/25 entries
-                    </span>
+                Showing {{sugestdata.data.length}}/{{sugestdata.total}} entries
+            </span>
           </div>
         </div>
       </div>
@@ -57,7 +57,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="data in sugestdata">
+          <tr ng-repeat="data in sugestdata.data | limitTo:pagedata.limit">
             <td>{{data._id}}</td>
             <td>
               <span>
@@ -102,25 +102,17 @@
                               data-ng-options="num for num in numPerPageOpt"
                               data-ng-change="onNumPerPageChange()">
                       </select>  -->
-                      <select>
-                        <option value="10">10</option>
-                        <option value="25">25</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
+                      <select ng-model="pagedata.limit" ng-change="search();">
+                          <option value="10" selected>10</option>
+                          <option value="12">12</option>
+                          <option value="50">50</option>
+                          <option value="100">100</option>
                       </select>
                       entries per page
                   </span>
               </div>
               <div class="col-md-6 text-right pagination-container">
-                  <uib-pagination class="pagination-sm"
-                              ng-model="currentPage"
-                              total-items="filteredStores.length"
-                              max-size="4"
-                              ng-change="select(currentPage)"
-                              items-per-page="numPerPage"
-                              rotate="false"
-                              previous-text="&lsaquo;" next-text="&rsaquo;"
-                              boundary-links="true"></uib-pagination>
+                <uib-pagination total-items="totalItems" ng-model="pagedata.page" max-size="5" class="pagination-sm" boundary-link-numbers="true" ng-change="search();" ng-hide="sugestdata.totalpages==1"></uib-pagination>
               </div>
           </div>
       </footer>
