@@ -18,14 +18,14 @@
                         </div>
                         <div ng-controller="UploadCtrl">
                         <div class="form-group">
-                          <input type="file" name="image" ng-file-select="onFileSelect($files,1)" onclick="this.value=null" title="Choose File" required ng-model="userForm.image" accept=".jpg,.png" class="form-control ab" class="btn-primary" ui-file-upload>
+                          <input type="file" name="image" ng-file-select="onFileSelect($files,1)" onclick="this.value=null" title="Choose File" required ng-model="userForm.image" accept=".jpg,.png" class="btn-primary" ui-file-upload>
                             <!-- <input name="image" type="file" ng-model="userForm.image" title="Choose File" class="btn-primary" ui-file-upload> -->
                         </div>
                         <div ng-if="userForm.image">
                           <div ng-init="httpMethod = 'POST';howToSend = 1;"></div>
                         </div>
                         <div class="form-group">
-                          <input type="file" name="images" ng-file-select="onFileSelect($files,2)" onclick="this.value=null" title="Choose Files"  ng-model="userForm.images" accept=".jpg,.png" class="form-control ab" class="btn-primary" ui-file-upload multiple>
+                          <input type="file" name="images" ng-file-select="onFileSelect($files,2)" onclick="this.value=null" title="Choose Files"  ng-model="userForm.images" accept=".jpg,.png" class="btn-primary" ui-file-upload multiple>
                             <!-- <input name="images" type="file" ng-model="userForm.images" title="Choose File" class="btn-primary" ui-file-upload multiple> -->
                         </div>
                         <div ng-if="userForm.images">
