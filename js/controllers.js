@@ -15,19 +15,38 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Users");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.thead=['#','Name','Email','Action'];
     $scope.userForm = {};
     $scope.pagedata = {};
     $scope.pagedata.page = 1;
     $scope.pagedata.limit = '10';
     $scope.pagedata.search = '';
+    $scope.pagedata.sort = "name";
+    $scope.pagedata.sortnum = 1;
+
     $scope.search = function() {
         NavigationService.searchUser($scope.pagedata, function(data) {
             console.log(data);
             $scope.userdata = data.data;
             $scope.totalItems = data.data.total;
         });
-
     };
+    // $scope.sortdata = function(pagedata) {
+    //   $scope.pagedata = pagedata;
+    //     NavigationService.searchUser($scope.pagedata, function(data) {
+    //
+    //     });
+    //
+    //  };
+    // $scope.sortemail = function() {
+    //     NavigationService.searchUser($scope.pagedata, function(data) {
+    //         console.log('sort email',data.data.data);
+    //         $scope.userdata = data.data;
+    //         $scope.sort = data.data.data.name;
+    //         console.log('sort',data.data.data.name);
+    //     });
+    //
+    // };
     $scope.search();
 
     $scope.allUserRecords = function() {

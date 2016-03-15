@@ -731,6 +731,8 @@ var navigationservice = angular.module('navigationservice', [])
           "search": formData.search,
           "pagesize": parseInt(formData.limit),
           "pagenumber": parseInt(formData.page),
+          "sort":formData.sort,
+          "sortnum":formData.sortnum
         }
       }).success(callback);
     },
