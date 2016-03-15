@@ -215,7 +215,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.pagedata.limit = '2';
         $scope.pagedata.search = '';
         $scope.search = function() {
-            NavigationService.searchUserPlan($scope.pagedata, function(data) {
+            NavigationService.searchUserplan($scope.pagedata, function(data) {
                 $scope.userplandata = data;
                     console.log(data.data);
                 $scope.totalItems = data.data.total;
@@ -578,11 +578,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
 
     $scope.userForm = {};
+    $scope.pagedata = {};
     $scope.pagedata.page = 1;
     $scope.pagedata.limit = '2';
     $scope.pagedata.search = '';
     $scope.search = function() {
-        NavigationService.searchTemplates($scope.pagedata, function(data) {
+        NavigationService.searchTemplate($scope.pagedata, function(data) {
             $scope.templatesdata = data;
                 console.log(data.data);
             $scope.totalItems = data.data.total;
@@ -680,6 +681,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.userForm = {};
+    $scope.pagedata = {};
     $scope.pagedata.page = 1;
     $scope.pagedata.limit = '2';
     $scope.pagedata.search = '';
@@ -790,6 +792,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.userForm = {};
+    $scope.pagedata = {};
     $scope.pagedata.page = 1;
     $scope.pagedata.limit = '2';
     $scope.pagedata.search = '';
@@ -888,7 +891,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.userForm = {};
-
+$scope.pagedata = {};
     $scope.pagedata.page = 1;
     $scope.pagedata.limit = '2';
     $scope.pagedata.search = '';
