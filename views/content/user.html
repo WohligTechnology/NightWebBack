@@ -31,11 +31,11 @@
             <thead>
                 <tr>
                     <th>
-                        <div class="th">
-                            #
-                            <span class="fa fa-angle-up"></span>
-                            <span class="fa fa-angle-down"></span>
-                        </div>
+                          <div class="th" ng-click="pagedata.sort = '_id'; pagedata.sortnum = !pagedata.sortnum">
+                              #
+                              <span ng-click="pagedata.sort = '_id';pagedata.sortnum=1;search();" class="fa fa-angle-up"  ng-class="{active: (pagedata.sort == '_id' && pagedata.sortnum == 1)}"></span>
+                              <span ng-click="pagedata.sort = '_id';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == '_id' && pagedata.sortnum == -1)}"></span>
+                          </div>
                     </th>
                     <th>
                       <div class="th" ng-click="pagedata.sort = 'name'; pagedata.sortnum = !pagedata.sortnum">

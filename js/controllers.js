@@ -31,22 +31,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.totalItems = data.data.total;
         });
     };
-    // $scope.sortdata = function(pagedata) {
-    //   $scope.pagedata = pagedata;
-    //     NavigationService.searchUser($scope.pagedata, function(data) {
-    //
-    //     });
-    //
-    //  };
-    // $scope.sortemail = function() {
-    //     NavigationService.searchUser($scope.pagedata, function(data) {
-    //         console.log('sort email',data.data.data);
-    //         $scope.userdata = data.data;
-    //         $scope.sort = data.data.data.name;
-    //         console.log('sort',data.data.data.name);
-    //     });
-    //
-    // };
+
     $scope.search();
 
     $scope.allUserRecords = function() {
@@ -233,6 +218,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.pagedata.page = 1;
         $scope.pagedata.limit = '2';
         $scope.pagedata.search = '';
+
+        $scope.pagedata.sort = "user";
+        $scope.pagedata.sortnum = 1;
+
         $scope.search = function() {
             NavigationService.searchUserplan($scope.pagedata, function(data) {
                 $scope.userplandata = data;
@@ -364,6 +353,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.pagedata.page = 1;
     $scope.pagedata.limit = '2';
     $scope.pagedata.search = '';
+
+    $scope.pagedata.sort = "name";
+    $scope.pagedata.sortnum = 1;
+
     $scope.search = function() {
         NavigationService.searchPlan($scope.pagedata, function(data) {
             $scope.plandata = data;
@@ -488,6 +481,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.pagedata.page = 1;
     $scope.pagedata.limit = '2';
     $scope.pagedata.search = '';
+
+    $scope.pagedata.sort = "name";
+    $scope.pagedata.sortnum = 1;
+
     $scope.search = function() {
         NavigationService.searchSuggestion($scope.pagedata, function(data) {
             $scope.sugestdata = data;
@@ -601,6 +598,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.pagedata.page = 1;
     $scope.pagedata.limit = '2';
     $scope.pagedata.search = '';
+
+    $scope.pagedata.sort = "name";
+    $scope.pagedata.sortnum = 1;
+
     $scope.search = function() {
         NavigationService.searchTemplate($scope.pagedata, function(data) {
             $scope.templatesdata = data;
@@ -704,6 +705,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.pagedata.page = 1;
     $scope.pagedata.limit = '2';
     $scope.pagedata.search = '';
+
+    $scope.pagedata.sort = "title";
+    $scope.pagedata.sortnum = 1;
+
     $scope.search = function() {
         NavigationService.searchBlog($scope.pagedata, function(data) {
             $scope.blogdata = data;
@@ -815,6 +820,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.pagedata.page = 1;
     $scope.pagedata.limit = '2';
     $scope.pagedata.search = '';
+
+    $scope.pagedata.sort = "name";
+    $scope.pagedata.sortnum = 1;
+
     $scope.search = function() {
         NavigationService.searchDocumentationCategory($scope.pagedata, function(data) {
             $scope.documentationcategorydata = data;
@@ -914,6 +923,10 @@ $scope.pagedata = {};
     $scope.pagedata.page = 1;
     $scope.pagedata.limit = '2';
     $scope.pagedata.search = '';
+
+    $scope.pagedata.sort = "title";
+    $scope.pagedata.sortnum = 1;
+
     $scope.search = function() {
         NavigationService.searchDocumentation($scope.pagedata, function(data) {
             $scope.documentationdata = data;

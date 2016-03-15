@@ -28,32 +28,32 @@
     <table class="table table-hover table-bordered table-responsive">
       <thead>
         <tr>
-          <th><div class="th">
-            #
-            <span class="fa fa-angle-up">
-            </span>
-            <span class="fa fa-angle-down">
-            </span>
-          </div></th>
-          <th><div class="th">
-            Title
-            <span class="fa fa-angle-up" data-ng-click=" order('name') "
-            data-ng-class="{active: row == 'name'}">
-            </span>
-            <span class="fa fa-angle-down" data-ng-click=" order('-name') "
-              data-ng-class="{active: row == '-name'}">
-            </span>
-          </div></th>
-          <th><div class="th">
-            Status
-            <span class="fa fa-angle-up">
-            </span>
-            <span class="fa fa-angle-down">
-            </span>
-          </div></th>
-          <th><div class="th">
-            Action
-          </div></th>
+          <th>
+            <div class="th" ng-click="pagedata.sort = '_id'; pagedata.sortnum = !pagedata.sortnum">
+              #
+              <span ng-click="pagedata.sort = '_id';pagedata.sortnum=1;search();" class="fa fa-angle-up" ng-class="{active: (pagedata.sort == '_id' && pagedata.sortnum == 1)}"></span>
+              <span ng-click="pagedata.sort = '_id';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == '_id' && pagedata.sortnum == -1)}"></span>
+            </div>
+          </th>
+          <th>
+            <div class="th" ng-click="pagedata.sort = 'title'; pagedata.sortnum = !pagedata.sortnum">
+              Title
+              <span ng-click="pagedata.sort = 'title';pagedata.sortnum=1;search();" class="fa fa-angle-up" ng-class="{active: (pagedata.sort == 'title' && pagedata.sortnum == 1)}"></span>
+              <span ng-click="pagedata.sort = 'title';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'title' && pagedata.sortnum == -1)}"></span>
+            </div>
+          </th>
+          <th>
+            <div class="th" ng-click="pagedata.sort = 'status'; pagedata.sortnum = !pagedata.sortnum">
+              Status
+              <span ng-click="pagedata.sort = 'status';pagedata.sortnum=1;search();" class="fa fa-angle-up" ng-class="{active: (pagedata.sort == 'status' && pagedata.sortnum == 1)}"></span>
+              <span ng-click="pagedata.sort = 'status';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'status' && pagedata.sortnum == -1)}"></span>
+            </div>
+          </th>
+          <th>
+            <div class="th">
+              Action
+            </div>
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -74,7 +74,7 @@
           </span>
           </td>
         </tr> -->
-        <tr ng-repeat="data in documentationdata.data | limitTo:pagedata.limit">
+        <tr ng-repeat="data in documentationdata.data | limitTo:pagedata.limit |orderBy:pagedata.sort:pagedata.sortnum">
           <td>{{data._id}}</td>
           <td>
             <span>
@@ -111,9 +111,9 @@
       </tbody>
     </table>
     <footer class="table-footer">
-        <div class="row">
-            <div class="col-md-6 page-num-info">
-                <span>
+      <div class="row">
+        <div class="col-md-6 page-num-info">
+          <span>
                     Show
                     <!-- <select data-ng-model="numPerPage"
                             data-ng-options="num for num in numPerPageOpt"
@@ -127,12 +127,12 @@
                     </select>
                     entries per page
                 </span>
-            </div>
-            <div class="col-md-6 text-right pagination-container">
-              <uib-pagination total-items="totalItems" ng-model="pagedata.page" max-size="5" class="pagination-sm" boundary-link-numbers="true" ng-change="search();" ng-hide="documentationdata.totalpages==1"></uib-pagination>
-            </div>
         </div>
+        <div class="col-md-6 text-right pagination-container">
+          <uib-pagination total-items="totalItems" ng-model="pagedata.page" max-size="5" class="pagination-sm" boundary-link-numbers="true" ng-change="search();" ng-hide="documentationdata.totalpages==1"></uib-pagination>
+        </div>
+      </div>
     </footer>
-</div>
+  </div>
 </div>
 </div>

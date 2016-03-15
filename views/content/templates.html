@@ -29,28 +29,24 @@
       <table class="table table-hover table-bordered table-responsive">
         <thead>
           <tr>
-            <th><div class="th">
-              #
-              <span class="fa fa-angle-up">
-              </span>
-              <span class="fa fa-angle-down">
-              </span>
-            </div></th>
-            <th><div class="th">
-              Name
-              <span class="fa fa-angle-up" data-ng-click=" order('name') "
-              data-ng-class="{active: row == 'name'}">
-              </span>
-              <span class="fa fa-angle-down" data-ng-click=" order('-name') "
-                data-ng-class="{active: row == '-name'}">
-              </span>
-            </div></th>
-            <th><div class="th">
-              Description
-              <span class="fa fa-angle-up">
-              </span>
-              <span class="fa fa-angle-down">
-              </span>
+            <th>
+                  <div class="th" ng-click="pagedata.sort = '_id'; pagedata.sortnum = !pagedata.sortnum">
+                      #
+                      <span ng-click="pagedata.sort = '_id';pagedata.sortnum=1;search();" class="fa fa-angle-up"  ng-class="{active: (pagedata.sort == '_id' && pagedata.sortnum == 1)}"></span>
+                      <span ng-click="pagedata.sort = '_id';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == '_id' && pagedata.sortnum == -1)}"></span>
+                  </div>
+            </th>
+            <th>
+              <div class="th" ng-click="pagedata.sort = 'name'; pagedata.sortnum = !pagedata.sortnum">
+                  Name
+                  <span ng-click="pagedata.sort = 'name';pagedata.sortnum=1;search();" class="fa fa-angle-up"  ng-class="{active: (pagedata.sort == 'name' && pagedata.sortnum == 1)}"></span>
+                  <span ng-click="pagedata.sort = 'name';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'name' && pagedata.sortnum == -1)}"></span>
+              </div>
+            </th>
+            <th><div class="th" ng-click="pagedata.sort = 'description'; pagedata.sortnum = !pagedata.sortnum">
+                Description
+                <span ng-click="pagedata.sort = 'description';pagedata.sortnum=1;search();" class="fa fa-angle-up"  ng-class="{active: (pagedata.sort == 'description' && pagedata.sortnum == 1)}"></span>
+                <span ng-click="pagedata.sort = 'description';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'description' && pagedata.sortnum == -1)}"></span>
             </div></th>
             <th><div class="th">
               Action
@@ -58,7 +54,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="data in templatesdata.data | limitTo:pagedata.limit">
+          <tr ng-repeat="data in templatesdata.data | limitTo:pagedata.limit | orderBy:pagedata.sort:pagedata.sortnum">
             <td>{{data._id}}</td>
             <td>
               <span>
