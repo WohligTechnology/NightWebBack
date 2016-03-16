@@ -1,5 +1,5 @@
 // var adminURL = "";
-var adminurl = "http://192.168.0.124:1337/";
+var adminurl = "http://192.168.0.124:81/";
 var imgpath = "http://vignesh.com/uploadfile/upload/";
 
 // if(isproduction)

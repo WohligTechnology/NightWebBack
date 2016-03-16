@@ -94,6 +94,9 @@ nav li:hover .dropdown-menu {
   background-color: #242633;
   border-color: #242633;
  }
- 
+ .ui-select{
+ margin: 0 0 2px 0 !important;
+}
+
 /* Start writing sass here */
 @import "fancybox-override";
