@@ -371,7 +371,8 @@ var navigationservice = angular.module('navigationservice', [])
         method: 'POST',
         withCredentials: true,
         data: {
-          "user": formData.user,
+          "creationtime": formData.creationtime,
+          "modificationtime": formData.modificationtime,
           "status": formData.status
         }
       }).success(callback);
@@ -386,6 +387,10 @@ var navigationservice = angular.module('navigationservice', [])
         data: {
           "user": formData.user,
           "_id": formData._id,
+          "creationtime": formData.creationtime,
+          "modificationtime": formData.modificationtime,
+          "starttime": formData.starttime,
+          "endtime": formData.endtime,
           "status": formData.status
             // "name": formData.name,
             // "contact":formData.contact,
@@ -428,15 +433,13 @@ var navigationservice = angular.module('navigationservice', [])
         method: 'POST',
         withCredentials: true,
         data: {
-          "_id": formData._id,
           "user": formData.user,
-          "accesslevel": formData.accesslevel,
-          "name": formData.name,
-          "contact": formData.contact,
-          "facebook": formData.facebook,
-          "google": formData.google,
-          "logintype": formData.logintype,
-          "twitter": formData.twitter
+          "_id": formData._id,
+          "creationtime": formData.creationtime,
+          "modificationtime": formData.modificationtime,
+          "starttime": formData.starttime,
+          "endtime": formData.endtime,
+          "status": formData.status
         }
       }).success(callback);
     },
@@ -748,7 +751,7 @@ var navigationservice = angular.module('navigationservice', [])
         }
       }).success(callback);
     },
-    searchUsernotification: function(formData, callback) {
+    searchUserNotification: function(formData, callback) {
       // console.log('form data: ', formData);
       $http({
         url: adminurl + 'usernotification/findlimited',

@@ -9,14 +9,14 @@
         <div class="row">
           <div class="col-sm-4 col-xs-6">
             <form>
-              <div class="row">
-                <div class="col-md-9">
-                  <input type="text" placeholder="Search..." class="form-control" ng-model="pagedata.search">
+                <div class="row">
+                    <div class="col-md-9">
+                        <input type="text" placeholder="Search..." class="form-control" ng-model="pagedata.search">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="submit" class="btn btn-info" value="Search" ng-click="search(pagedata)">
+                    </div>
                 </div>
-                <div class="col-md-2">
-                  <input type="submit" class="btn btn-info" value="Search" ng-click="search(pagedata)">
-                </div>
-              </div>
             </form>
           </div>
           <div class="col-sm-3 col-xs-6 filter-result-info">
@@ -29,40 +29,50 @@
       <table class="table table-hover table-bordered table-responsive">
         <thead>
           <tr>
-            <th><div class="th">
-              #
-              <span class="fa fa-angle-up">
-              </span>
-              <span class="fa fa-angle-down">
-              </span>
-            </div></th>
-            <!-- <th><div class="th">
-              User
-              <span class="fa fa-angle-up" data-ng-click=" order('user') "
-              data-ng-class="{active: row == 'user'}">
-              </span>
-              <span class="fa fa-angle-down" data-ng-click=" order('-user') "
-                data-ng-class="{active: row == '-user'}">
-              </span>
-            </div></th> -->
-            <th><div class="th">
-              Status
-              <span class="fa fa-angle-up">
-              </span>
-              <span class="fa fa-angle-down">
-              </span>
-            </div></th>
+            <th>
+                  <div class="th">
+                      #
+                      <span ng-click="pagedata.sort = '_id';pagedata.sortnum=1;search();" class="fa fa-angle-up"  ng-class="{active: (pagedata.sort == '_id' && pagedata.sortnum == 1)}"></span>
+                      <span ng-click="pagedata.sort = '_id';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == '_id' && pagedata.sortnum == -1)}"></span>
+                  </div>
+            </th>
+            <th>
+              <div class="th">
+                  Creation Time
+                  <span ng-click="pagedata.sort = 'creationtime';pagedata.sortnum=1;search();" class="fa fa-angle-up"  ng-class="{active: (pagedata.sort == 'creationtime' && pagedata.sortnum == 1)}"></span>
+                  <span ng-click="pagedata.sort = 'creationtime';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'creationtime' && pagedata.sortnum == -1)}"></span>
+              </div>
+            </th>
+            <th>
+                <div class="th">
+                    Modification Time
+                    <span ng-click="pagedata.sort = 'modificationtime';pagedata.sortnum=1;search();" class="fa fa-angle-up" ng-class="{active: (pagedata.sort == 'modificationtime' && pagedata.sortnum == 1)}"></span>
+                    <span ng-click="pagedata.sort = 'modificationtime' ;pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'modificationtime' && pagedata.sortnum == -1)}"></span>
+                </div>
+            </th>
+            <th>
+                <div class="th">
+                    Status
+                    <span ng-click="pagedata.sort = 'status';pagedata.sortnum=1;search();" class="fa fa-angle-up" ng-class="{active: (pagedata.sort == 'status' && pagedata.sortnum == 1)}"></span>
+                    <span ng-click="pagedata.sort = 'status' ;pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'status' && pagedata.sortnum == -1)}"></span>
+                </div>
+            </th>
             <th><div class="th">
               Action
             </div></th>
           </tr>
         </thead>
         <tbody>
-          <!-- <tr ng-repeat="data in usernotificationdata.data | limitTo:pagedata.limit">
+          <!-- <tr ng-repeat="data in usernotificationdata.data">
             <td>{{data._id}}</td>
             <td>
               <span>
-                {{data.title}}
+                {{data.creationtime}}
+              </span>
+            </td>
+            <td>
+              <span>
+                {{data.modificationtime}}
               </span>
             </td>
             <td>
@@ -70,12 +80,14 @@
             </td>
             <td>
               <span>
-              <button class="btn btn-sm btn-info" ui-sref="edit-documentation({id:data._id})"><i class="fa fa-pencil-square-o"></i></button>&nbsp;&nbsp;&nbsp;
-              <button class="btn btn-sm btn-danger" ng-click="deletedocumentation(data._id)"><i class="fa fa-trash"></i></button>
+              <button class="btn btn-sm btn-info" ui-sref="edit-edit-user-notification({id:data._id})"><i class="fa fa-pencil-square-o"></i></button>&nbsp;&nbsp;&nbsp;
+              <button class="btn btn-sm btn-danger" ng-click="deleteUserNotification(data._id)"><i class="fa fa-trash"></i></button>
             </span>
             </td>
           </tr> -->
           <tr>
+            <td>1</td>
+            <td>1</td>
             <td>1</td>
             <td>
               <span>Enable</span>
@@ -89,6 +101,8 @@
           </tr>
           <tr>
             <td>2</td>
+            <td>1</td>
+            <td>1</td>
             <td>
               <span>Disable</span>
             </td>

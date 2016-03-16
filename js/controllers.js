@@ -130,17 +130,35 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.userForm = {};
-    $scope.allUserNotificationRecords = function() {
-        NavigationService.userNotificationViewAllSubmit($scope.userForm, function(data) {
-            $scope.userdata = data.data;
-            console.log('user data', data.data);
+    $scope.pagedata = {};
+    $scope.pagedata.page = 1;
+    $scope.pagedata.limit = '10';
+    $scope.pagedata.search = '';
+    $scope.pagedata.sort = "creationtime";
+    $scope.pagedata.sortnum = 1;
+
+    $scope.search = function() {
+        NavigationService.searchUserNotification($scope.pagedata, function(data) {
+            console.log(data);
+            $scope.usernotificationdata = data.data;
+            $scope.totalItems = data.data.total;
         });
     };
 
-    NavigationService.userNotificationViewAllSubmit($scope.userForm, function(data) {
-        $scope.userdata = data.data;
-        console.log('user data', data.data);
-    });
+    $scope.search();
+
+    $scope.allUserNotificationRecords = function() {
+        // NavigationService.userNotificationViewAllSubmit($scope.userForm, function(data) {
+        //     $scope.usernotificationdata = data.data;
+        //     console.log('user data', data.data);
+        // });
+          $scope.search();
+    };
+
+    // NavigationService.userNotificationViewAllSubmit($scope.userForm, function(data) {
+    //     $scope.usernotificationdata = data.data;
+    //     console.log('user data', data.data);
+    // });
 
 
     $scope.deleteUserNotification = function(formValid) {
@@ -192,18 +210,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.header = {
         name: 'Edit - User Notification'
     };
-    $scope.userForm = {};
-    $scope.submitForm = function(formData, formValid) {
+    NavigationService.getUserNotificationEditDetail($stateParams.id, function(data) {
+        console.log('getUserEditDetail', data);
+        $scope.userForm = data.data;
+    });
+
+
+    $scope.userNotificationSubmitForm = function(formValid) {
         console.log($scope.userForm);
         if (formValid.$valid) {
-            $state.go("usernotification");
             $scope.formComplete = true;
-
-        } else {
-
+            NavigationService.editUserNotificationSubmit($scope.userForm, function(data) {
+                console.log('response:', data);
+                $state.go("usernotification");
+            });
         }
 
     };
+
 
 })
 
