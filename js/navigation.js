@@ -230,8 +230,8 @@ var navigationservice = angular.module('navigationservice', [])
         withCredentials: true,
         data: {
           "description": formData.description,
-          "name": formData.name,
-          "text": formData.text
+          "name": formData.name
+
         }
       }).success(callback);
     },

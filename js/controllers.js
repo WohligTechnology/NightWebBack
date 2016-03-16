@@ -35,17 +35,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.search();
 
     $scope.allUserRecords = function() {
-        NavigationService.userViewAllSubmit($scope.userForm, function(data) {
-            $scope.userdata = data.data;
-            console.log('user data', data.data);
-
-        });
+        // NavigationService.userViewAllSubmit($scope.userForm, function(data) {
+        //     $scope.userdata = data.data;
+        //     console.log('user data', data.data);
+        //
+        // });
+          $scope.search();
     };
 
-    NavigationService.userViewAllSubmit($scope.userForm, function(data) {
-        $scope.userdata = data.data;
-        console.log('user data', data.data);
-    });
+    // NavigationService.userViewAllSubmit($scope.userForm, function(data) {
+    //     $scope.userdata = data.data;
+    //     console.log('user data', data.data);
+    // });
 
 
     $scope.deleteUser = function(formValid) {
@@ -216,7 +217,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.userForm = {};
         $scope.pagedata = {};
         $scope.pagedata.page = 1;
-        $scope.pagedata.limit = '2';
+        $scope.pagedata.limit = '10';
         $scope.pagedata.search = '';
 
         $scope.pagedata.sort = "user";
@@ -224,7 +225,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.search = function() {
             NavigationService.searchUserplan($scope.pagedata, function(data) {
-                $scope.userplandata = data;
+                $scope.userplandata = data.data;
                     console.log(data.data);
                 $scope.totalItems = data.data.total;
             });
@@ -233,16 +234,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.search();
 
         $scope.allUserPlanRecords = function() {
-            NavigationService.userPlanViewAllSubmit($scope.userForm, function(data) {
-                $scope.userplandata = data;
-                console.log('view all userplan data', data.data);
-            });
+            // NavigationService.userPlanViewAllSubmit($scope.userForm, function(data) {
+            //     $scope.userplandata = data.data;
+            //     console.log('view all userplan data', data.data);
+            // });
+              $scope.search();
         };
 
-        NavigationService.userPlanViewAllSubmit($scope.userForm, function(data) {
-            $scope.userplandata = data;
-            console.log('view alllll userplan data', data.data);
-        });
+        // NavigationService.userPlanViewAllSubmit($scope.userForm, function(data) {
+        //     $scope.userplandata = data.data;
+        //     console.log('view alllll userplan data', data.data);
+        // });
         $scope.deleteUserPlan = function(formValid) {
             console.log('formvalid', formValid);
             NavigationService.deleteUserPlanData({
@@ -351,7 +353,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.userForm = {};
     $scope.pagedata = {};
     $scope.pagedata.page = 1;
-    $scope.pagedata.limit = '2';
+    $scope.pagedata.limit = '10';
     $scope.pagedata.search = '';
 
     $scope.pagedata.sort = "name";
@@ -359,28 +361,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.search = function() {
         NavigationService.searchPlan($scope.pagedata, function(data) {
-            $scope.plandata = data;
+            $scope.plandata = data.data;
                 console.log(data.data);
             $scope.totalItems = data.data.total;
         });
-
     };
     $scope.search();
 
-
-
     $scope.allTableRecords = function() {
-        NavigationService.viewAllPlanSubmit($scope.userForm, function(data) {
-            $scope.plandata = data.data;
-            console.log('plan data', data.data);
-            console.log('plan name', data.data.name);
-        });
+        // NavigationService.viewAllPlanSubmit($scope.userForm, function(data) {
+        //     $scope.plandata = data.data;
+        //     console.log('plan data', data.data);
+        //     console.log('plan name', data.data.name);
+        // });
+          $scope.search();
     };
 
-    NavigationService.viewAllPlanSubmit($scope.userForm, function(data) {
-        $scope.plandata = data.data;
-        console.log('plan data', data.data);
-    });
+    // NavigationService.viewAllPlanSubmit($scope.userForm, function(data) {
+    //     $scope.plandata = data.data;
+    //     console.log('plan data', data.data);
+    // });
 
 
     $scope.deletePlan = function(formValid) {
@@ -479,7 +479,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.userForm = {};
     $scope.pagedata = {};
     $scope.pagedata.page = 1;
-    $scope.pagedata.limit = '2';
+    $scope.pagedata.limit = '10';
     $scope.pagedata.search = '';
 
     $scope.pagedata.sort = "name";
@@ -487,7 +487,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.search = function() {
         NavigationService.searchSuggestion($scope.pagedata, function(data) {
-            $scope.sugestdata = data;
+            $scope.sugestdata = data.data;
                 console.log(data.data);
             $scope.totalItems = data.data.total;
         });
@@ -495,16 +495,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     $scope.search();
 
-    NavigationService.viewAllSuggestionSubmit($scope.userForm, function(data) {
-        $scope.sugestdata = data.data;
-        console.log('suggest data', data.data);
-    });
+    // NavigationService.viewAllSuggestionSubmit($scope.userForm, function(data) {
+    //     $scope.sugestdata = data;
+    //     console.log('suggest data', data.data);
+    // });
 
     $scope.allSuggestionRecords = function() {
-        NavigationService.viewAllSuggestionSubmit($scope.userForm, function(data) {
-            $scope.sugestdata = data.data;
-            //console.log('suggest data', data.data);
-        });
+        // NavigationService.viewAllSuggestionSubmit($scope.userForm, function(data) {
+        //     $scope.sugestdata = data.data;
+        //     //console.log('suggest data', data.data);
+        // });
+          $scope.search();
     };
 
     $scope.deleteSuggestion = function(formValid) {
@@ -596,7 +597,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.userForm = {};
     $scope.pagedata = {};
     $scope.pagedata.page = 1;
-    $scope.pagedata.limit = '2';
+    $scope.pagedata.limit = '10';
     $scope.pagedata.search = '';
 
     $scope.pagedata.sort = "name";
@@ -604,7 +605,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.search = function() {
         NavigationService.searchTemplate($scope.pagedata, function(data) {
-            $scope.templatesdata = data;
+            $scope.templatesdata = data.data;
                 console.log(data.data);
             $scope.totalItems = data.data.total;
         });
@@ -615,16 +616,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     $scope.allTemplatesRecords = function() {
-        NavigationService.templatesViewAllSubmit($scope.userForm, function(data) {
-            $scope.templatesdata = data.data;
-            console.log('templates data', data.data);
-        });
+        // NavigationService.templatesViewAllSubmit($scope.userForm, function(data) {
+        //     $scope.templatesdata = data.data;
+        //     console.log('templates data', data.data);
+        // });
+        $scope.search();
     };
 
-    NavigationService.templatesViewAllSubmit($scope.userForm, function(data) {
-        $scope.templatesdata = data.data;
-        console.log('templates data', data.data);
-    });
+    // NavigationService.templatesViewAllSubmit($scope.userForm, function(data) {
+    //     $scope.templatesdata = data.data;
+    //     console.log('templates data', data.data);
+    // });
 
     $scope.deleteTemplates = function(formValid) {
         console.log('formvalid', formValid);
@@ -703,7 +705,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.userForm = {};
     $scope.pagedata = {};
     $scope.pagedata.page = 1;
-    $scope.pagedata.limit = '2';
+    $scope.pagedata.limit = '10';
     $scope.pagedata.search = '';
 
     $scope.pagedata.sort = "title";
@@ -711,7 +713,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.search = function() {
         NavigationService.searchBlog($scope.pagedata, function(data) {
-            $scope.blogdata = data;
+            $scope.blogdata = data.data;
                 console.log(data.data);
             $scope.totalItems = data.data.total;
         });
@@ -721,16 +723,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     $scope.allBlogRecords = function() {
-        NavigationService.viewAllBlogSubmit($scope.userForm, function(data) {
-            $scope.blogdata = data.data;
-            console.log('user data', data.data);
-        });
+        // NavigationService.viewAllBlogSubmit($scope.userForm, function(data) {
+        //     $scope.blogdata = data.data;
+        //     console.log('user data', data.data);
+        // });
+          $scope.search();
     };
 
-    NavigationService.viewAllBlogSubmit($scope.userForm, function(data) {
-        $scope.blogdata = data.data;
-        console.log('user data', data.data);
-    });
+    // NavigationService.viewAllBlogSubmit($scope.userForm, function(data) {
+    //     $scope.blogdata = data.data;
+    //     console.log('user data', data.data);
+    // });
 
     $scope.deleteblog = function(formValid) {
         console.log('formvalid', formValid);
@@ -818,7 +821,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.userForm = {};
     $scope.pagedata = {};
     $scope.pagedata.page = 1;
-    $scope.pagedata.limit = '2';
+    $scope.pagedata.limit = '10';
     $scope.pagedata.search = '';
 
     $scope.pagedata.sort = "name";
@@ -826,7 +829,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.search = function() {
         NavigationService.searchDocumentationCategory($scope.pagedata, function(data) {
-            $scope.documentationcategorydata = data;
+            $scope.documentationcategorydata = data.data;
                 console.log(data.data);
             $scope.totalItems = data.data.total;
         });
@@ -836,16 +839,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     $scope.allDocumentationCategoryRecords = function() {
-        NavigationService.viewAllDocumentationCategorySubmit($scope.userForm, function(data) {
-            $scope.documentationcategorydata = data.data;
-            console.log('user data', data.data);
-        });
+        // NavigationService.viewAllDocumentationCategorySubmit($scope.userForm, function(data) {
+        //     $scope.documentationcategorydata = data.data;
+        //     console.log('user data', data.data);
+        // });
+          $scope.search();
     };
 
-    NavigationService.viewAllDocumentationCategorySubmit($scope.userForm, function(data) {
-        $scope.documentationcategorydata = data.data;
-        console.log('user data', data.data);
-    });
+    // NavigationService.viewAllDocumentationCategorySubmit($scope.userForm, function(data) {
+    //     $scope.documentationcategorydata = data.data;
+    //     console.log('user data', data.data);
+    // });
 
 
     $scope.deletedocumentationcategory = function(formValid) {
@@ -913,56 +917,57 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 })
 
 .controller('DocumentationCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-    //Used to name the .html file
-    $scope.template = TemplateService.changecontent("documentation");
-    $scope.menutitle = NavigationService.makeactive("Documentation");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-    $scope.userForm = {};
+   //Used to name the .html file
+   $scope.template = TemplateService.changecontent("documentation");
+   $scope.menutitle = NavigationService.makeactive("Documentation");
+   TemplateService.title = $scope.menutitle;
+   $scope.navigation = NavigationService.getnav();
+   $scope.userForm = {};
 $scope.pagedata = {};
-    $scope.pagedata.page = 1;
-    $scope.pagedata.limit = '2';
-    $scope.pagedata.search = '';
+   $scope.pagedata.page = 1;
+   $scope.pagedata.limit = '10';
+   $scope.pagedata.search = '';
 
-    $scope.pagedata.sort = "title";
-    $scope.pagedata.sortnum = 1;
+   $scope.pagedata.sort = "title";
+   $scope.pagedata.sortnum = 1;
 
-    $scope.search = function() {
-        NavigationService.searchDocumentation($scope.pagedata, function(data) {
-            $scope.documentationdata = data;
-                console.log(data.data);
-            $scope.totalItems = data.data.total;
-        });
+   $scope.search = function() {
+       NavigationService.searchDocumentation($scope.pagedata, function(data) {
+           $scope.documentationdata = data.data;
+               console.log(data.data);
+           $scope.totalItems = data.data.total;
+       });
 
-    };
-    $scope.search();
+   };
+   $scope.search();
 
-    $scope.allDocumentationRecords = function() {
-        NavigationService.viewAllDocumentationSubmit($scope.userForm, function(data) {
-            $scope.documentationdata = data.data;
-            console.log('user data', data.data);
-        });
-    };
+   $scope.allDocumentationRecords = function() {
+     $scope.search();
+       // NavigationService.viewAllDocumentationSubmit($scope.userForm, function(data) {
+       //     $scope.documentationdata = data.data;
+       //     console.log('user data', data.data);
+       // });
+   };
 
-    NavigationService.viewAllDocumentationSubmit($scope.userForm, function(data) {
-        $scope.documentationdata = data.data;
-        console.log('user data', data.data);
-    });
+   // NavigationService.viewAllDocumentationSubmit($scope.userForm, function(data) {
+   //     $scope.documentationdata = data.data;
+   //     console.log('user data', data.data);
+   // });
 
 
-    $scope.deletedocumentation = function(formValid) {
-        console.log('formvalid', formValid);
-        NavigationService.deleteDocumentationData({
-            id: formValid
-        }, function(data) {
-            console.log('delete data:', data);
-            if (data.value === true) {
+   $scope.deletedocumentation = function(formValid) {
+       console.log('formvalid', formValid);
+       NavigationService.deleteDocumentationData({
+           id: formValid
+       }, function(data) {
+           console.log('delete data:', data);
+           if (data.value === true) {
 
-                $scope.allDocumentationRecords();
-            }
+               $scope.allDocumentationRecords();
+           }
 
-        });
-    };
+       });
+   };
 })
 
 .controller('CreateDocumentationCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {

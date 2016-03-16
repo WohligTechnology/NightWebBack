@@ -29,21 +29,21 @@
       <thead>
         <tr>
           <th>
-            <div class="th" ng-click="pagedata.sort = '_id'; pagedata.sortnum = !pagedata.sortnum">
+            <div class="th">
               #
               <span ng-click="pagedata.sort = '_id';pagedata.sortnum=1;search();" class="fa fa-angle-up" ng-class="{active: (pagedata.sort == '_id' && pagedata.sortnum == 1)}"></span>
               <span ng-click="pagedata.sort = '_id';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == '_id' && pagedata.sortnum == -1)}"></span>
             </div>
           </th>
           <th>
-            <div class="th" ng-click="pagedata.sort = 'title'; pagedata.sortnum = !pagedata.sortnum">
+            <div class="th">
               Title
               <span ng-click="pagedata.sort = 'title';pagedata.sortnum=1;search();" class="fa fa-angle-up" ng-class="{active: (pagedata.sort == 'title' && pagedata.sortnum == 1)}"></span>
               <span ng-click="pagedata.sort = 'title';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'title' && pagedata.sortnum == -1)}"></span>
             </div>
           </th>
           <th>
-            <div class="th" ng-click="pagedata.sort = 'status'; pagedata.sortnum = !pagedata.sortnum">
+            <div class="th">
               Status
               <span ng-click="pagedata.sort = 'status';pagedata.sortnum=1;search();" class="fa fa-angle-up" ng-class="{active: (pagedata.sort == 'status' && pagedata.sortnum == 1)}"></span>
               <span ng-click="pagedata.sort = 'status';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'status' && pagedata.sortnum == -1)}"></span>
@@ -72,7 +72,7 @@
           </span>
           </td>
         </tr> -->
-        <tr ng-repeat="data in blogdata.data | limitTo:pagedata.limit | orderBy:pagedata.sort:pagedata.sortnum ">
+        <tr ng-repeat="data in blogdata.data">
           <td>{{data._id}}</td>
           <td>
             <span>

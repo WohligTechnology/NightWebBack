@@ -28,34 +28,34 @@
     <table class="table table-hover table-bordered table-responsive">
        <thead>
          <tr>
-           <th><div class="th">
-             #
-             <span class="fa fa-angle-up">
-             </span>
-             <span class="fa fa-angle-down">
-             </span>
-           </div></th>
-           <th><div class="th">
-            User
-             <span class="fa fa-angle-up">
-             </span>
-             <span class="fa fa-angle-down">
-             </span>
-           </div></th>
-           <th><div class="th">
-            Plan
-             <span class="fa fa-angle-up">
-             </span>
-             <span class="fa fa-angle-down">
-             </span>
-           </div></th>
+           <th>
+                 <div class="th">
+                     #
+                     <span ng-click="pagedata.sort = '_id';pagedata.sortnum=1;search();" class="fa fa-angle-up"  ng-class="{active: (pagedata.sort == '_id' && pagedata.sortnum == 1)}"></span>
+                     <span ng-click="pagedata.sort = '_id';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == '_id' && pagedata.sortnum == -1)}"></span>
+                 </div>
+           </th>
+           <th>
+             <div class="th">
+                 User
+                 <span ng-click="pagedata.sort = 'user';pagedata.sortnum=1;search();" class="fa fa-angle-up"  ng-class="{active: (pagedata.sort == 'user' && pagedata.sortnum == 1)}"></span>
+                 <span ng-click="pagedata.sort = 'user';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'user' && pagedata.sortnum == -1)}"></span>
+             </div>
+           </th>
+           <th>
+               <div class="th">
+                   Plan
+                   <span ng-click="pagedata.sort = 'plan';pagedata.sortnum=1;search();" class="fa fa-angle-up" ng-class="{active: (pagedata.sort == 'plan' && pagedata.sortnum == 1)}"></span>
+                   <span ng-click="pagedata.sort = 'plan' ;pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'plan' && pagedata.sortnum == -1)}"></span>
+               </div>
+           </th>
            <th><div class="th">
              Action
            </div></th>
          </tr>
        </thead>
        <tbody>
-         <tr ng-repeat="data in userplandata.data | limitTo:pagedata.limit">
+         <tr ng-repeat="data in userplandata.data">
            <td>{{data._id}}</td>
            <td>{{data.user.name}}</td>
            <td>{{data.plan.name}}</td>
@@ -79,7 +79,7 @@
                              data-ng-change="onNumPerPageChange()">
                      </select>  -->
                      <select ng-model="pagedata.limit" ng-change="search();">
-                       <option value="2">2</option>
+                       <option value="10" selected>10</option>
                        <option value="25">25</option>
                        <option value="50">50</option>
                        <option value="100">100</option>

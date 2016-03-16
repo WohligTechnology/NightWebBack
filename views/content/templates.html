@@ -30,20 +30,20 @@
         <thead>
           <tr>
             <th>
-                  <div class="th" ng-click="pagedata.sort = '_id'; pagedata.sortnum = !pagedata.sortnum">
+                  <div class="th">
                       #
                       <span ng-click="pagedata.sort = '_id';pagedata.sortnum=1;search();" class="fa fa-angle-up"  ng-class="{active: (pagedata.sort == '_id' && pagedata.sortnum == 1)}"></span>
                       <span ng-click="pagedata.sort = '_id';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == '_id' && pagedata.sortnum == -1)}"></span>
                   </div>
             </th>
             <th>
-              <div class="th" ng-click="pagedata.sort = 'name'; pagedata.sortnum = !pagedata.sortnum">
+              <div class="th">
                   Name
                   <span ng-click="pagedata.sort = 'name';pagedata.sortnum=1;search();" class="fa fa-angle-up"  ng-class="{active: (pagedata.sort == 'name' && pagedata.sortnum == 1)}"></span>
                   <span ng-click="pagedata.sort = 'name';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'name' && pagedata.sortnum == -1)}"></span>
               </div>
             </th>
-            <th><div class="th" ng-click="pagedata.sort = 'description'; pagedata.sortnum = !pagedata.sortnum">
+            <th><div class="th">
                 Description
                 <span ng-click="pagedata.sort = 'description';pagedata.sortnum=1;search();" class="fa fa-angle-up"  ng-class="{active: (pagedata.sort == 'description' && pagedata.sortnum == 1)}"></span>
                 <span ng-click="pagedata.sort = 'description';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'description' && pagedata.sortnum == -1)}"></span>
@@ -54,7 +54,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="data in templatesdata.data | limitTo:pagedata.limit | orderBy:pagedata.sort:pagedata.sortnum">
+          <tr ng-repeat="data in templatesdata.data">
             <td>{{data._id}}</td>
             <td>
               <span>

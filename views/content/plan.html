@@ -29,29 +29,34 @@
       <table class="table table-hover table-bordered table-responsive">
         <thead>
           <tr>
-            <th><div class="th" ng-click="pagedata.sort = '_id'; pagedata.sortnum = !pagedata.sortnum">
-              #
-              <span ng-click="pagedata.sort = '_id';pagedata.sortnum=1;search();" class="fa fa-angle-up"  ng-class="{active: (pagedata.sort == '_id' && pagedata.sortnum == 1)}"></span>
-              <span ng-click="pagedata.sort = '_id';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == '_id' && pagedata.sortnum == -1)}"></span>
-            </div></th>
-
-            <th><div class="th" ng-click="pagedata.sort = 'name'; pagedata.sortnum = !pagedata.sortnum">
-              Name
-              <span ng-click="pagedata.sort = 'name';pagedata.sortnum=1;search();" class="fa fa-angle-up"  ng-class="{active: (pagedata.sort == 'name' && pagedata.sortnum == 1)}"></span>
-              <span ng-click="pagedata.sort = 'name';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'name' && pagedata.sortnum == -1)}"></span>
-            </div></th>
-            <th><div class="th" ng-click="pagedata.sort = 'description'; pagedata.sortnum = !pagedata.sortnum">
-              Description
-              <span ng-click="pagedata.sort = 'description';pagedata.sortnum=1;search();" class="fa fa-angle-up"  ng-class="{active: (pagedata.sort == 'description' && pagedata.sortnum == 1)}"></span>
-              <span ng-click="pagedata.sort = 'description';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'description' && pagedata.sortnum == -1)}"></span>
-            </div></th>
+            <th>
+                  <div class="th">
+                      #
+                      <span ng-click="pagedata.sort = '_id';pagedata.sortnum=1;search();" class="fa fa-angle-up"  ng-class="{active: (pagedata.sort == '_id' && pagedata.sortnum == 1)}"></span>
+                      <span ng-click="pagedata.sort = '_id';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == '_id' && pagedata.sortnum == -1)}"></span>
+                  </div>
+            </th>
+            <th>
+              <div class="th">
+                  Name
+                  <span ng-click="pagedata.sort = 'name';pagedata.sortnum=1;search();" class="fa fa-angle-up"  ng-class="{active: (pagedata.sort == 'name' && pagedata.sortnum == 1)}"></span>
+                  <span ng-click="pagedata.sort = 'name';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'name' && pagedata.sortnum == -1)}"></span>
+              </div>
+            </th>
+            <th>
+                <div class="th">
+                    Description
+                    <span ng-click="pagedata.sort = 'description';pagedata.sortnum=1;search();" class="fa fa-angle-up" ng-class="{active: (pagedata.sort == 'description' && pagedata.sortnum == 1)}"></span>
+                    <span ng-click="pagedata.sort = 'description' ;pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'description' && pagedata.sortnum == -1)}"></span>
+                </div>
+            </th>
             <th><div class="th">
               Action
             </div></th>
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="data in plandata.data | limitTo:pagedata.limit">
+          <tr ng-repeat="data in plandata.data">
             <td>{{data._id}}</td>
             <td>
               <span>
