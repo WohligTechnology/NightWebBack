@@ -20,7 +20,7 @@
        </div>
        <div class="col-sm-3 col-xs-6 filter-result-info">
          <span>
-                     Showing {{userdata.data.length}}/{{userdata.total}} entries
+                     Showing {{userplandata.data.length}}/{{userplandata.total}} entries
                  </span>
        </div>
      </div>
@@ -37,17 +37,10 @@
            </th>
            <th>
              <div class="th">
-                 User
-                 <span ng-click="pagedata.sort = 'user';pagedata.sortnum=1;search();" class="fa fa-angle-up"  ng-class="{active: (pagedata.sort == 'user' && pagedata.sortnum == 1)}"></span>
-                 <span ng-click="pagedata.sort = 'user';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'user' && pagedata.sortnum == -1)}"></span>
+                 Folder Name
+                 <span ng-click="pagedata.sort = 'foldername';pagedata.sortnum=1;search();" class="fa fa-angle-up"  ng-class="{active: (pagedata.sort == 'foldername' && pagedata.sortnum == 1)}"></span>
+                 <span ng-click="pagedata.sort = 'foldername';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'foldername' && pagedata.sortnum == -1)}"></span>
              </div>
-           </th>
-           <th>
-               <div class="th">
-                   Plan
-                   <span ng-click="pagedata.sort = 'plan';pagedata.sortnum=1;search();" class="fa fa-angle-up" ng-class="{active: (pagedata.sort == 'plan' && pagedata.sortnum == 1)}"></span>
-                   <span ng-click="pagedata.sort = 'plan' ;pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'plan' && pagedata.sortnum == -1)}"></span>
-               </div>
            </th>
            <th><div class="th">
              Action
@@ -57,8 +50,7 @@
        <tbody>
          <tr ng-repeat="data in userplandata.data">
            <td>{{data._id}}</td>
-           <td>{{data.user.name}}</td>
-           <td>{{data.plan.name}}</td>
+           <td>{{data.foldername}}</td>
            <td>
              <span>
              <button class="btn btn-sm btn-info" ui-sref="edit-userplan({id:data._id})"><i class="fa fa-pencil-square-o"></i></button>&nbsp;&nbsp;&nbsp;
@@ -88,7 +80,7 @@
                  </span>
              </div>
              <div class="col-md-6 text-right pagination-container">
-              <uib-pagination total-items="totalItems" ng-model="pagedata.page" max-size="5" class="pagination-sm" boundary-link-numbers="true" ng-change="search();" ng-hide="userdata.totalpages==1"></uib-pagination>
+              <uib-pagination total-items="totalItems" ng-model="pagedata.page" max-size="5" class="pagination-sm" boundary-link-numbers="true" ng-change="search();" ng-hide="userplandata.totalpages==1"></uib-pagination>
              </div>
          </div>
      </footer>

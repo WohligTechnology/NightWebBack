@@ -218,10 +218,6 @@ var navigationservice = angular.module('navigationservice', [])
     },
 
 
-
-
-
-
     templatesViewAllSubmit: function(formData, callback) {
       // console.log('form data: ', formData);
       $http({
@@ -455,8 +451,8 @@ var navigationservice = angular.module('navigationservice', [])
         method: 'POST',
         withCredentials: true,
         data: {
-          "plan": formData.plan,
-          //"user": formData.userName
+          //"plan": formData.plan,
+          "foldername": formData.foldername
         }
       }).success(callback);
     },

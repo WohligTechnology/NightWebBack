@@ -220,7 +220,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.pagedata.limit = '10';
         $scope.pagedata.search = '';
 
-        $scope.pagedata.sort = "user";
+        $scope.pagedata.sort = "foldername";
         $scope.pagedata.sortnum = 1;
 
         $scope.search = function() {
