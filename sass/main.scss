@@ -97,6 +97,30 @@ nav li:hover .dropdown-menu {
  .ui-select{
  margin: 0 0 2px 0 !important;
 }
+.scroll-x {
+  width: 100%;
+  overflow-x: scroll;
+}
+.img-box {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.many-img {
+  height: 150px;
+  display: inline-block;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  position: relative;
+}
+.many-img img {
+  height: 100%;
+  max-height: 100%;
+  padding-right: 5px;
+}
 
 /* Start writing sass here */
 @import "fancybox-override";
