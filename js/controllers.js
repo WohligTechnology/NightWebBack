@@ -1,15 +1,19 @@
-window.uploadurl = "http://192.168.0.126/uploadfile/upload/";
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ui.select2', 'angularFileUpload'])
+var uploadres = [];
+var globalfunction = {};
+
+var phonecatControllers = angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ui.select2', 'angularFileUpload']);
     // 'tableSort'
-    .controller('LoginCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    window.uploadurl = "http://192.168.0.126/uploadfile/upload/";
+
+phonecatControllers.controller('LoginCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("login");
         $scope.menutitle = NavigationService.makeactive("Login");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-    })
+    });
 
-.controller('UserCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+phonecatControllers.controller('UserCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("user");
     $scope.menutitle = NavigationService.makeactive("Users");
@@ -65,9 +69,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-})
+});
 
-.controller('CreateUserCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+phonecatControllers.controller('CreateUserCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("userdetail");
     $scope.menutitle = NavigationService.makeactive("Create User");
@@ -91,9 +95,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
 
-})
+});
 
-.controller('EditUserCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
+phonecatControllers.controller('EditUserCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("userdetail");
     $scope.menutitle = NavigationService.makeactive("Edit User");
@@ -121,9 +125,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     };
-})
+});
 
-.controller('UserNotificationCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+phonecatControllers.controller('UserNotificationCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("usernotification");
     $scope.menutitle = NavigationService.makeactive("User Notification");
@@ -175,9 +179,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     };
 
-})
+});
 
-.controller('CreateUserNotificationCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+phonecatControllers.controller('CreateUserNotificationCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("usernotificationdetail");
     $scope.menutitle = NavigationService.makeactive("Create Notification");
@@ -199,9 +203,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     };
 
-})
+});
 
-.controller('EditUserNotificationCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+phonecatControllers.controller('EditUserNotificationCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("usernotificationdetail");
     $scope.menutitle = NavigationService.makeactive("Edit Notification");
@@ -229,10 +233,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
 
-})
+});
 
 
-.controller('UserPlanCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+phonecatControllers.controller('UserPlanCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("userplan");
         $scope.menutitle = NavigationService.makeactive("User Plan");
@@ -280,8 +284,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             });
         };
-    })
-    .controller('CreateUserPlanCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+    });
+
+    phonecatControllers.controller('CreateUserPlanCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("userplandetail");
         $scope.menutitle = NavigationService.makeactive("Create User Plan");
@@ -318,9 +323,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
 
         };
-    })
+    });
 
-.controller('EditUserPlanCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
+phonecatControllers.controller('EditUserPlanCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("userplandetail");
     $scope.menutitle = NavigationService.makeactive("Edit User Plan");
@@ -365,10 +370,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log('plan viewall for plan', data.data);
     });
 
-})
+});
 
 
-.controller('PlanCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+phonecatControllers.controller('PlanCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("plan");
     $scope.menutitle = NavigationService.makeactive("Plan");
@@ -439,9 +444,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-})
+});
 
-.controller('CreatePlanCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+phonecatControllers.controller('CreatePlanCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("plandetail");
     $scope.menutitle = NavigationService.makeactive("Create Plan");
@@ -461,9 +466,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     };
 
-})
+});
 
-.controller('EditPlanCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
+phonecatControllers.controller('EditPlanCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("plandetail");
     $scope.menutitle = NavigationService.makeactive("Edit Plan");
@@ -492,9 +497,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         }
     };
-})
+});
 
-.controller('SuggestCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+phonecatControllers.controller('SuggestCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("suggestion");
     $scope.menutitle = NavigationService.makeactive("Suggestion");
@@ -545,9 +550,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         });
     };
-})
+});
 
-.controller('CreateSuggestCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+phonecatControllers.controller('CreateSuggestCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("suggestiondetail");
     $scope.menutitle = NavigationService.makeactive("Create Suggestion");
@@ -572,9 +577,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.userdata = data.data;
         console.log('user viewall for user', data.data);
     });
-})
+});
 
-.controller('EditSuggestCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
+phonecatControllers.controller('EditSuggestCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("suggestiondetail");
     $scope.menutitle = NavigationService.makeactive("Edit Suggestion");
@@ -609,9 +614,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.userdata = data.data;
         console.log('user viewall for user', data.data);
     });
-})
+});
 
-.controller('TemplatesCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+phonecatControllers.controller('TemplatesCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("templates");
     $scope.menutitle = NavigationService.makeactive("Templates");
@@ -667,9 +672,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
 
-})
+});
 
-.controller('CreateTemplatesCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+phonecatControllers.controller('CreateTemplatesCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $routeParams, $location) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("templatesdetail");
     $scope.menutitle = NavigationService.makeactive("Create Templates");
@@ -690,10 +695,32 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         //}
     };
+    $scope.removeimagecerti = function() {
+        $scope.vendors.certi = '';
+    };
+    $scope.onFileSelect = function($files, whichone, uploadtype) {
+        globalfunction.onFileSelect($files, function(image) {
+            if (whichone == 1) {
+                $scope.vendors.logourl = image;
+                if (uploadtype == 'single') {
+                    $scope.vendors.logourl = image[0];
+                }
+            } else if (whichone == 2) {
+                $scope.vendors.bannerurl = image;
+                if (uploadtype == 'single') {
+                    $scope.vendors.bannerurl = image[0];
+                }
+            }
+        });
+    };
 
-})
+    $scope.removeimagehomeslide = function(i) {
+        $scope.vendors.bannerurl.splice(i, 1);
+    };
 
-.controller('EditTemplatesCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
+});
+
+phonecatControllers.controller('EditTemplatesCtrl', function($scope, TemplateService, NavigationService, $timeout,$routeParams, $location, $state, $stateParams) {
     var uploadres = [];
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("templatesdetail");
@@ -718,9 +745,44 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         }
     };
-})
+    $scope.removeimagecerti = function() {
+        $scope.vendors.certi = '';
+    };
+    $scope.onFileSelect = function($files, whichone, uploadtype) {
+        globalfunction.onFileSelect($files, function(image) {
+            if (whichone == 1) {
+                if (uploadtype == 'multiple') {
+                    if ($scope.vendors.logourl.length > 0) {
+                        _.each(image, function(n) {
+                            $scope.vendors.logourl.push(n);
+                        });
+                    } else {
+                        $scope.vendors.logourl = image;
+                    }
+                } else if (uploadtype == 'single') {
+                    $scope.vendors.logourl = image[0];
+                }
+            } else if (whichone == 2) {
+                if (uploadtype == 'multiple') {
+                    if ($scope.vendors.bannerurl.length > 0) {
+                        _.each(image, function(n) {
+                            $scope.vendors.bannerurl.push(n);
+                        });
+                    } else {
+                        $scope.vendors.bannerurl = image;
+                    }
+                } else if (uploadtype == 'single') {
+                    $scope.vendors.bannerurl = image[0];
+                }
+            }
+        });
+    };
+    $scope.removeimagehomeslide = function(i) {
+        $scope.vendors.bannerurl.splice(i, 1);
+    };
+});
 
-.controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+phonecatControllers.controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("blog");
     $scope.menutitle = NavigationService.makeactive("Blog");
@@ -770,9 +832,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         });
     };
-})
+});
 
-.controller('CreateBlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+phonecatControllers.controller('CreateBlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("blogdetail");
     $scope.menutitle = NavigationService.makeactive("Create Blog");
@@ -797,9 +859,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.userdata = data.data;
         console.log('user data', data.data);
     });
-})
+});
 
-.controller('EditBlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
+phonecatControllers.controller('EditBlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("blogdetail");
     $scope.menutitle = NavigationService.makeactive("Edit Blog");
@@ -833,10 +895,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.userdata = data.data;
         console.log('user data', data.data);
     });
-})
+});
 
 
-.controller('DocumentationCategoryCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+phonecatControllers.controller('DocumentationCategoryCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("documentationcategory");
     $scope.menutitle = NavigationService.makeactive("Documentation Category");
@@ -889,9 +951,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         });
     };
-})
+});
 
-.controller('CreateDocumentationCategoryCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+phonecatControllers.controller('CreateDocumentationCategoryCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("documentationcategorydetail");
     $scope.menutitle = NavigationService.makeactive("Create Documentation Category");
@@ -911,9 +973,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         }
     };
-})
+});
 
-.controller('EditDocumentationCategoryCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
+phonecatControllers.controller('EditDocumentationCategoryCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("documentationcategorydetail");
     $scope.menutitle = NavigationService.makeactive("Edit Documentation Category");
@@ -938,9 +1000,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
 
     };
-})
+});
 
-.controller('DocumentationCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+phonecatControllers.controller('DocumentationCtrl', function($scope, TemplateService, NavigationService, $timeout) {
    //Used to name the .html file
    $scope.template = TemplateService.changecontent("documentation");
    $scope.menutitle = NavigationService.makeactive("Documentation");
@@ -992,9 +1054,9 @@ $scope.pagedata = {};
 
        });
    };
-})
+});
 
-.controller('CreateDocumentationCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+phonecatControllers.controller('CreateDocumentationCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("documentationdetail");
     $scope.menutitle = NavigationService.makeactive("Create Documentation");
@@ -1018,9 +1080,9 @@ $scope.pagedata = {};
         $scope.documentationcategorydata = data.data;
         console.log('user data', data.data);
     });
-})
+});
 
-.controller('EditDocumentationCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
+phonecatControllers.controller('EditDocumentationCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("documentationdetail");
     $scope.menutitle = NavigationService.makeactive("Edit Documentation");
@@ -1054,87 +1116,212 @@ $scope.pagedata = {};
         $scope.documentationcategorydata = data.data;
         console.log('user data', data.data);
     });
-})
+});
 
 
-.controller('UploadCtrl', function($scope, $upload, $timeout) {
+// .controller('UploadCtrl', function($scope, $upload, $timeout) {
+//
+//     var uploadres = [];
+//     //
+//     $scope.usingFlash = FileAPI && FileAPI.upload !== null;
+//     $scope.fileReaderSupported = window.FileReader !== null && (window.FileAPI === null || FileAPI.html5 !== false);
+//     $scope.uploadRightAway = true;
+//     $scope.changeAngularVersion = function() {
+//         window.location.hash = $scope.angularVersion;
+//         window.location.reload(true);
+//     };
+//
+//     $scope.hasUploader = function(index) {
+//         return $scope.upload[index] !== null;
+//     };
+//
+//     $scope.abort = function(index) {
+//         $scope.upload[index].abort();
+//         $scope.upload[index] = null;
+//     };
+//     $scope.angularVersion = window.location.hash.length > 1 ? (window.location.hash.indexOf('/') === 1 ?
+//         window.location.hash.substring(2) : window.location.hash.substring(1)) : '1.2.20';
+//     // $scope.uploader.onSuccess(function () {
+//     //   console.log('successfully uploaded!')
+//     // });
+//
+//     $scope.onFileSelect = function($files, whichone) {
+//         $scope.isloading = true;
+//         $scope.selectedFiles = [];
+//         $scope.progress = [];
+//
+//         console.log($files);
+//
+//         if ($scope.upload && $scope.upload.length > 0) {
+//             for (var i = 0; i < $scope.upload.length; i++) {
+//                 if ($scope.upload[i] !== null) {
+//                     $scope.upload[i].abort();
+//                 }
+//             }
+//         }
+//
+//         $scope.upload = [];
+//         $scope.uploadResult = uploadres;
+//         $scope.selectedFiles = $files;
+//         $scope.dataUrls = [];
+//
+//         for (var i = 0; i < $files.length; i++) {
+//             var $file = $files[i];
+//             console.log('$files', $files);
+//             if ($scope.fileReaderSupported && ($file.type.indexOf('image') || $file.type.indexOf('pdf')) > -1) {
+//                 var fileReader = new FileReader();
+//                 fileReader.readAsDataURL($files[i]);
+//
+//                 var loadFile = function(fileReader, index) {
+//
+//                     fileReader.onload = function(e) {
+//                         $timeout(function() {
+//                             $scope.dataUrls[index] = e.target.result;
+//                         });
+//                     };
+//                 }(fileReader, i);
+//             }
+//             $scope.progress[i] = -1;
+//             if ($scope.uploadRightAway) {
+//                 $scope.start(i, whichone);
+//             }
+//         }
+//     };
+//
+//     $scope.start = function(index, whichone) {
+//         // cfpLoadingBar.start();
+//         $scope.progress[index] = 0;
+//         $scope.errorMsg = null;
+//         $scope.howToSend = 1;
+//         if ($scope.howToSend == 1) {
+//             $scope.upload[index] = $upload.upload({
+//                 url: uploadurl,
+//                 method: "POST",
+//                 headers: {
+//                     'Content-Type': 'Content-Type'
+//                 },
+//                 data: {
+//                     myModel: $scope.myModel
+//                 },
+//                 file: $scope.selectedFiles[index],
+//                 fileFormDataName: 'file'
+//             });
+//             $scope.upload[index].then(function(response) {
+//                     $timeout(function() {
+//                         // cfpLoadingBar.complete();
+//                         $scope.uploadResult.push(response.data);
+//                         console.log(response);
+//                         if (response.data.files[0].fd !== "") {
+//                             $scope.isloading = false;
+//                             if (whichone == 1) {
+//                                 $scope.userForm.image = response.data.files[0].fd;
+//                             } else {
+//                                 $scope.userForm.images.push(response.data.files[0].fd);
+//                             }
+//                         }
+//                         console.log('response.data', response.data);
+//                     });
+//                 },
+//                 function(response) {
+//                     if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
+//                 },
+//                 function(evt) {
+//                     $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+//                 });
+//             $scope.upload[index].xhr(function(xhr) {});
+//         } else {
+//             var fileReader = new FileReader();
+//             fileReader.onload = function(e) {
+//                 $scope.upload[index] = $upload.http({
+//                     url: imgpath,
+//                     headers: {
+//                         'Content-Type': $scope.selectedFiles[index].type
+//                     },
+//                     data: e.target.result
+//                 }).then(function(response) {
+//                     $scope.uploadResult.push(response.data);
+//                 }, function(response) {
+//                     if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
+//                 }, function(evt) {
+//                     $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+//                 });
+//             };
+//             fileReader.readAsArrayBuffer($scope.selectedFiles[index]);
+//         }
+//     };
+// })
+//
 
-    var uploadres = [];
-    //
-    $scope.usingFlash = FileAPI && FileAPI.upload !== null;
-    $scope.fileReaderSupported = window.FileReader !== null && (window.FileAPI === null || FileAPI.html5 !== false);
+phonecatControllers.controller('headerctrl', function($scope, TemplateService, $location, $routeParams, NavigationService,$upload,$timeout) {
+    $scope.template = TemplateService;
+    // $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+    //   $(window).scrollTop(0);
+    // });
+    var imagejstupld = "";
+    $scope.images = [];
+    $scope.usingFlash = FileAPI && FileAPI.upload != null;
+    $scope.fileReaderSupported = window.FileReader != null && (window.FileAPI == null || FileAPI.html5 != false);
     $scope.uploadRightAway = true;
     $scope.changeAngularVersion = function() {
         window.location.hash = $scope.angularVersion;
         window.location.reload(true);
     };
-
     $scope.hasUploader = function(index) {
-        return $scope.upload[index] !== null;
+        return $scope.upload[index] != null;
     };
-
     $scope.abort = function(index) {
         $scope.upload[index].abort();
         $scope.upload[index] = null;
     };
     $scope.angularVersion = window.location.hash.length > 1 ? (window.location.hash.indexOf('/') === 1 ?
         window.location.hash.substring(2) : window.location.hash.substring(1)) : '1.2.20';
-    // $scope.uploader.onSuccess(function () {
-    //   console.log('successfully uploaded!')
-    // });
 
-    $scope.onFileSelect = function($files, whichone) {
-        $scope.isloading = true;
+    var arrLength = 0;
+
+    globalfunction.onFileSelect = function($files, callback) {
         $scope.selectedFiles = [];
         $scope.progress = [];
-
         console.log($files);
-
         if ($scope.upload && $scope.upload.length > 0) {
             for (var i = 0; i < $scope.upload.length; i++) {
-                if ($scope.upload[i] !== null) {
+                if ($scope.upload[i] != null) {
                     $scope.upload[i].abort();
                 }
             }
         }
-
         $scope.upload = [];
         $scope.uploadResult = uploadres;
         $scope.selectedFiles = $files;
         $scope.dataUrls = [];
-
+        arrLength = $files.length;
         for (var i = 0; i < $files.length; i++) {
             var $file = $files[i];
-            console.log('$files', $files);
-            if ($scope.fileReaderSupported && ($file.type.indexOf('image') || $file.type.indexOf('pdf')) > -1) {
+            if ($scope.fileReaderSupported && $file.type.indexOf('image') > -1) {
                 var fileReader = new FileReader();
                 fileReader.readAsDataURL($files[i]);
-
                 var loadFile = function(fileReader, index) {
-
                     fileReader.onload = function(e) {
                         $timeout(function() {
                             $scope.dataUrls[index] = e.target.result;
                         });
-                    };
+                    }
                 }(fileReader, i);
             }
             $scope.progress[i] = -1;
             if ($scope.uploadRightAway) {
-                $scope.start(i, whichone);
+                $scope.start(i, callback);
             }
         }
     };
 
-    $scope.start = function(index, whichone) {
-        // cfpLoadingBar.start();
+    $scope.start = function(index, callback) {
         $scope.progress[index] = 0;
         $scope.errorMsg = null;
-        $scope.howToSend = 1;
+        console.log($scope.howToSend = 1);
         if ($scope.howToSend == 1) {
             $scope.upload[index] = $upload.upload({
-                url: uploadurl,
-                method: "POST",
+                url: uploadUrl,
+                method: $scope.httpMethod,
                 headers: {
                     'Content-Type': 'Content-Type'
                 },
@@ -1145,33 +1332,32 @@ $scope.pagedata = {};
                 fileFormDataName: 'file'
             });
             $scope.upload[index].then(function(response) {
-                    $timeout(function() {
-                        // cfpLoadingBar.complete();
-                        $scope.uploadResult.push(response.data);
-                        console.log(response);
-                        if (response.data.files[0].fd !== "") {
-                            $scope.isloading = false;
-                            if (whichone == 1) {
-                                $scope.userForm.image = response.data.files[0].fd;
-                            } else {
-                                $scope.userForm.images.push(response.data.files[0].fd);
-                            }
+                $timeout(function() {
+                  console.log(response);
+                    $scope.uploadResult.push(response.data);
+                    imagejstupld = response.data;
+
+                    if (imagejstupld != "") {
+                        $scope.images.push(imagejstupld.fileId);
+                        console.log($scope.images);
+                        imagejstupld = "";
+                        if (arrLength == $scope.images.length) {
+                            callback($scope.images);
+                            $scope.images = [];
                         }
-                        console.log('response.data', response.data);
-                    });
-                },
-                function(response) {
-                    if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
-                },
-                function(evt) {
-                    $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+                    }
                 });
+            }, function(response) {
+                if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
+            }, function(evt) {
+                $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+            });
             $scope.upload[index].xhr(function(xhr) {});
         } else {
             var fileReader = new FileReader();
             fileReader.onload = function(e) {
                 $scope.upload[index] = $upload.http({
-                    url: imgpath,
+                    url: uploadUrl,
                     headers: {
                         'Content-Type': $scope.selectedFiles[index].type
                     },
@@ -1183,16 +1369,25 @@ $scope.pagedata = {};
                 }, function(evt) {
                     $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
                 });
-            };
+            }
             fileReader.readAsArrayBuffer($scope.selectedFiles[index]);
         }
     };
-})
 
+    $scope.dragOverClass = function($event) {
+        var items = $event.dataTransfer.items;
+        var hasFile = false;
+        if (items != null) {
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].kind == 'file') {
+                    hasFile = true;
+                    break;
+                }
+            }
+        } else {
+            hasFile = true;
+        }
+        return hasFile ? "dragover" : "dragover-err";
+    };
 
-.controller('headerctrl', function($scope, TemplateService) {
-    $scope.template = TemplateService;
-    // $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
-    //   $(window).scrollTop(0);
-    // });
 });
