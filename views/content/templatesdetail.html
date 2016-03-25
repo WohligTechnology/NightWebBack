@@ -42,45 +42,47 @@
                             <input name="name" capitalize-first required ng-model="userForm.name" type="text" class="form-control" id="exampleInputName2" placeholder="Enter Name">
                             <div class="error-msg" ng-show="user.name.$error.required && user.name.$touched">Please Enter Your Name.</div>
                         </div>
-                        <div ng-controller="UploadCtrl">
+                        <!-- <div ng-controller="UploadCtrl"> -->
                         <div class="form-group">
                           <label for="exampleInputEmail1">Image</label>
-                          <div class='scroll-x'>
-                             <div class='img-box'>
-                                <div class='many-img' ng-if='vendors.logourl'><img ng-src='{{vendors.logourl | uploadpath}}' width='200'>
-                                   <button type='button' ng-click='removeimagecerti();' class='btn btn-danger close-btn'><i class='fa fa-trash'></i></button>
+                          <div class="scroll-x">
+                             <div class="img-box">
+                                <div class="many-img" ng-if="vendors.logourl"><img ng-src="{{vendors.logourl | serverimage}}" width="200">
+                                   <button type="button" ng-click="removeimagecerti();" class="btn btn-danger close-btn"><i class="fa fa-trash"></i></button>
                                 </div>
                              </div>
                           </div>
                           <div>
-                            <input type="file" name="image" ng-file-select="onFileSelect($files,1)" onclick="this.value=null" title="Choose File" required ng-model="userForm.image" accept=".jpg,.png" class="btn-primary" ui-file-upload>
+                            <input type="file" name="file" ng-file-select='onFileSelect($files,1,"single")' onclick="this.value=null" title="Choose File" required class="btn-primary" ui-file-upload>
+                            <!-- <input type="file" name="image" ng-file-select="onFileSelect($files,1)" onclick="this.value=null" title="Choose File" required ng-model="userForm.image" accept=".jpg,.png" class="btn-primary" ui-file-upload> ng-if="userForm.image"-->
                           </div>
                             <!-- <input name="image" type="file" ng-model="userForm.image" title="Choose File" class="btn-primary" ui-file-upload> -->
                         </div>
-                        <div ng-if="userForm.image">
+                        <div ng-if="vendors.logourl">
                           <div ng-init="httpMethod = 'POST';howToSend = 1;"></div>
                         </div>
-                        </div>
+                        <!-- </div> -->
                         <div class="form-group">
                           <label for="exampleInputEmail1">Images</label>
                           <div class="scroll-x">
                               <div class="img-box">
-                                  <div ng-repeat="bill in userForm.images" class="many-img">
-                                      <img style="height:200px;" ng-src="{{bill | serverimage}}" ng-if="userForm.images.length!=0">
-                                      <button type="button" ng-click="removeimage(userForm.images.indexOf(bill));" class="btn btn-danger close-btn" ng-if="userForm.images.length!=0"><i class="fa fa-trash"></i>
+                                  <div ng-repeat="bill in vendors.bannerurl track by $index" class="many-img">
+                                      <img style="height:200px;" ng-src="{{bill | serverimage}}" ng-if="vendors.bannerurl.length!=0">
+                                      <button type="button" ng-click="removeimage(vendors.bannerurl.indexOf(bill));" class="btn btn-danger close-btn" ng-if="vendors.bannerurl.length!=0"><i class="fa fa-trash"></i>
                                       </button>
                                   </div>
                               </div>
                           </div>
-                          <input type="file" name="images" ng-file-select="onFileSelect($files,2)" onclick="this.value=null" title="Choose Files"  ng-model="userForm.images" accept=".jpg,.png" class="btn-primary" ui-file-upload multiple>
+                          <input type="file" name="file" ng-file-select='onFileSelect($files,2,"multiple")' onclick="this.value=null" title="Choose Files"  class="btn-primary" ui-file-upload multiple>
+                          <!-- <input type="file" name="images" ng-file-select="onFileSelect($files,2)" onclick="this.value=null" title="Choose Files"  ng-model="userForm.images" accept=".jpg,.png" class="btn-primary" ui-file-upload multiple> -->
                             <!-- <input name="images" type="file" ng-model="userForm.images" title="Choose File" class="btn-primary" ui-file-upload multiple> -->
                         </div>
-                        <div ng-if="userForm.images">
+                        <div ng-if="vendors.bannerurl">
                           <div ng-init="httpMethod = 'POST';howToSend = 1;"></div>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputName5">Title</label>
-                            <input name="text" capitalize-first ng-model="userForm.text" type="text" class="form-control" id="exampleInputName5" placeholder="Enter Title">
+                            <input name="text" required capitalize-first ng-model="userForm.text" type="text" class="form-control" id="exampleInputName5" placeholder="Enter Title">
                             <div class="error-msg" ng-show="user.text.$error.required && user.text.$touched">Please Enter Title.</div>
                         </div>
                         <div class="form-group">
@@ -90,7 +92,7 @@
                             </div>
                         </div>
                         <div class="upload-img text-center mar30">
-                            <button class="btn btn-sm btn-info" ng-class="{'disabled' : !user.$valid }"  ng-click="templatesSubmitForm(user)">Save</button>
+                            <button class="btn btn-sm btn-info" ng-class="{'disabled' : !user.$valid }" ng-click="templatesSubmitForm(user)">Save</button>
                             <a ui-sref="templates">
                                 <button class="btn btn-sm btn-info">Cancel</button>
                             </a>

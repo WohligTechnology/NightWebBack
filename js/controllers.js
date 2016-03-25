@@ -1,4 +1,6 @@
 var uploadres = [];
+var selectedData = [];
+var abc = {};
 var globalfunction = {};
 
 var phonecatControllers = angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ui.select2', 'angularFileUpload']);
@@ -674,7 +676,7 @@ phonecatControllers.controller('TemplatesCtrl', function($scope, TemplateService
 
 });
 
-phonecatControllers.controller('CreateTemplatesCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $routeParams, $location) {
+phonecatControllers.controller('CreateTemplatesCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $location) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("templatesdetail");
     $scope.menutitle = NavigationService.makeactive("Create Templates");
@@ -720,7 +722,7 @@ phonecatControllers.controller('CreateTemplatesCtrl', function($scope, TemplateS
 
 });
 
-phonecatControllers.controller('EditTemplatesCtrl', function($scope, TemplateService, NavigationService, $timeout,$routeParams, $location, $state, $stateParams) {
+phonecatControllers.controller('EditTemplatesCtrl', function($scope, TemplateService, NavigationService, $timeout, $location, $state, $stateParams) {
     var uploadres = [];
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("templatesdetail");
@@ -1119,140 +1121,7 @@ phonecatControllers.controller('EditDocumentationCtrl', function($scope, Templat
 });
 
 
-// .controller('UploadCtrl', function($scope, $upload, $timeout) {
-//
-//     var uploadres = [];
-//     //
-//     $scope.usingFlash = FileAPI && FileAPI.upload !== null;
-//     $scope.fileReaderSupported = window.FileReader !== null && (window.FileAPI === null || FileAPI.html5 !== false);
-//     $scope.uploadRightAway = true;
-//     $scope.changeAngularVersion = function() {
-//         window.location.hash = $scope.angularVersion;
-//         window.location.reload(true);
-//     };
-//
-//     $scope.hasUploader = function(index) {
-//         return $scope.upload[index] !== null;
-//     };
-//
-//     $scope.abort = function(index) {
-//         $scope.upload[index].abort();
-//         $scope.upload[index] = null;
-//     };
-//     $scope.angularVersion = window.location.hash.length > 1 ? (window.location.hash.indexOf('/') === 1 ?
-//         window.location.hash.substring(2) : window.location.hash.substring(1)) : '1.2.20';
-//     // $scope.uploader.onSuccess(function () {
-//     //   console.log('successfully uploaded!')
-//     // });
-//
-//     $scope.onFileSelect = function($files, whichone) {
-//         $scope.isloading = true;
-//         $scope.selectedFiles = [];
-//         $scope.progress = [];
-//
-//         console.log($files);
-//
-//         if ($scope.upload && $scope.upload.length > 0) {
-//             for (var i = 0; i < $scope.upload.length; i++) {
-//                 if ($scope.upload[i] !== null) {
-//                     $scope.upload[i].abort();
-//                 }
-//             }
-//         }
-//
-//         $scope.upload = [];
-//         $scope.uploadResult = uploadres;
-//         $scope.selectedFiles = $files;
-//         $scope.dataUrls = [];
-//
-//         for (var i = 0; i < $files.length; i++) {
-//             var $file = $files[i];
-//             console.log('$files', $files);
-//             if ($scope.fileReaderSupported && ($file.type.indexOf('image') || $file.type.indexOf('pdf')) > -1) {
-//                 var fileReader = new FileReader();
-//                 fileReader.readAsDataURL($files[i]);
-//
-//                 var loadFile = function(fileReader, index) {
-//
-//                     fileReader.onload = function(e) {
-//                         $timeout(function() {
-//                             $scope.dataUrls[index] = e.target.result;
-//                         });
-//                     };
-//                 }(fileReader, i);
-//             }
-//             $scope.progress[i] = -1;
-//             if ($scope.uploadRightAway) {
-//                 $scope.start(i, whichone);
-//             }
-//         }
-//     };
-//
-//     $scope.start = function(index, whichone) {
-//         // cfpLoadingBar.start();
-//         $scope.progress[index] = 0;
-//         $scope.errorMsg = null;
-//         $scope.howToSend = 1;
-//         if ($scope.howToSend == 1) {
-//             $scope.upload[index] = $upload.upload({
-//                 url: uploadurl,
-//                 method: "POST",
-//                 headers: {
-//                     'Content-Type': 'Content-Type'
-//                 },
-//                 data: {
-//                     myModel: $scope.myModel
-//                 },
-//                 file: $scope.selectedFiles[index],
-//                 fileFormDataName: 'file'
-//             });
-//             $scope.upload[index].then(function(response) {
-//                     $timeout(function() {
-//                         // cfpLoadingBar.complete();
-//                         $scope.uploadResult.push(response.data);
-//                         console.log(response);
-//                         if (response.data.files[0].fd !== "") {
-//                             $scope.isloading = false;
-//                             if (whichone == 1) {
-//                                 $scope.userForm.image = response.data.files[0].fd;
-//                             } else {
-//                                 $scope.userForm.images.push(response.data.files[0].fd);
-//                             }
-//                         }
-//                         console.log('response.data', response.data);
-//                     });
-//                 },
-//                 function(response) {
-//                     if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
-//                 },
-//                 function(evt) {
-//                     $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-//                 });
-//             $scope.upload[index].xhr(function(xhr) {});
-//         } else {
-//             var fileReader = new FileReader();
-//             fileReader.onload = function(e) {
-//                 $scope.upload[index] = $upload.http({
-//                     url: imgpath,
-//                     headers: {
-//                         'Content-Type': $scope.selectedFiles[index].type
-//                     },
-//                     data: e.target.result
-//                 }).then(function(response) {
-//                     $scope.uploadResult.push(response.data);
-//                 }, function(response) {
-//                     if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
-//                 }, function(evt) {
-//                     $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-//                 });
-//             };
-//             fileReader.readAsArrayBuffer($scope.selectedFiles[index]);
-//         }
-//     };
-// })
-//
-
-phonecatControllers.controller('headerctrl', function($scope, TemplateService, $location, $routeParams, NavigationService,$upload,$timeout) {
+phonecatControllers.controller('headerctrl', function($scope, TemplateService, $location, NavigationService,$upload,$timeout) {
     $scope.template = TemplateService;
     // $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
     //   $(window).scrollTop(0);
@@ -1304,7 +1173,7 @@ phonecatControllers.controller('headerctrl', function($scope, TemplateService, $
                         $timeout(function() {
                             $scope.dataUrls[index] = e.target.result;
                         });
-                    }
+                    };
                 }(fileReader, i);
             }
             $scope.progress[i] = -1;
@@ -1369,7 +1238,7 @@ phonecatControllers.controller('headerctrl', function($scope, TemplateService, $
                 }, function(evt) {
                     $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
                 });
-            }
+            };
             fileReader.readAsArrayBuffer($scope.selectedFiles[index]);
         }
     };
