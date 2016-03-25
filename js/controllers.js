@@ -685,6 +685,8 @@ phonecatControllers.controller('CreateTemplatesCtrl', function($scope, TemplateS
     $scope.header = {
         name: 'Create Templates'
     };
+    $scope.vendors = {};
+    $scope.vendors.images=[];
     $scope.userForm = {};
     $scope.userForm.images = [];
     $scope.templatesSubmitForm = function(formValid) {
@@ -698,26 +700,26 @@ phonecatControllers.controller('CreateTemplatesCtrl', function($scope, TemplateS
         //}
     };
     $scope.removeimagecerti = function() {
-        $scope.vendors.certi = '';
+        $scope.vendors.image = '';
     };
     $scope.onFileSelect = function($files, whichone, uploadtype) {
         globalfunction.onFileSelect($files, function(image) {
             if (whichone == 1) {
-                $scope.vendors.logourl = image;
+                $scope.vendors.image = image;
                 if (uploadtype == 'single') {
-                    $scope.vendors.logourl = image[0];
+                    $scope.vendors.image = image[0];
                 }
             } else if (whichone == 2) {
-                $scope.vendors.bannerurl = image;
+                $scope.vendors.images = image;
                 if (uploadtype == 'single') {
-                    $scope.vendors.bannerurl = image[0];
+                    $scope.vendors.images = image[0];
                 }
             }
         });
     };
 
     $scope.removeimagehomeslide = function(i) {
-        $scope.vendors.bannerurl.splice(i, 1);
+        $scope.vendors.images.splice(i, 1);
     };
 
 });
@@ -733,6 +735,8 @@ phonecatControllers.controller('EditTemplatesCtrl', function($scope, TemplateSer
         name: 'Edit Templates'
     };
     $scope.userForm = {};
+    $scope.vendors = {};
+    $scope.vendors.images=[];
     NavigationService.getTemplatesEditDetail($stateParams.id, function(data) {
         console.log('on suggest plan');
         console.log('getSuggestionDetail', data);
@@ -748,39 +752,39 @@ phonecatControllers.controller('EditTemplatesCtrl', function($scope, TemplateSer
         }
     };
     $scope.removeimagecerti = function() {
-        $scope.vendors.certi = '';
+        $scope.vendors.image = '';
     };
     $scope.onFileSelect = function($files, whichone, uploadtype) {
         globalfunction.onFileSelect($files, function(image) {
             if (whichone == 1) {
                 if (uploadtype == 'multiple') {
-                    if ($scope.vendors.logourl.length > 0) {
+                    if ($scope.vendors.image.length > 0) {
                         _.each(image, function(n) {
-                            $scope.vendors.logourl.push(n);
+                            $scope.vendors.image.push(n);
                         });
                     } else {
-                        $scope.vendors.logourl = image;
+                        $scope.vendors.image = image;
                     }
                 } else if (uploadtype == 'single') {
-                    $scope.vendors.logourl = image[0];
+                    $scope.vendors.image = image[0];
                 }
             } else if (whichone == 2) {
                 if (uploadtype == 'multiple') {
-                    if ($scope.vendors.bannerurl.length > 0) {
+                    if ($scope.vendors.images.length > 0) {
                         _.each(image, function(n) {
-                            $scope.vendors.bannerurl.push(n);
+                            $scope.vendors.images.push(n);
                         });
                     } else {
-                        $scope.vendors.bannerurl = image;
+                        $scope.vendors.images = image;
                     }
                 } else if (uploadtype == 'single') {
-                    $scope.vendors.bannerurl = image[0];
+                    $scope.vendors.images = image[0];
                 }
             }
         });
     };
     $scope.removeimagehomeslide = function(i) {
-        $scope.vendors.bannerurl.splice(i, 1);
+        $scope.vendors.images.splice(i, 1);
     };
 });
 
