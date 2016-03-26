@@ -1,6 +1,6 @@
 // var adminURL = "";
 var adminurl = "http://192.168.0.124:81/";
-var imgpath = "http://vignesh.com/uploadfile/upload/";
+var imgpath = "http://192.168.0.124:81/uploadfile/resize?file=";
 
 // if(isproduction)
 // {

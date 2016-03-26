@@ -242,7 +242,7 @@ firstapp.directive('capitalizeFirst', function ($parse) {
                    modelCtrl.$render();
                }
                return capitalized;
-           }
+           };
            modelCtrl.$parsers.push(capitalize);
            capitalize($parse(attrs.ngModel)(scope)); // capitalize initial value
        }
@@ -277,8 +277,8 @@ firstapp.filter('serverimage', function() {
     if (input) {
       // console.log('serverimage: ', input);
       // return input;
-      return imgpath + input;
-      // return "http://192.168.0.123/eurobackend/uploads"+input;
+      // return imgpath + input;
+      return "http://api.thetmm.org/uploadfile/resize?file="+input;
     } else {
       return "img/logo.png";
     }

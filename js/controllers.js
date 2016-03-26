@@ -5,7 +5,8 @@ var globalfunction = {};
 
 var phonecatControllers = angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ui.select2', 'angularFileUpload']);
     // 'tableSort'
-    window.uploadurl = "http://192.168.0.126/uploadfile/upload/";
+    // window.uploadurl = "http://192.168.0.124:81/uploadfile/upload/";
+    window.uploadurl = "http://api.thetmm.org/uploadfile/upload/";
 
 phonecatControllers.controller('LoginCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
@@ -685,8 +686,8 @@ phonecatControllers.controller('CreateTemplatesCtrl', function($scope, TemplateS
     $scope.header = {
         name: 'Create Templates'
     };
-    $scope.vendors = {};
-    $scope.vendors.images=[];
+    $scope.userForm = {};
+    $scope.userForm.images=[];
     $scope.userForm = {};
     $scope.userForm.images = [];
     $scope.templatesSubmitForm = function(formValid) {
@@ -700,26 +701,26 @@ phonecatControllers.controller('CreateTemplatesCtrl', function($scope, TemplateS
         //}
     };
     $scope.removeimagecerti = function() {
-        $scope.vendors.image = '';
+        $scope.userForm.image = '';
     };
     $scope.onFileSelect = function($files, whichone, uploadtype) {
         globalfunction.onFileSelect($files, function(image) {
             if (whichone == 1) {
-                $scope.vendors.image = image;
+                $scope.userForm.image = image;
                 if (uploadtype == 'single') {
-                    $scope.vendors.image = image[0];
+                    $scope.userForm.image = image[0];
                 }
             } else if (whichone == 2) {
-                $scope.vendors.images = image;
+                $scope.userForm.images = image;
                 if (uploadtype == 'single') {
-                    $scope.vendors.images = image[0];
+                    $scope.userForm.images = image[0];
                 }
             }
         });
     };
 
     $scope.removeimagehomeslide = function(i) {
-        $scope.vendors.images.splice(i, 1);
+        $scope.userForm.images.splice(i, 1);
     };
 
 });
@@ -735,8 +736,8 @@ phonecatControllers.controller('EditTemplatesCtrl', function($scope, TemplateSer
         name: 'Edit Templates'
     };
     $scope.userForm = {};
-    $scope.vendors = {};
-    $scope.vendors.images=[];
+    $scope.userForm = {};
+    $scope.userForm.images=[];
     NavigationService.getTemplatesEditDetail($stateParams.id, function(data) {
         console.log('on suggest plan');
         console.log('getSuggestionDetail', data);
@@ -752,39 +753,39 @@ phonecatControllers.controller('EditTemplatesCtrl', function($scope, TemplateSer
         }
     };
     $scope.removeimagecerti = function() {
-        $scope.vendors.image = '';
+        $scope.userForm.image = '';
     };
     $scope.onFileSelect = function($files, whichone, uploadtype) {
         globalfunction.onFileSelect($files, function(image) {
             if (whichone == 1) {
                 if (uploadtype == 'multiple') {
-                    if ($scope.vendors.image.length > 0) {
+                    if ($scope.userForm.image.length > 0) {
                         _.each(image, function(n) {
-                            $scope.vendors.image.push(n);
+                            $scope.userForm.image.push(n);
                         });
                     } else {
-                        $scope.vendors.image = image;
+                        $scope.userForm.image = image;
                     }
                 } else if (uploadtype == 'single') {
-                    $scope.vendors.image = image[0];
+                    $scope.userForm.image = image[0];
                 }
             } else if (whichone == 2) {
                 if (uploadtype == 'multiple') {
-                    if ($scope.vendors.images.length > 0) {
+                    if ($scope.userForm.images.length > 0) {
                         _.each(image, function(n) {
-                            $scope.vendors.images.push(n);
+                            $scope.userForm.images.push(n);
                         });
                     } else {
-                        $scope.vendors.images = image;
+                        $scope.userForm.images = image;
                     }
                 } else if (uploadtype == 'single') {
-                    $scope.vendors.images = image[0];
+                    $scope.userForm.images = image[0];
                 }
             }
         });
     };
     $scope.removeimagehomeslide = function(i) {
-        $scope.vendors.images.splice(i, 1);
+        $scope.userForm.images.splice(i, 1);
     };
 });
 
@@ -1193,7 +1194,7 @@ phonecatControllers.controller('headerctrl', function($scope, TemplateService, $
         console.log($scope.howToSend = 1);
         if ($scope.howToSend == 1) {
             $scope.upload[index] = $upload.upload({
-                url: uploadUrl,
+                url: uploadurl,
                 method: $scope.httpMethod,
                 headers: {
                     'Content-Type': 'Content-Type'
@@ -1211,7 +1212,7 @@ phonecatControllers.controller('headerctrl', function($scope, TemplateService, $
                     imagejstupld = response.data;
 
                     if (imagejstupld != "") {
-                        $scope.images.push(imagejstupld.fileId);
+                        $scope.images.push(imagejstupld.files[0].fd);
                         console.log($scope.images);
                         imagejstupld = "";
                         if (arrLength == $scope.images.length) {

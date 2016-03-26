@@ -2,6 +2,8 @@
 .scroll-x {
   width: 100%;
   overflow-x: scroll;
+overflow-y: hidden;
+height: 200px;
 }
 .img-box {
   display: -webkit-box;
@@ -47,13 +49,13 @@
                           <label for="exampleInputEmail1">Image</label>
                           <div class="scroll-x">
                              <div class="img-box">
-                                <div class="many-img" ng-if="vendors.image"><img ng-src="{{vendors.image | serverimage}}" width="200">
+                                <div class="many-img" ng-if="userForm.image"><img ng-src="{{userForm.image | serverimage}}" width="200">
                                    <button type="button" ng-click="removeimagecerti();" class="btn btn-danger close-btn"><i class="fa fa-trash"></i></button>
                                 </div>
                              </div>
                           </div>
                           <div>
-                            <div ng-if="vendors.image">
+                            <div ng-if="userForm.image">
                               <div ng-init="httpMethod = 'POST';howToSend = 1;"></div>
                             </div>
                             <input type="file" name="file" ng-file-select='onFileSelect($files,1,"single")' onclick="this.value=null" title="Choose File" required class="btn-primary" ui-file-upload>
@@ -68,15 +70,15 @@
                           <label for="exampleInputEmail1">Images</label>
                           <div class="scroll-x">
                               <div class="img-box">
-                                  <div ng-repeat="bill in vendors.images track by $index" class="many-img">
-                                      <img style="height:200px;" ng-src="{{bill | serverimage}}" ng-if="vendors.images.length!=0">
-                                      <button type="button" ng-click="removeimage(vendors.images.indexOf(bill));" class="btn btn-danger close-btn" ng-if="vendors.images.length!=0"><i class="fa fa-trash"></i>
+                                  <div ng-repeat="bill in userForm.images track by $index" class="many-img">
+                                      <img style="height:200px;" ng-src="{{bill | serverimage}}" ng-if="userForm.images.length!=0">
+                                      <button type="button" ng-click="removeimage(userForm.images.indexOf(bill));" class="btn btn-danger close-btn" ng-if="userForm.images.length!=0"><i class="fa fa-trash"></i>
                                       </button>
                                   </div>
                               </div>
                           </div>
                           <div>
-                            <div ng-if="vendors.images">
+                            <div ng-if="userForm.images">
                               <div ng-init="httpMethod = 'POST';howToSend = 1;"></div>
                             </div>
                           <input type="file" name="file" ng-file-select='onFileSelect($files,2,"multiple")' onclick="this.value=null" title="Choose Files"  class="btn-primary" ui-file-upload multiple>
