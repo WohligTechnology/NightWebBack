@@ -14,12 +14,6 @@ var jsArray = [
   './bower_components/select2/select2.js',
   './bower_components/angular-ui-select2/src/select2.js',
 
-  './lib/fileupload/angular-file-upload.js',
-  './lib/fileupload/angular-file-upload-html5-shim.js',
-  './lib/fileupload/angular-file-upload-shim.js',
-  './lib/fileupload/FileAPI.min.js',
-  './lib/fileupload/upload.js',
-
   './js/app.js',
   './js/controllers.js',
   './js/templateservice.js',
