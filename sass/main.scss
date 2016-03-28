@@ -5,26 +5,20 @@
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
 @import "../bower_components/flexslider/flexslider.css";
 @import "../bower_components/font-awesome/css/font-awesome.min.css";
-
 /* Bootstrap Variables Goes Here */
-
 $brand-primary: #0d9dff !default;
 $brand-success: #84ce3c !default;
 $brand-warning: #ffec39 !default;
-$brand-danger:  #fc483f !default;
-$brand-info:    #000072 !default;
-
+$brand-danger: #fc483f !default;
+$brand-info: #000072 !default;
 $border-radius-base: 0 !default;
 $border-radius-large: 0 !default;
 $border-radius-small: 0 !default;
-
 $font-family-sans-serif: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $font-family-serif: "Lato", Georgia, "Times New Roman", Times, serif !default;
-
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "square/main";
 @import "square/ui";
-
 body {
   // padding-top: 70px;
 }
@@ -54,7 +48,7 @@ nav li:hover .dropdown-menu {
 }
 .header-container > .top-header .menu-button {
   .icon-bar {
-    background-color:  #333;
+    background-color: #333;
   }
   &:hover {
     background-color: transparent;
@@ -65,9 +59,10 @@ nav li:hover .dropdown-menu {
     margin-left: 0 !important;
   }
   .on-canvas {
-    .main-container, .app-footer {
-     margin-left: 220px;
-     margin-right: -220px;
+    .main-container,
+    .app-footer {
+      margin-left: 220px;
+      margin-right: -220px;
     }
     .nav-container {
       display: block !important;
@@ -80,22 +75,24 @@ nav li:hover .dropdown-menu {
   }
 }
 .input-group-addon {
-    min-width: 55px;
+  min-width: 55px;
 }
 .own-style {
-    text-align: left !important;
-    padding: 0 0 0 15px;
-    background-color: #dfe0e6;
+  text-align: left !important;
+  padding: 0 0 0 15px;
+  background-color: #dfe0e6;
 }
-.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus,
+.pagination > .active > a,
+.pagination > .active > a:hover,
+.pagination > .active > a:focus,
 .pagination > .active > span,
 .pagination > .active > span:hover,
 .pagination > .active > span:focus {
   background-color: #242633;
   border-color: #242633;
- }
- .ui-select{
- margin: 0 0 2px 0 !important;
+}
+.ui-select {
+  margin: 0 0 2px !important;
 }
 .scroll-x {
   width: 100%;
@@ -121,6 +118,32 @@ nav li:hover .dropdown-menu {
   max-height: 100%;
   padding-right: 5px;
 }
-
+.img-box {
+  height: 120px;
+  width: 120px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #e7e7e7;
+  margin: 5px;
+  img{
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+.btn-upload {
+  width: 111px;
+  height: 33px;
+  cursor: pointer;
+  margin: 5px;
+  input {
+    opacity: 0;
+    z-index: 0;
+    height: 33px;
+    display: block;
+    position: absolute;
+    padding: 4px 10px;
+    width: 111px;
+  }
+}
 /* Start writing sass here */
 @import "fancybox-override";
