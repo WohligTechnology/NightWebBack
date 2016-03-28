@@ -272,6 +272,11 @@ firstapp.directive('uiFileUpload', function($compile, $parse) {
     }
   };
 });
+firstapp.directive('uploadImage', function() {
+  return {
+    templateUrl: 'views/directive/uploadFile.html'
+  };
+});
 
 firstapp.directive('imageonload', function() {
   return {

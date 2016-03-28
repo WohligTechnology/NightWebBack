@@ -1,8 +1,5 @@
-
-<input id="inputImage" type="file" accept="image/*" image="image"/>
-<img ng-if="image" ng-src="{{image.url}}" imageonload="template.upload(image,form,'image')" style="max-width:100px;max-height:100px;" type="{{image.file.type}}"/>
-<input type="text" ng-model="form.image">
-
+<upload-image>
+</upload-image>
 
 <div class="panel panel-default table-dynamic">
   <div class="panel-heading">
