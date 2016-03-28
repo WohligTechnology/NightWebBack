@@ -1,5 +1,5 @@
 var templateservicemod = angular.module('templateservicemod', []);
-templateservicemod.service('TemplateService', function($http,$timeout) {
+templateservicemod.service('TemplateService', function($http) {
   this.title = "Home";
   this.meta = "Google";
   this.metadesc = "Home";
@@ -21,23 +21,20 @@ templateservicemod.service('TemplateService', function($http,$timeout) {
     return data;
   };
 
-
-  this.upload = function(image) {
-
-    $timeout(function() {
-      console.log(image);
-      image.hide = true;
-      var formData = new FormData();
-      formData.append('file', image.file, image.name);
-      $http.post(adminurl + 'upload', formData, {
-        headers: {
-          'Content-Type': undefined
-        },
-        transformRequest: angular.identity
-      }).success(function(data) {
-        console.log(data);
-      });
-    },1000);
+  this.upload = function(image, formValue,valueName) {
+    var Template = this;
+    image.hide = true;
+    var formData = new FormData();
+    formData.append('file', image.file, image.name);
+    $http.post(adminurl + 'upload', formData, {
+      headers: {
+        'Content-Type': undefined
+      },
+      transformRequest: angular.identity
+    }).success(function(data) {
+      console.log(data.data[0]);
+      formValue[valueName] = data.data[0];
+    });
 
   };
 
