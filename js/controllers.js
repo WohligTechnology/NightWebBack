@@ -13,7 +13,7 @@ phonecatControllers.controller('LoginCtrl', function($scope, TemplateService, Na
   $scope.navigation = NavigationService.getnav();
 });
 
-phonecatControllers.controller('UserCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+phonecatControllers.controller('UserCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams,$http) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("user");
   $scope.menutitle = NavigationService.makeactive("Users");
@@ -40,12 +40,11 @@ phonecatControllers.controller('UserCtrl', function($scope, TemplateService, Nav
 
 
   $scope.single = function(image) {
-    console.log(image);
     var formData = new FormData();
-    formData.append('image', image, image.name);
-    $http.post('upload', formData, {
+    formData.append('file', image.file, image.name);
+    $http.post(adminurl+'upload', formData, {
       headers: {
-        'Content-Type': false
+        'Content-Type': undefined
       },
       transformRequest: angular.identity
     }).success(function(data) {
