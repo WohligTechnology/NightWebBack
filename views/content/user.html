@@ -1,7 +1,8 @@
 
 <input id="inputImage" type="file" accept="image/*" image="image"/>
-<img ng-if="image" ng-src="{{image.url}}" type="{{image.file.type}}"/>
-<button type="submit" ng-click="single(image)" ng-if="image">Add</button>
+<img ng-if="image" ng-src="{{image.url}}" imageonload="template.upload(image)" style="max-width:100px;max-height:100px;" type="{{image.file.type}}"/>
+
+
 
 <div class="panel panel-default table-dynamic">
   <div class="panel-heading">
