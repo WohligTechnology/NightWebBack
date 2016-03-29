@@ -289,7 +289,7 @@ firstapp.directive('uploadImage', function($http) {
       $scope.model = "Chnages";
 
 
-      $scope.upload = function(image, formValue,valueName) {
+      $scope.upload = function(image) {
         var Template = this;
         image.hide = true;
         var formData = new FormData();
@@ -300,7 +300,6 @@ firstapp.directive('uploadImage', function($http) {
           },
           transformRequest: angular.identity
         }).success(function(data) {
-          console.log(data.data[0]);
           $scope.model = data.data[0];
         });
 
