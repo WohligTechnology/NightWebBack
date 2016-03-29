@@ -279,15 +279,17 @@ firstapp.directive('uploadImage', function($http) {
       model: '=ngModel'
     },
     link: function($scope, element, attrs) {
-
+      $scope.isMultiple = false;
       if (attrs.multiple || attrs.multiple === "") {
         console.log("Its Multiple");
-      }
-      var modelArr = _.split(attrs.ngModel, ".");
-      $scope.lastVar = modelArr.pop();
-      $scope.frontVar = modelArr.join();
-      $scope.model = "Chnages";
+        $scope.isMultiple = true;
 
+        $("#inputImage").attr("multiple", "ADD");
+      }
+
+      $scope.clearOld = function() {
+        $scope.model = [];
+      };
 
       $scope.upload = function(image) {
         var Template = this;
@@ -300,7 +302,13 @@ firstapp.directive('uploadImage', function($http) {
           },
           transformRequest: angular.identity
         }).success(function(data) {
-          $scope.model = data.data[0];
+          if ($scope.isMultiple) {
+            $scope.model.push(data.data[0]);
+
+          } else {
+            $scope.model = data.data[0];
+          }
+
         });
 
       };
