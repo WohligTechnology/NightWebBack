@@ -274,7 +274,12 @@ firstapp.directive('uiFileUpload', function($compile, $parse) {
 });
 firstapp.directive('uploadImage', function() {
   return {
-    templateUrl: 'views/directive/uploadFile.html'
+    templateUrl: 'views/directive/uploadFile.html',
+    link: function($scope, element, attrs) {
+      var modelArr = _.split(attrs.ngModel,".");
+      $scope.lastVar = modelArr.pop();
+      $scope.frontVar = modelArr.join();
+    }
   };
 });
 
@@ -291,9 +296,6 @@ firstapp.directive('imageonload', function() {
 firstapp.filter('serverimage', function() {
   return function(input) {
     if (input) {
-      // console.log('serverimage: ', input);
-      // return input;
-      // return imgpath + input;
       return "http://api.thetmm.org/uploadfile/resize?file=" + input;
     } else {
       return "img/logo.png";

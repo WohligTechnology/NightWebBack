@@ -27,7 +27,7 @@ phonecatControllers.controller('UserCtrl', function($scope, TemplateService, Nav
   $scope.pagedata.search = '';
   $scope.pagedata.sort = "name";
   $scope.pagedata.sortnum = 1;
-  $scope.form = {};
+  $scope.form = {image:"chintan"};
   $scope.search = function() {
     NavigationService.searchUser($scope.pagedata, function(data) {
       console.log(data);
