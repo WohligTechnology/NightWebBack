@@ -1,12 +1,9 @@
-
-<upload-image ng-model="form.image">
+<upload-image ng-model="form.image" multiple>
 </upload-image>
-
 <h1>{{form.image}}</h1>
 
+{{lastVar}}
 <div class="panel panel-default table-dynamic">
-  <!-- <upload-image>
-  </upload-image>   -->
   <div class="panel-heading">
     <strong>{{menutitle}}</strong>
     <button class="btn btn-info pull-right" ui-sref="createuser" style="margin-top: -7px;">

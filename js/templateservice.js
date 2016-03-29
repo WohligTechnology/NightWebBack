@@ -21,23 +21,6 @@ templateservicemod.service('TemplateService', function($http) {
     return data;
   };
 
-  this.upload = function(image, formValue,valueName) {
-    var Template = this;
-    image.hide = true;
-    var formData = new FormData();
-    formData.append('file', image.file, image.name);
-    $http.post(adminurl + 'upload', formData, {
-      headers: {
-        'Content-Type': undefined
-      },
-      transformRequest: angular.identity
-    }).success(function(data) {
-      console.log(data.data[0]);
-      formValue[valueName] = data.data[0];
-    });
-
-  };
-
   this.init();
 
 });

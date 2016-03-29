@@ -272,13 +272,40 @@ firstapp.directive('uiFileUpload', function($compile, $parse) {
     }
   };
 });
-firstapp.directive('uploadImage', function() {
+firstapp.directive('uploadImage', function($http) {
   return {
     templateUrl: 'views/directive/uploadFile.html',
+    scope: {
+      model: '=ngModel'
+    },
     link: function($scope, element, attrs) {
-      var modelArr = _.split(attrs.ngModel,".");
+
+      if (attrs.multiple || attrs.multiple === "") {
+        console.log("Its Multiple");
+      }
+      var modelArr = _.split(attrs.ngModel, ".");
       $scope.lastVar = modelArr.pop();
       $scope.frontVar = modelArr.join();
+      $scope.model = "Chnages";
+
+
+      $scope.upload = function(image, formValue,valueName) {
+        var Template = this;
+        image.hide = true;
+        var formData = new FormData();
+        formData.append('file', image.file, image.name);
+        $http.post(adminurl + 'upload', formData, {
+          headers: {
+            'Content-Type': undefined
+          },
+          transformRequest: angular.identity
+        }).success(function(data) {
+          console.log(data.data[0]);
+          $scope.model = data.data[0];
+        });
+
+      };
+
     }
   };
 });

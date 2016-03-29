@@ -1,7 +1,7 @@
 <div class="form-group">
   <label for="exampleInputEmail1" style="margin:5px;">Image Upload</label>
   <div class="img-box">
-    <img ng-if="image" ng-src="{{image.url}}" imageonload="template.upload(image,{{frontVar}},'{{lastVar}}')" type="{{image.file.type}}" />
+    <img ng-if="image" ng-src="{{image.url}}" imageonload="upload(image)" type="{{image.file.type}}" />
   </div>
   <div class="btn-upload">
     <input id="inputImage" type="file" accept="image/*" image="image" title="Choose Files" class="btn-primary">
