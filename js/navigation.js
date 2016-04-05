@@ -1,6 +1,6 @@
 // var adminURL = "";
-var adminurl = "http://192.168.1.113:81/";
-var imgpath = "http://192.168.1.113:81/uploadfile/resize?file=";
+var adminurl = "http://192.168.1.128:81/";
+var imgpath = "http://192.168.1.128:81/uploadfile/resize?file=";
 // var adminurl = "http://192.168.1.114:1337/";
 // var imgpath = "http://192.168.1.114:1337/uploadfile/resize?file=";
 

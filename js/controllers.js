@@ -1,19 +1,14 @@
-var uploadres = [];
-var selectedData = [];
-var abc = {};
-var globalfunction = {};
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ui.select2', 'imageupload'])
 
-var phonecatControllers = angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ui.select2', 'imageupload']);
-
-phonecatControllers.controller('LoginCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('LoginCtrl', function($scope, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("login");
   $scope.menutitle = NavigationService.makeactive("Login");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
-});
+})
 
-phonecatControllers.controller('UserCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+.controller('UserCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("user");
   $scope.menutitle = NavigationService.makeactive("Users");
@@ -70,9 +65,9 @@ phonecatControllers.controller('UserCtrl', function($scope, TemplateService, Nav
 
 
 
-});
+})
 
-phonecatControllers.controller('CreateUserCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+.controller('CreateUserCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("userdetail");
   $scope.menutitle = NavigationService.makeactive("Create User");
@@ -96,9 +91,9 @@ phonecatControllers.controller('CreateUserCtrl', function($scope, TemplateServic
   };
 
 
-});
+})
 
-phonecatControllers.controller('EditUserCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
+.controller('EditUserCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("userdetail");
   $scope.menutitle = NavigationService.makeactive("Edit User");
@@ -126,9 +121,9 @@ phonecatControllers.controller('EditUserCtrl', function($scope, TemplateService,
 
 
   };
-});
+})
 
-phonecatControllers.controller('UserNotificationCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('UserNotificationCtrl', function($scope, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("usernotification");
   $scope.menutitle = NavigationService.makeactive("User Notification");
@@ -180,9 +175,9 @@ phonecatControllers.controller('UserNotificationCtrl', function($scope, Template
     });
   };
 
-});
+})
 
-phonecatControllers.controller('CreateUserNotificationCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+.controller('CreateUserNotificationCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("usernotificationdetail");
   $scope.menutitle = NavigationService.makeactive("Create Notification");
@@ -204,9 +199,9 @@ phonecatControllers.controller('CreateUserNotificationCtrl', function($scope, Te
 
   };
 
-});
+})
 
-phonecatControllers.controller('EditUserNotificationCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+.controller('EditUserNotificationCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("usernotificationdetail");
   $scope.menutitle = NavigationService.makeactive("Edit Notification");
@@ -234,10 +229,10 @@ phonecatControllers.controller('EditUserNotificationCtrl', function($scope, Temp
   };
 
 
-});
+})
 
 
-phonecatControllers.controller('UserPlanCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('UserPlanCtrl', function($scope, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("userplan");
   $scope.menutitle = NavigationService.makeactive("User Plan");
@@ -285,9 +280,9 @@ phonecatControllers.controller('UserPlanCtrl', function($scope, TemplateService,
       }
     });
   };
-});
+})
 
-phonecatControllers.controller('CreateUserPlanCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+.controller('CreateUserPlanCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("userplandetail");
   $scope.menutitle = NavigationService.makeactive("Create User Plan");
@@ -324,9 +319,9 @@ phonecatControllers.controller('CreateUserPlanCtrl', function($scope, TemplateSe
     }
 
   };
-});
+})
 
-phonecatControllers.controller('EditUserPlanCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
+.controller('EditUserPlanCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("userplandetail");
   $scope.menutitle = NavigationService.makeactive("Edit User Plan");
@@ -371,10 +366,10 @@ phonecatControllers.controller('EditUserPlanCtrl', function($scope, TemplateServ
     console.log('plan viewall for plan', data.data);
   });
 
-});
+})
 
 
-phonecatControllers.controller('PlanCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+.controller('PlanCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("plan");
   $scope.menutitle = NavigationService.makeactive("Plan");
@@ -426,28 +421,9 @@ phonecatControllers.controller('PlanCtrl', function($scope, TemplateService, Nav
 
     });
   };
+})
 
-  // $scope.editPlan = function(formValid) {
-  //   $state.go("edit-plan");
-  //   console.log('formvalid', formValid);
-  //   NavigationService.editFormData(formValid, function(data) {
-  //     console.log('editFormData:', data);
-  //     $.jStorage.set('plans', data.data);
-  //     // if (data.value === true) {
-  //     //
-  //     //   $scope.allTableRecords();
-  //     // }
-  //     if (data.value === true) {
-  //       $scope.allTableRecords();
-  //     }
-  //   });
-  // };
-
-
-
-});
-
-phonecatControllers.controller('CreatePlanCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+.controller('CreatePlanCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("plandetail");
   $scope.menutitle = NavigationService.makeactive("Create Plan");
@@ -467,9 +443,9 @@ phonecatControllers.controller('CreatePlanCtrl', function($scope, TemplateServic
     }
   };
 
-});
+})
 
-phonecatControllers.controller('EditPlanCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
+.controller('EditPlanCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("plandetail");
   $scope.menutitle = NavigationService.makeactive("Edit Plan");
@@ -498,9 +474,9 @@ phonecatControllers.controller('EditPlanCtrl', function($scope, TemplateService,
       });
     }
   };
-});
+})
 
-phonecatControllers.controller('SuggestCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('SuggestCtrl', function($scope, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("suggestion");
   $scope.menutitle = NavigationService.makeactive("Suggestion");
@@ -551,9 +527,9 @@ phonecatControllers.controller('SuggestCtrl', function($scope, TemplateService, 
 
     });
   };
-});
+})
 
-phonecatControllers.controller('CreateSuggestCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+.controller('CreateSuggestCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("suggestiondetail");
   $scope.menutitle = NavigationService.makeactive("Create Suggestion");
@@ -578,9 +554,9 @@ phonecatControllers.controller('CreateSuggestCtrl', function($scope, TemplateSer
     $scope.userdata = data.data;
     console.log('user viewall for user', data.data);
   });
-});
+})
 
-phonecatControllers.controller('EditSuggestCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
+.controller('EditSuggestCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("suggestiondetail");
   $scope.menutitle = NavigationService.makeactive("Edit Suggestion");
@@ -615,9 +591,9 @@ phonecatControllers.controller('EditSuggestCtrl', function($scope, TemplateServi
     $scope.userdata = data.data;
     console.log('user viewall for user', data.data);
   });
-});
+})
 
-phonecatControllers.controller('TemplatesCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('TemplatesCtrl', function($scope, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("templates");
   $scope.menutitle = NavigationService.makeactive("Templates");
@@ -673,9 +649,9 @@ phonecatControllers.controller('TemplatesCtrl', function($scope, TemplateService
   };
 
 
-});
+})
 
-phonecatControllers.controller('CreateTemplatesCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $location) {
+.controller('CreateTemplatesCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $location) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("templatesdetail");
   $scope.menutitle = NavigationService.makeactive("Create Templates");
@@ -721,9 +697,9 @@ phonecatControllers.controller('CreateTemplatesCtrl', function($scope, TemplateS
     $scope.userForm.images.splice(i, 1);
   };
 
-});
+})
 
-phonecatControllers.controller('EditTemplatesCtrl', function($scope, TemplateService, NavigationService, $timeout, $location, $state, $stateParams) {
+.controller('EditTemplatesCtrl', function($scope, TemplateService, NavigationService, $timeout, $location, $state, $stateParams) {
   var uploadres = [];
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("templatesdetail");
@@ -785,9 +761,9 @@ phonecatControllers.controller('EditTemplatesCtrl', function($scope, TemplateSer
   $scope.removeimagehomeslide = function(i) {
     $scope.userForm.images.splice(i, 1);
   };
-});
+})
 
-phonecatControllers.controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("blog");
   $scope.menutitle = NavigationService.makeactive("Blog");
@@ -837,9 +813,9 @@ phonecatControllers.controller('BlogCtrl', function($scope, TemplateService, Nav
       }
     });
   };
-});
+})
 
-phonecatControllers.controller('CreateBlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+.controller('CreateBlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("blogdetail");
   $scope.menutitle = NavigationService.makeactive("Create Blog");
@@ -864,9 +840,9 @@ phonecatControllers.controller('CreateBlogCtrl', function($scope, TemplateServic
     $scope.userdata = data.data;
     console.log('user data', data.data);
   });
-});
+})
 
-phonecatControllers.controller('EditBlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
+.controller('EditBlogCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("blogdetail");
   $scope.menutitle = NavigationService.makeactive("Edit Blog");
@@ -900,10 +876,9 @@ phonecatControllers.controller('EditBlogCtrl', function($scope, TemplateService,
     $scope.userdata = data.data;
     console.log('user data', data.data);
   });
-});
+})
 
-
-phonecatControllers.controller('DocumentationCategoryCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('DocumentationCategoryCtrl', function($scope, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("documentationcategory");
   $scope.menutitle = NavigationService.makeactive("Documentation Category");
@@ -956,9 +931,9 @@ phonecatControllers.controller('DocumentationCategoryCtrl', function($scope, Tem
 
     });
   };
-});
+})
 
-phonecatControllers.controller('CreateDocumentationCategoryCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+.controller('CreateDocumentationCategoryCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("documentationcategorydetail");
   $scope.menutitle = NavigationService.makeactive("Create Documentation Category");
@@ -978,9 +953,9 @@ phonecatControllers.controller('CreateDocumentationCategoryCtrl', function($scop
       });
     }
   };
-});
+})
 
-phonecatControllers.controller('EditDocumentationCategoryCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
+.controller('EditDocumentationCategoryCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("documentationcategorydetail");
   $scope.menutitle = NavigationService.makeactive("Edit Documentation Category");
@@ -1005,9 +980,9 @@ phonecatControllers.controller('EditDocumentationCategoryCtrl', function($scope,
     });
 
   };
-});
+})
 
-phonecatControllers.controller('DocumentationCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('DocumentationCtrl', function($scope, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("documentation");
   $scope.menutitle = NavigationService.makeactive("Documentation");
@@ -1059,9 +1034,9 @@ phonecatControllers.controller('DocumentationCtrl', function($scope, TemplateSer
 
     });
   };
-});
+})
 
-phonecatControllers.controller('CreateDocumentationCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+.controller('CreateDocumentationCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("documentationdetail");
   $scope.menutitle = NavigationService.makeactive("Create Documentation");
@@ -1085,9 +1060,9 @@ phonecatControllers.controller('CreateDocumentationCtrl', function($scope, Templ
     $scope.documentationcategorydata = data.data;
     console.log('user data', data.data);
   });
-});
+})
 
-phonecatControllers.controller('EditDocumentationCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
+.controller('EditDocumentationCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("documentationdetail");
   $scope.menutitle = NavigationService.makeactive("Edit Documentation");
@@ -1121,10 +1096,10 @@ phonecatControllers.controller('EditDocumentationCtrl', function($scope, Templat
     $scope.documentationcategorydata = data.data;
     console.log('user data', data.data);
   });
-});
+})
 
 
-phonecatControllers.controller('headerctrl', function($scope, TemplateService, $location, NavigationService, $timeout) {
+.controller('headerctrl', function($scope, TemplateService, $location, NavigationService, $timeout) {
   $scope.template = TemplateService;
 
 
