@@ -1,124 +1,103 @@
-
-  <div class="panel panel-default table-dynamic">
-    <div class="panel-heading">
+<div class="panel panel-default table-dynamic">
+   <div class="panel-heading">
       <strong>{{menutitle}}</strong>
       <button class="btn btn-info pull-right" ui-sref="create-user-notification" style="margin-top: -7px;"><i class="fa fa-user-plus"></i> Create</button>
-    </div>
-    <div class="panel-body">
+   </div>
+   <div class="panel-body">
       <div class="table-filters">
-        <div class="row">
-          <div class="col-sm-4 col-xs-6">
-            <form>
-                <div class="row">
-                    <div class="col-md-9">
+         <div class="row">
+            <div class="col-sm-4 col-xs-6">
+               <form>
+                  <div class="row">
+                     <div class="col-md-9">
                         <input type="text" placeholder="Search..." class="form-control" ng-model="pagedata.search">
-                    </div>
-                    <div class="col-md-2">
+                     </div>
+                     <div class="col-md-2">
                         <input type="submit" class="btn btn-info" value="Search" ng-click="search(pagedata)">
-                    </div>
-                </div>
-            </form>
-          </div>
-          <div class="col-sm-3 col-xs-6 filter-result-info">
-            <span>
+                     </div>
+                  </div>
+               </form>
+            </div>
+            <div class="col-sm-3 col-xs-6 filter-result-info">
+               <span>
                 Showing {{usernotificationdata.data.length}}/{{usernotificationdata.total}} entries
             </span>
-          </div>
-        </div>
+            </div>
+         </div>
       </div>
       <table class="table table-hover table-bordered table-responsive">
-        <thead>
-          <tr>
-            <th>
+         <thead>
+            <tr>
+               <th>
                   <div class="th">
-                      #
-                      <span ng-click="pagedata.sort = '_id';pagedata.sortnum=1;search();" class="fa fa-angle-up"  ng-class="{active: (pagedata.sort == '_id' && pagedata.sortnum == 1)}"></span>
-                      <span ng-click="pagedata.sort = '_id';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == '_id' && pagedata.sortnum == -1)}"></span>
+                     #
+                     <span ng-click="pagedata.sort = '_id';pagedata.sortnum=1;search();" class="fa fa-angle-up" ng-class="{active: (pagedata.sort == '_id' && pagedata.sortnum == 1)}"></span>
+                     <span ng-click="pagedata.sort = '_id';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == '_id' && pagedata.sortnum == -1)}"></span>
                   </div>
-            </th>
-            <th>
-              <div class="th">
-                  Creation Time
-                  <span ng-click="pagedata.sort = 'creationtime';pagedata.sortnum=1;search();" class="fa fa-angle-up"  ng-class="{active: (pagedata.sort == 'creationtime' && pagedata.sortnum == 1)}"></span>
-                  <span ng-click="pagedata.sort = 'creationtime';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'creationtime' && pagedata.sortnum == -1)}"></span>
-              </div>
-            </th>
-            <th>
-                <div class="th">
-                    Modification Time
-                    <span ng-click="pagedata.sort = 'modificationtime';pagedata.sortnum=1;search();" class="fa fa-angle-up" ng-class="{active: (pagedata.sort == 'modificationtime' && pagedata.sortnum == 1)}"></span>
-                    <span ng-click="pagedata.sort = 'modificationtime' ;pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'modificationtime' && pagedata.sortnum == -1)}"></span>
-                </div>
-            </th>
-            <th>
-                <div class="th">
-                    Status
-                    <span ng-click="pagedata.sort = 'status';pagedata.sortnum=1;search();" class="fa fa-angle-up" ng-class="{active: (pagedata.sort == 'status' && pagedata.sortnum == 1)}"></span>
-                    <span ng-click="pagedata.sort = 'status' ;pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'status' && pagedata.sortnum == -1)}"></span>
-                </div>
-            </th>
-            <th><div class="th">
-              Action
-            </div></th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- <tr ng-repeat="data in usernotificationdata.data">
-            <td>{{data._id}}</td>
-            <td>
-              <span>
-                {{data.creationtime}}
-              </span>
-            </td>
-            <td>
-              <span>
-                {{data.modificationtime}}
-              </span>
-            </td>
-            <td>
-              <span>{{data.status}}</span>
-            </td>
-            <td>
-              <span>
-              <button class="btn btn-sm btn-info" ui-sref="edit-edit-user-notification({id:data._id})"><i class="fa fa-pencil-square-o"></i></button>&nbsp;&nbsp;&nbsp;
-              <button class="btn btn-sm btn-danger" ng-click="deleteUserNotification(data._id)"><i class="fa fa-trash"></i></button>
-            </span>
-            </td>
-          </tr> -->
-          <tr>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>
-              <span>Enable</span>
-            </td>
-            <td>
-              <span>
+               </th>
+               <th>
+                  <div class="th">
+                     Creation Time
+                     <span ng-click="pagedata.sort = 'creationtime';pagedata.sortnum=1;search();" class="fa fa-angle-up" ng-class="{active: (pagedata.sort == 'creationtime' && pagedata.sortnum == 1)}"></span>
+                     <span ng-click="pagedata.sort = 'creationtime';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'creationtime' && pagedata.sortnum == -1)}"></span>
+                  </div>
+               </th>
+               <th>
+                  <div class="th">
+                     Modification Time
+                     <span ng-click="pagedata.sort = 'modificationtime';pagedata.sortnum=1;search();" class="fa fa-angle-up" ng-class="{active: (pagedata.sort == 'modificationtime' && pagedata.sortnum == 1)}"></span>
+                     <span ng-click="pagedata.sort = 'modificationtime' ;pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'modificationtime' && pagedata.sortnum == -1)}"></span>
+                  </div>
+               </th>
+               <th>
+                  <div class="th">
+                     Status
+                     <span ng-click="pagedata.sort = 'status';pagedata.sortnum=1;search();" class="fa fa-angle-up" ng-class="{active: (pagedata.sort == 'status' && pagedata.sortnum == 1)}"></span>
+                     <span ng-click="pagedata.sort = 'status' ;pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'status' && pagedata.sortnum == -1)}"></span>
+                  </div>
+               </th>
+               <th>
+                  <div class="th">
+                     Action
+                  </div>
+               </th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>1</td>
+               <td>1</td>
+               <td>1</td>
+               <td>
+                  <span>Enable</span>
+               </td>
+               <td>
+                  <span>
               <button class="btn btn-sm btn-info" ui-sref="edit-user-notification"><i class="fa fa-pencil-square-o"></i></button>&nbsp;&nbsp;&nbsp;
               <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
             </span>
-            </td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>1</td>
-            <td>1</td>
-            <td>
-              <span>Disable</span>
-            </td>
-            <td>
-              <span>
+               </td>
+            </tr>
+            <tr>
+               <td>2</td>
+               <td>1</td>
+               <td>1</td>
+               <td>
+                  <span>Disable</span>
+               </td>
+               <td>
+                  <span>
               <button class="btn btn-sm btn-info" ui-sref="edit-user-notification"><i class="fa fa-pencil-square-o"></i></button>&nbsp;&nbsp;&nbsp;
               <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
             </span>
-            </td>
-          </tr>
-        </tbody>
+               </td>
+            </tr>
+         </tbody>
       </table>
       <footer class="table-footer">
-          <div class="row">
-              <div class="col-md-6 page-num-info">
-                  <span>
+         <div class="row">
+            <div class="col-md-6 page-num-info">
+               <span>
                       Show
                       <!-- <select data-ng-model="numPerPage"
                               data-ng-options="num for num in numPerPageOpt"
@@ -132,12 +111,12 @@
                       </select>
                       entries per page
                   </span>
-              </div>
-              <div class="col-md-6 text-right pagination-container">
-                <uib-pagination total-items="totalItems" ng-model="pagedata.page" max-size="5" class="pagination-sm" boundary-link-numbers="true" ng-change="search();" ng-hide="usernotificationdata.totalpages==1"></uib-pagination>
-              </div>
-          </div>
+            </div>
+            <div class="col-md-6 text-right pagination-container">
+               <uib-pagination total-items="totalItems" ng-model="pagedata.page" max-size="3" class="pagination-sm" boundary-link-numbers="true" ng-change="search();" items-per-page="pagedata.limit" ng-hide="usernotificationdata.totalpages==1"></uib-pagination>
+            </div>
+         </div>
       </footer>
-  </div>
-  </div>
+   </div>
+</div>
 </div>

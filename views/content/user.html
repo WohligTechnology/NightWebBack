@@ -1,156 +1,95 @@
-<!-- <upload-image ng-model="form.image" >
-</upload-image>
-<h5>{{form.image}}</h5>
-
-
-<upload-image ng-model="form.image2" multiple >
-</upload-image>
-<h5>{{form.image2}}</h5> -->
-
 <div class="panel panel-default table-dynamic">
-  <div class="panel-heading">
-    <strong>{{menutitle}}</strong>
-    <button class="btn btn-info pull-right" ui-sref="createuser" style="margin-top: -7px;">
-      <i class="fa fa-user-plus"></i>
-      Create</button>
-  </div>
-  <div class="panel-body">
-    <div class="table-filters">
-      <div class="row">
-        <div class="col-sm-4 col-xs-6">
-          <form>
-            <div class="row">
-              <div class="col-md-9">
-                <input type="text" placeholder="Search..." class="form-control" ng-model="pagedata.search">
-              </div>
-              <div class="col-md-2">
-                <input type="submit" class="btn btn-info" value="Search" ng-click="search(pagedata)">
-              </div>
+   <div class="panel-heading">
+      <strong>{{menutitle}}</strong>
+      <button class="btn btn-info pull-right" ui-sref="createuser" style="margin-top: -7px;">
+         <i class="fa fa-user-plus"></i> Create
+      </button>
+   </div>
+   <div class="panel-body">
+      <div class="table-filters">
+         <div class="row">
+            <div class="col-sm-4 col-xs-6">
+               <form>
+                  <div class="row">
+                     <div class="col-md-9">
+                        <input type="text" placeholder="Search..." class="form-control" ng-model="pagedata.search">
+                     </div>
+                     <div class="col-md-2">
+                        <input type="submit" class="btn btn-info" value="Search" ng-click="search(pagedata)">
+                     </div>
+                  </div>
+               </form>
             </div>
-          </form>
-        </div>
-        <div class="col-sm-3 col-xs-6 filter-result-info">
-          <span>
+            <div class="col-sm-3 col-xs-6 filter-result-info" ng-if="userdata.data.length>0">
+               <span>
             Showing
             {{userdata.data.length}}/{{userdata.total}}
             entries
           </span>
-        </div>
+            </div>
+         </div>
       </div>
-    </div>
-    <table class="table table-hover table-bordered table-responsive">
-      <thead>
-        <tr>
-          <th>
-            <div class="th">
-              #
-              <span ng-click="pagedata.sort = '_id';pagedata.sortnum=1;search();" class="fa fa-angle-up" ng-class="{active: (pagedata.sort == '_id' && pagedata.sortnum == 1)}"></span>
-              <span ng-click="pagedata.sort = '_id';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == '_id' && pagedata.sortnum == -1)}"></span>
-            </div>
-          </th>
-          <th>
-            <div class="th">
-              Name
-              <span ng-click="pagedata.sort = 'name';pagedata.sortnum=1;search();" class="fa fa-angle-up" ng-class="{active: (pagedata.sort == 'name' && pagedata.sortnum == 1)}"></span>
-              <span ng-click="pagedata.sort = 'name';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'name' && pagedata.sortnum == -1)}"></span>
-            </div>
-          </th>
-          <th>
-            <div class="th">
-              Email
-              <span ng-click="pagedata.sort = 'email';pagedata.sortnum=1;search();" class="fa fa-angle-up" ng-class="{active: (pagedata.sort == 'email' && pagedata.sortnum == 1)}"></span>
-              <span ng-click="pagedata.sort = 'email' ;pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'email' && pagedata.sortnum == -1)}"></span>
-            </div>
-          </th>
-          <th ng-click="search(pagedata)">
-            <div class="th">
-              Action
-            </div>
-          </th>
-        </tr>
-      </thead>
-      <!-- <table class="table table-hover table-bordered table-responsive" ts-wrapper>
-        <thead>
-          <tr>
-            <th ts-criteria="Id"><div class="th">
-              #
-              <span class="fa fa-angle-up">
-              </span>
-              <span class="fa fa-angle-down">
-              </span>
-            </div></th>
-            <th ts-criteria="Name" ts-default><div class="th">
-              Name
-              <span class="fa fa-angle-up">
-              </span>
-              <span class="fa fa-angle-down">
-              </span>
-            </div></th>
-            <th ts-criteria="Email"><div class="th">
-              Email
-              <span class="fa fa-angle-up">
-              </span>
-              <span class="fa fa-angle-down">
-              </span>
-            </div></th>
-            <th><div class="th">
-              Action
-            </div></th>
-          </tr>
-        </thead> -->
-      <!-- <tbody>
-          <tr ng-repeat="data in userdata">
-            <td>{{data._id}}</td>
-            <td>
-              <span>
-                  {{data.name}}
-                </span>
-            </td>
-            <td>
-              <span>{{data.email}}</span>
-            </td>
-            <td>
-              <span>
-                <button class="btn btn-sm btn-info" ui-sref="edituser({id:data._id})"><i class="fa fa-pencil-square-o"></i></button>&nbsp;&nbsp;&nbsp;
-                <button class="btn btn-sm btn-danger" ng-click="deleteUser(data._id)"><i class="fa fa-trash"></i></button>
-              </span>
-            </td>
-          </tr>
-        </tbody> -->
-
-      <tbody>
-        <tr ng-repeat="data in userdata.data">
-          <td>{{data._id}}</td>
-          <td>
-            <span>
-              {{data.name}}
-            </span>
-          </td>
-          <td>
-            <span>{{data.email}}</span>
-          </td>
-          <td>
-            <span>
-              <button class="btn btn-sm btn-info" ui-sref="edituser({id:data._id})">
-                <i class="fa fa-pencil-square-o"></i>
-              </button>&nbsp;&nbsp;&nbsp;
-              <button class="btn btn-sm btn-danger" ng-click="deleteUser(data._id)">
-                <i class="fa fa-trash"></i>
-              </button>
-            </span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <footer class="table-footer">
-      <div class="row">
-        <div class="col-md-6 page-num-info">
-          <span>
+      <div class="panel-body" ng-if="userdata.data.length==0">
+         <p class="text-center">No Users Yet</p>
+      </div>
+      <table class="table table-hover table-bordered table-responsive" ng-if="userdata.data.length>0">
+         <thead>
+            <tr>
+               <th>
+                  <div class="th">
+                     #
+                     <span ng-click="pagedata.sort = '_id';pagedata.sortnum=1;search();" class="fa fa-angle-up" ng-class="{active: (pagedata.sort == '_id' && pagedata.sortnum == 1)}"></span>
+                     <span ng-click="pagedata.sort = '_id';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == '_id' && pagedata.sortnum == -1)}"></span>
+                  </div>
+               </th>
+               <th>
+                  <div class="th">
+                     Name
+                     <span ng-click="pagedata.sort = 'name';pagedata.sortnum=1;search();" class="fa fa-angle-up" ng-class="{active: (pagedata.sort == 'name' && pagedata.sortnum == 1)}"></span>
+                     <span ng-click="pagedata.sort = 'name';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'name' && pagedata.sortnum == -1)}"></span>
+                  </div>
+               </th>
+               <th>
+                  <div class="th">
+                     Email
+                     <span ng-click="pagedata.sort = 'email';pagedata.sortnum=1;search();" class="fa fa-angle-up" ng-class="{active: (pagedata.sort == 'email' && pagedata.sortnum == 1)}"></span>
+                     <span ng-click="pagedata.sort = 'email' ;pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == 'email' && pagedata.sortnum == -1)}"></span>
+                  </div>
+               </th>
+               <th ng-click="search(pagedata)">
+                  <div class="th">
+                     Action
+                  </div>
+               </th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr ng-repeat="data in userdata.data">
+               <td>{{data._id}}</td>
+               <td>
+                  <span>{{data.name}}</span>
+               </td>
+               <td>
+                  <span>{{data.email}}</span>
+               </td>
+               <td>
+                  <span>
+                    <button class="btn btn-sm btn-info" ui-sref="edituser({id:data._id})">
+                      <i class="fa fa-pencil-square-o"></i>
+                    </button>&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-sm btn-danger" ng-click="deleteUser(data._id)">
+                      <i class="fa fa-trash"></i>
+                    </button>
+                  </span>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <footer class="table-footer" ng-if="userdata.data.length>0">
+         <div class="row">
+            <div class="col-md-6 page-num-info">
+               <span>
             Show
-            <!-- <select data-ng-model="numPerPage"
-                              data-ng-options="num for num in numPerPageOpt"
-                              data-ng-change="onNumPerPageChange()">
-                      </select>  -->
             <select ng-model="pagedata.limit" ng-change="search();">
               <option value="10" selected>10</option>
               <option value="12">12</option>
@@ -159,22 +98,11 @@
             </select>
             entries per page
           </span>
-        </div>
-        <div class="col-md-6 text-right pagination-container">
-          <!-- <nav>
-                      <ul class="pagination">
-                          <li ng-class="page.class" ng-repeat="page in pages"><a ng-click="reload({page:page.pageno,limit:pagedata.limit,search:pagedata.search});">{{page.pageno}}</a>
-                          </li>
-                      </ul>
-                  </nav> -->
-
-          <!-- <uib-pagination class="pagination-sm" ng-model="page.pageno" total-items="filteredStores.length" max-size="4" ng-change="search({page:page.pageno,limit:pagedata.limit,search:pagedata.search});"  rotate="false" num-pages="numPages" previous-text="&lsaquo;" next-text="&rsaquo;" boundary-links="true"></uib-pagination> -->
-          <uib-pagination total-items="totalItems" ng-model="pagedata.page" max-size="5" class="pagination-sm" boundary-link-numbers="true" ng-change="search();" ng-hide="userdata.totalpages==1"></uib-pagination>
-
-          <!-- <uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" previous-text="&lsaquo;" next-text="&rsaquo;"></uib-pagination> -->
-        </div>
-      </div>
-    </footer>
-  </div>
-</div>
+            </div>
+            <div class="col-md-6 text-right pagination-container">
+               <uib-pagination total-items="userdata.totalpages" ng-model="pagedata.page" max-size="5" class="pagination-sm" boundary-link-numbers="true" ng-change="search();" items-per-page="pagedata.limit" ng-hide="userdata.totalpages==1"></uib-pagination>
+            </div>
+         </div>
+      </footer>
+   </div>
 </div>
