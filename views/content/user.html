@@ -30,7 +30,7 @@
          </div>
       </div>
       <div class="panel-body" ng-if="userdata.data.length==0">
-         <p class="text-center">No Users Yet</p>
+         <p class="text-center text-uppercase" style="color:#000;"><strong>No Users Yet</strong></p>
       </div>
       <table class="table table-hover table-bordered table-responsive" ng-if="userdata.data.length>0">
          <thead>
@@ -38,7 +38,7 @@
                <th>
                   <div class="th">
                      #
-                     <span ng-click="pagedata.sort = '_id';pagedata.sortnum=1;search();" class="fa fa-angle-up" ng-class="{active: (pagedata.sort == '_id' && pagedata.sortnum == 1)}"></span>
+                     <span ng-click="pagedata.sort = '_id';pagedata.sortnum=1;search();" class="fa fa-angle-up" ng-class="{active: (pagedata.sort == '_id && pagedata.sortnum == 1)}"></span>
                      <span ng-click="pagedata.sort = '_id';pagedata.sortnum=-1;search();" class="fa fa-angle-down" ng-class="{active: (pagedata.sort == '_id' && pagedata.sortnum == -1)}"></span>
                   </div>
                </th>

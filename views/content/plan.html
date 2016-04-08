@@ -19,14 +19,17 @@
               </div>
             </form>
           </div>
-          <div class="col-sm-3 col-xs-6 filter-result-info">
+          <div class="col-sm-3 col-xs-6 filter-result-info" ng-if="plandata.data.length>0">
             <span>
                 Showing {{plandata.data.length}}/{{plandata.total}} entries
             </span>
           </div>
         </div>
       </div>
-      <table class="table table-hover table-bordered table-responsive">
+      <div class="panel-body" ng-if="plandata.data.length==0">
+         <p class="text-center text-uppercase" style="color:#000;"><strong>No Plan Yet</strong></p>
+      </div>
+       <table class="table table-hover table-bordered table-responsive" ng-if="plandata.data.length>0">
         <thead>
           <tr>
             <th>
@@ -92,7 +95,7 @@
           </tr> -->
         </tbody>
       </table>
-      <footer class="table-footer">
+      <footer class="table-footer" ng-if="plandata.data.length>0">
           <div class="row">
               <div class="col-md-6 page-num-info">
                   <span>
