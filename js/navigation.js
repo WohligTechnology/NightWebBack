@@ -1,6 +1,6 @@
 // var adminURL = "";
-var adminurl = "http://192.168.1.114:1337/";
-var imgpath = "http://192.168.1.114:1337/uploadfile/resize?file=";
+var adminurl = "http://api.blazen.io/";
+var imgpath = "http://api.blazen.io/uploadfile/resize?file=";
 
 // if(isproduction)
 // {
