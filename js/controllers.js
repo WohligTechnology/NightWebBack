@@ -1,6 +1,6 @@
 var globalfunction = {};
 var showtoaster = false;
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ui.select2', 'imageupload', 'toastr'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ui.select2', 'imageupload', 'toastr','ui.tinymce'])
 
 .controller('LoginCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
