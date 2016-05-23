@@ -34,7 +34,8 @@
     "tinymce": "tinymce-dist#^4.3.7",
     "angular-ui-select2": "^0.0.5",
     "select2": "^4.0.2",
-    "angularjs-imageupload-directive": "https://github.com/Mischi/angularjs-imageupload-directive.git"
+    "angularjs-imageupload-directive": "https://github.com/Mischi/angularjs-imageupload-directive.git",
+    "angular-toastr": "~1.7.0"
   },
   "devDependencies": {
     "jStorage": "^0.4.12"

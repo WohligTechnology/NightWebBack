@@ -18,14 +18,17 @@
             </div>
           </form>
         </div>
-        <div class="col-sm-3 col-xs-6 filter-result-info">
+        <div class="col-sm-3 col-xs-6 filter-result-info" ng-if="documentationdata.data.length>0">
           <span>
               Showing {{documentationdata.data.length}}/{{documentationdata.total}} entries
           </span>
         </div>
       </div>
     </div>
-    <table class="table table-hover table-bordered table-responsive">
+    <div class="panel-body" ng-if="documentationdata.data.length==0">
+       <p class="text-center text-uppercase" style="color:#000;"><strong>No Documentation Yet</strong></p>
+    </div>
+     <table class="table table-hover table-bordered table-responsive" ng-if="documentationdata.data.length>0">
       <thead>
         <tr>
           <th>
@@ -110,7 +113,7 @@
         </tr> -->
       </tbody>
     </table>
-    <footer class="table-footer">
+    <footer class="table-footer" ng-if="documentationdata.data.length>0">
       <div class="row">
         <div class="col-md-6 page-num-info">
           <span>
