@@ -4,7 +4,7 @@ var jsArray = [
     './bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
 
     './bower_components/lodash/lodash.js',
-    './bower_components/angular/angular.min.js',
+    './bower_components/angular/angular.js',
     './bower_components/angular-animate/angular-animate.min.js',
     './bower_components/angular-flexslider/angular-flexslider.js',
     './bower_components/angular-sanitize/angular-sanitize.min.js',
@@ -16,7 +16,7 @@ var jsArray = [
     './bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
     './bower_components/bootstrap-file-input/bootstrap.file-input.js',
 
-    './bower_components/select2/select2.js',
+    './bower_components/select2/dist/js/select2.js',
     './bower_components/angular-ui-select2/src/select2.js',
     './bower_components/angularjs-imageupload-directive/public/javascripts/imageupload.js',
     './bower_components/angular-toastr/dist/angular-toastr.tpls.js',
