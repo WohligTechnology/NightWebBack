@@ -1,19 +1,7 @@
-<<<<<<< HEAD
-// var adminURL = "";
+
 var adminurl = "http://api.blazen.io/";
 var imgpath = "http://api.blazen.io/uploadfile/resize?file=";
 
-// if(isproduction)
-// {
-//   adminURL =  "http://www.wohlig.co.in/demo/index.php";
-// }
-// else {
-//   adminURL = "http://localhost/demo/index.php";
-// }
-=======
-var adminurl = "http://192.168.1.122:90/";
-var imgpath = adminurl + "uploadfile/resize?file=";
->>>>>>> master
 
 var navigationservice = angular.module('navigationservice', [])
 
