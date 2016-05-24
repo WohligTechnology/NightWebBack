@@ -1,6 +1,6 @@
 var globalfunction = {};
 var showtoaster = false;
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ui.select2', 'imageupload', 'toastr','ui.tinymce'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ui.select2', 'imageupload', 'toastr', 'ui.tinymce'])
 
 .controller('LoginCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
@@ -1009,6 +1009,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.header = {
         name: 'Create Documentation'
     };
+    $scope.tinymceOptions = {
+        onChange: function(e) {
+            // put logic here for keypress and cut/paste changes
+        },
+        inline: false,
+        plugins: 'advlist autolink link image lists charmap print preview',
+        skin: 'lightgray',
+        theme: 'modern'
+    };
     $scope.userForm = {};
     $scope.documentationSubmitForm = function(formValid) {
         console.log('user form:', $scope.userForm);
@@ -1029,6 +1038,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 .controller('EditDocumentationCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("documentationdetail");
+    $scope.tinymceOptions = {
+        onChange: function(e) {
+            // put logic here for keypress and cut/paste changes
+        },
+        inline: false,
+        plugins: 'advlist autolink link image lists charmap print preview',
+        skin: 'lightgray',
+        theme: 'modern'
+    };
     $scope.menutitle = NavigationService.makeactive("Edit Documentation");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
