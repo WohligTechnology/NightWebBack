@@ -1,6 +1,6 @@
 
-var adminurl = "http://api.blazen.io/";
-var imgpath = "http://api.blazen.io/uploadfile/resize?file=";
+var adminurl = "https://api.blazen.io/";
+var imgpath = "https://api.blazen.io/uploadfile/resize?file=";
 
 
 var navigationservice = angular.module('navigationservice', [])
